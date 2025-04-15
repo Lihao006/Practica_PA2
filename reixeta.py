@@ -14,14 +14,6 @@ class Reixeta():
         # matriu de referència als forats de la reixeta
         self._matriu = [[False for _ in range(n)] for _ in range(n)]
 
-        if forats:
-            for element in forats:
-                assert 1 <= i <= n and 1 <= j <= n
-
-                i = element[0]                       # fila
-                j = element[1]                       # columna
-                self._matriu[i-1][j-1] = True        # marquem com a visitat a aquell forat
-
 
 
     def llegeix(self):
@@ -32,6 +24,15 @@ class Reixeta():
         # 1: la reixeta és vàlida 
         # -1: els girs de la reixeta no cobreixen totes les posicions
         # -2: les dimensions són incorrectes (k diferent de n^2/4)
+
+
+        '''if forats:
+            for element in forats:
+                assert 1 <= i <= n and 1 <= j <= n
+
+                i = element[0]                       # fila
+                j = element[1]                       # columna
+                self._matriu[i-1][j-1] = True        # marquem com a visitat a aquell forat'''
 
         pass
 
