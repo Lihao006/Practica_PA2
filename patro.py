@@ -8,7 +8,7 @@ class Patro(ArbreBinari):
         super().__init__(v, esq, dre)
         self.patro = None
 
-    def llegeix(self):
+    def llegeix(preordre):
 
         # llegeix la entrada dels valors de l'arbre binari en preordre (nombres enters i -1 per a nodes buits)
 
