@@ -24,7 +24,6 @@ class Patro(ArbreBinari):
             self.fill_esq().escriu()
             self.fill_dre().escriu()
 
-    def afegir
 
     def codifica(self, missatge, b): 
 
