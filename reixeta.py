@@ -11,7 +11,10 @@ class Reixeta():
         # matriu de referencia als forats de la reixeta
         self._matriu = [[False for j in range(n)] for i in range(n)]
         if forats != []:
-            
+            for element in forats:
+                i = element[0]
+                j = element[1]
+                self._matriu[i][j] = True
 
     def llegeix(self):
 
