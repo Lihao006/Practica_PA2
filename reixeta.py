@@ -3,7 +3,7 @@ from pytokr import item
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
     def __init__(self, n=None, k=None, forats=None):
-        assert n > 1 and k > 0 and len(forats) == k
+        assert n > 1 and k > 0
 
         self._num_fils = n              # n files perquè és una matriu nxn
         self._num_cols = n              # n columnes perquè és un matriu nxn
