@@ -47,7 +47,7 @@ Patró 2:
 #nou_missatge Resistire_1
 error: ja existeix un missatge amb aquest identificador
 #nou_missatge Let_it_be_1
-11
+11                                  # sortida print(num), sent num = missatges.mida()
 #nm Let_it_be_2
 12
 #nou_missatge vie_en_rose_1
@@ -65,17 +65,19 @@ error: dimensions incorrectes de la reixeta
 #nr
 error: la reixeta amb els seus girs no cobreix totes les posicions
 #nova_reixeta
-3
+3                       # sortida print(num++1), d'on num = reixetes.mida()
 #nr
 4
+
+
 #nou_patro
-3
+3                       # sortida print(num+1), d'on num = patrons.mida()
 #np
 4
 
 
 #esborra_missatge Resistire_1
-15
+15                                          # sortida print(num), d'on num = missatges.mida()
 #esborra_missatge vie_en_rose
 error: el missatge no existeix
 #em vie_en_rose_2
@@ -164,7 +166,7 @@ error: la reixeta no existeix
 #crg Let_it_be_3 1
 error: el missatge no existeix
 #crg vie_en_rose_1 3
-"dQ u pmrialnee nnds ersa dsa sb "
+"dQ u pmrialnee nnds ersa dsa sb "                  # sortida print('"',m,'"',sep=''), d'on m = r.codifica(missatge)
 #crg vie_en_rose_1 0
 error: la reixeta no existeix
 #codifica_amb_reixeta_guardat Qualsevol_nit_1 4
@@ -184,7 +186,7 @@ error: la reixeta no existeix
 
 
 #decodifica_amb_reixeta 4
-"When I find myself in times of trouble, Mother Mary comes to me         "
+"When I find myself in times of trouble, Mother Mary comes to me         "              # sortida print('"',m,'"',sep=''), sent m = r.decodifica(missatge)
 #decodifica_amb_reixeta 2
 "Hola, amigo, que tal?               "
 #dr 6
@@ -200,7 +202,7 @@ error: la mida del missatge és inadeqüada per a la reixeta
 
 
 #codifica_amb_patro 2 15
-"@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"
+"@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"             # sortida print(('"',m,'"',sep='')), sent m = p.codifica(missatge,b)
 #cp 0 15
 error: el patró no existeix
 #cp 3 20
@@ -210,7 +212,7 @@ error: el patró no existeix
 
 
 #codifica_amb_patro_guardat Resistire_2 1 31
-"Juhupo'd|lytm jvz sa'svllkhk:"
+"Juhupo'd|lytm jvz sa'svllkhk:"                                     # sortida print('"',mx,'"',sep=''), sent mx = p.codifica(m,b)
 #codifica_amb_patro_guardat Let_it_be_2 5 10
 error: el patró no existeix
 #cpg Hotel_California_5 4 64
@@ -226,7 +228,7 @@ error: el missatge no existeix
 
 
 #decodifica_amb_patro 3 20
-"amanece ma's temprano"
+"amanece ma's temprano"                             # sortida print('"',m,'"',sep=''), sent m = p.decodifica(missatge,b)
 #decodifica_amb_patro 20 3
 error: el patró no existeix
 #dp 2 3
