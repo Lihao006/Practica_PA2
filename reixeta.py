@@ -7,7 +7,8 @@ class Reixeta():
         self._num_fils = n
         self._num_cols = n
         self._num_forats = k
-        self._matriu = [[0 for j in range(n)] for i in range(n)]
+        # matriu de referencia als forats de la reixeta
+        self._matriu = [[False for j in range(n)] for i in range(n)]
             
 
     def llegeix(self):
