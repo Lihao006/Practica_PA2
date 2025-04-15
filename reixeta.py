@@ -2,13 +2,15 @@ from pytokr import item
 
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
-    def __init__(self, n=0, k=0, ):
+    def __init__(self, n=0, k=0, forats=[]):
         assert n >= 0 and k >= 0
         self._num_fils = n
         self._num_cols = n
         self._num_forats = k
+        self._forats = forats
         # matriu de referencia als forats de la reixeta
         self._matriu = [[False for j in range(n)] for i in range(n)]
+        if forats != []:
             
 
     def llegeix(self):
