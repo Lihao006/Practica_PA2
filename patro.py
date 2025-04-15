@@ -5,7 +5,8 @@ from arbre_binari_amb_nodes import ArbreBinari
 class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
     def __init__(self,v=None,esq=None,dre=None):
-        super().__init__()
+        super().__init__(v, esq, dre)
+        self.patro = None
 
     def llegeix(self):
 
@@ -17,8 +18,12 @@ class Patro(ArbreBinari):
     def escriu(self): 
 
         # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits) 
-
-        
+        if self.buit():
+            print(-1, end=' ')
+        else:
+            print(self.valor_arrel(), end=' ')
+            self.fill_esq().escriu()
+            self.fill_dre().escriu()
 
 
     def codifica(self, missatge, b): 
