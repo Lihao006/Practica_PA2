@@ -42,6 +42,17 @@ class Patro(ArbreBinari):
             self.fill_dre().escriu()
 
 
+        if self.buit(): 
+            print(f"()", end="")
+
+        else: 
+            print(f"(", end="")
+            print(self.valor_arrel(), end="")
+            self.fill_esq().escriu()
+            self.fill_dre().escriu()
+            print(f")", end="")
+
+
 
     def codifica(self, missatge, b): 
 
