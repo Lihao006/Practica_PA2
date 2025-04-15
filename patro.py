@@ -29,8 +29,6 @@ class Patro(ArbreBinari):
 
 
     def escriu(self): 
-
-        # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits) 
         
         # Cas base: si l'arbre binari és buit, imprimim ()
         if self.buit(): 
