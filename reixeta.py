@@ -2,21 +2,25 @@ from pytokr import item
 
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
-    def __init__(self, n=0, k=0, forats=[]):
-        assert n > 1 and k > 0
+    def __init__(self, n=None, k=None, forats=None):
+        assert n > 1 and k > 0 and len(forats) == k
+
         self._num_fils = n              # n files perquè és una matriu nxn
         self._num_cols = n              # n columnes perquè és un matriu nxn
         self._num_forats = k            # k: nombre de forats
-        self._forats = forats           
+        self._forats = list(forats) if forats is not None else []           
       
       
-        # matriu de referencia als forats de la reixeta
-        self._matriu = [[False for j in range(n)] for i in range(n)]
-        if forats != []:
+        # matriu de referència als forats de la reixeta
+        self._matriu = [[False for _ in range(n)] for _ in range(n)]
+
+        if forats:
             for element in forats:
-                i = element[0]
-                j = element[1]
-                self._matriu[i][j] = True
+                assert 1 <= i <= n and 1 <= j <= n
+
+                i = element[0]                       # fila
+                j = element[1]                       # columna
+                self._matriu[i-1][j-1] = True        # marquem com a visitat a aquell forat
 
 
 
