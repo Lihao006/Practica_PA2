@@ -249,8 +249,3 @@ class ArbreBinari:
         
 
         return poda_auxiliar(self._root, x)
-    
-arb1 = ArbreBinari(1, ArbreBinari(2), ArbreBinari(3))
-print(arb1)
-print(arb1.preordre())
-arb2 = ArbreBinari()
