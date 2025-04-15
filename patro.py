@@ -6,7 +6,7 @@ class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
     pass
 
-    def llegeix(self):
+    def llegeix(preordre):
 
         # llegeix la entrada dels valors de l'arbre binari en preordre (nombres enters i -1 per a nodes buits)
 
