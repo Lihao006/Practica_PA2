@@ -8,6 +8,8 @@ class Reixeta():
         self._num_cols = n
         self._num_forats = k
         self._forats = forats
+      
+      
         # matriu de referencia als forats de la reixeta
         self._matriu = [[False for j in range(n)] for i in range(n)]
         if forats != []:
