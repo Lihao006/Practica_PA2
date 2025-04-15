@@ -4,7 +4,8 @@ from arbre_binari_amb_nodes import ArbreBinari
 
 class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
-    pass
+    def __init__(self,v=None,esq=None,dre=None):
+        super().__init__()
 
     def llegeix(self):
 
