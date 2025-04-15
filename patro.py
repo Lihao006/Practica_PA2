@@ -32,25 +32,16 @@ class Patro(ArbreBinari):
 
         # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits) 
         
-        # Cas base: si l'arbre binari és buit... 
-        if self.buit():
-            print(-1, end=' ')
-
-        else:
-            print(self.valor_arrel(), end=' ')
-            self.fill_esq().escriu()
-            self.fill_dre().escriu()
-
-
+        # Cas base: si l'arbre binari és buit, imprimim ()
         if self.buit(): 
             print(f"()", end="")
 
         else: 
-            print(f"(", end="")
-            print(self.valor_arrel(), end="")
-            self.fill_esq().escriu()
-            self.fill_dre().escriu()
-            print(f")", end="")
+            print(f"(", end="")                         # imprimim (
+            print(self.valor_arrel(), end="")           # imprimim l'arrel
+            self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
+            self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
+            print(f")", end="")                         # imprimim )
 
 
 
