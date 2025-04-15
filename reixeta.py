@@ -3,11 +3,11 @@ from pytokr import item
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
     def __init__(self, n=0, k=0, forats=[]):
-        assert n >= 0 and k >= 0
-        self._num_fils = n
-        self._num_cols = n
-        self._num_forats = k
-        self._forats = forats
+        assert n > 1 and k > 0
+        self._num_fils = n              # n files perquè és una matriu nxn
+        self._num_cols = n              # n columnes perquè és un matriu nxn
+        self._num_forats = k            # k: nombre de forats
+        self._forats = forats           
       
       
         # matriu de referencia als forats de la reixeta
@@ -17,6 +17,8 @@ class Reixeta():
                 i = element[0]
                 j = element[1]
                 self._matriu[i][j] = True
+
+
 
     def llegeix(self):
 
