@@ -6,7 +6,8 @@ class Reixeta():
         assert (n > 0 and k > 0) or (n == 0 or k == 0), "Error: dimensions impossibles"
         self._num_fils = n
         self._num_cols = k
-
+        self._matriu = [[0 for j in range(k)] for i in range(n)]
+            
 
     def llegeix(self):
 
@@ -23,8 +24,8 @@ class Reixeta():
     def escriu(self):
 
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
+        print(self._num_fils, self._num_cols)
 
-        pass
 
 
     def codifica(self, missatge): 
