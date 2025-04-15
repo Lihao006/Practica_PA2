@@ -2,17 +2,12 @@ from pytokr import item
 
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
-    def __init__(self, n=None, k=None, forats=None):
-        assert n > 1 and k > 0
+    def __init__(self, n=None, k=None):
 
-        self._num_fils = n              # n files perquè és una matriu nxn
-        self._num_cols = n              # n columnes perquè és un matriu nxn
+        self._n = n                     # tenim una matriu nxn
         self._num_forats = k            # k: nombre de forats
-        self._forats = list(forats) if forats is not None else []           
-      
-      
-        # matriu de referència als forats de la reixeta
-        self._matriu = [[False for _ in range(n)] for _ in range(n)]
+        self._forats = []       
+        self._matriu = None             # matriu de referència als forats de la reixeta
 
 
 
@@ -24,6 +19,9 @@ class Reixeta():
         # 1: la reixeta és vàlida 
         # -1: els girs de la reixeta no cobreixen totes les posicions
         # -2: les dimensions són incorrectes (k diferent de n^2/4)
+
+
+        self._matriu = [[False for _ in range(n)] for _ in range(n)]
 
 
         '''if forats:
