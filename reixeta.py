@@ -32,6 +32,10 @@ class Reixeta():
 
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
         print(self._num_fils, self._num_cols)
+        # si transposem la matriu per defecte, obtenim el gir_180 graus
+        # fixem-nos que n ha de ser si o si parell, ja que si fos senar, hi hauria una casella en el centre
+        # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
+        # ja que per molt que girem la matriu, la casella del centre no es mou
 
 
 
