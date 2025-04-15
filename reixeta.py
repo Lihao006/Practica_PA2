@@ -2,8 +2,16 @@ from pytokr import item
 
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
-    pass
-
+    def __init__(self, n=0, k=0, forats=[]):
+        assert n >= 0 and k >= 0
+        self._num_fils = n
+        self._num_cols = n
+        self._num_forats = k
+        self._forats = forats
+        # matriu de referencia als forats de la reixeta
+        self._matriu = [[False for j in range(n)] for i in range(n)]
+        if forats != []:
+            
 
     def llegeix(self):
 
@@ -20,8 +28,8 @@ class Reixeta():
     def escriu(self):
 
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
+        print(self._num_fils, self._num_cols)
 
-        pass
 
 
     def codifica(self, missatge): 

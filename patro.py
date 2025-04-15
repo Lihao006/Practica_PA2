@@ -6,7 +6,6 @@ class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
     def __init__(self,v=None,esq=None,dre=None):
         super().__init__(v, esq, dre)
-        self.patro = None
 
 
 
