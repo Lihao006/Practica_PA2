@@ -89,6 +89,7 @@ class Reixeta():
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
         return 1
     
+    # funcio per escriure els forats de la reixeta
     def escriu(self):
 
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
@@ -101,8 +102,10 @@ class Reixeta():
                         print(f"({i+1}, {j+1})", end=" ")
             print()
 
+        # funcio per girar la matriu, nomes funciona be per a reixetes valides
         def girar(matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
+            assert gir == 90 or gir == 180 or gir == 270
             matriu_nova = [[False for j in range(self._n)] for i in range(self._n)]
             
             for i in range(0, self._n):
