@@ -88,11 +88,6 @@ class Reixeta():
 
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
         return 1
-
-
-
-
-
     
     def escriu(self):
 
