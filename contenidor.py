@@ -32,7 +32,7 @@ class Contenidor:
         # reixetes.existeix(idreix): verifiquem si existeix la reixeta amb l'identificador 'idreix' al contenidor 'reixetes'
         # patrons.existeix(idpat): verifiquem si existeix el patró amb l'identificar 'idpat' al contenidor 'patrons'
         
-        return True if ident in self._elements else False
+        return ident in self._elements
 
 
 
@@ -42,7 +42,7 @@ class Contenidor:
         # reixetes.mida(): obtenim el nombre actual de reixetes al contenidor 'reixetes'
         # patrons.mida(): obtenim el nombre actual de reixetes al contenidor 'reixetes'
 
-        pass
+        return len(self._elements)
 
 
 
