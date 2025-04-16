@@ -21,13 +21,28 @@ class Reixeta():
         # -2: les dimensions són incorrectes (k diferent de n^2/4)
 
 
+        self._n = int(item())           # Llegim la dimensió n
+        self._k = int(item())           # Llegim el nombre de forats k
+
+        for _ in range(self._k): 
+            i = int(item())
+            j = int(item())
+            self._forats.append((i, j))
+
+
         # Comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
         self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]            # creem una matriu nxn amb tots els elements a False
 
 
-        # Comprova si que els girs de la reixeta cobreixen totes les posicions
+        '''# Comprova si que els girs de la reixeta cobreixen totes les posicions
         if self._forats: 
-            pass
+            
+            for tupla in self._forats: 
+                assert 1 <= i <= self._n and 1 <= j <= self._n
+
+                i = tupla[0]                        # fila
+                j = tupla[1]                        # columna
+                self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat'''
             
 
         # -2: Comprova si que les dimensions són correctes (k és igual a n^2/4)
@@ -41,21 +56,6 @@ class Reixeta():
 
 
 
-
-
-
-
-
-        # Si tenim 
-        if self._forats:
-            for element in forats:
-                assert 1 <= i <= n and 1 <= j <= n
-
-                i = element[0]                       # fila
-                j = element[1]                       # columna
-                self._matriu[i-1][j-1] = True        # marquem com a visitat a aquell forat'''
-
-        pass
 
 
     

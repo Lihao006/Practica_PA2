@@ -62,7 +62,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
     elif instruccio == 'nova_reixeta' or instruccio == 'nr':                        
         print("#",instruccio,sep='')                                               
         r = Reixeta()                                                               
-        status = r.llegeix()                        # llegim les dimensions (n,k) i les posicons dels forats de la reixeta i retorna un estat
+        status = r.llegeix()                        # llegim les dimensions (n,k) i les posicions dels forats de la reixeta i retorna un estat
        
        
         if status == 1:                             # si la reixeta és vàlida
