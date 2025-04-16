@@ -32,7 +32,7 @@ class Contenidor:
         # reixetes.existeix(idreix): verifiquem si existeix la reixeta amb l'identificador 'idreix' al contenidor 'reixetes'
         # patrons.existeix(idpat): verifiquem si existeix el patró amb l'identificar 'idpat' al contenidor 'patrons'
         
-        return True if self._elements[ident] else False
+        return True if ident in self._elements else False
 
 
 
