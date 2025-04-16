@@ -68,7 +68,7 @@ class Reixeta():
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
         print(self._n, self._k)
         
-        def aux_escriu(matriu):
+        def escriu_forats(matriu):
             for i in range(self._n):
                 for j in range(self._n):
                     if self._matriu[i][j]:
@@ -79,11 +79,13 @@ class Reixeta():
         # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
         # ja que per molt que girem la matriu, la casella del centre no es mou
         
-        self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]
+        self._matriu_0 = [[False for j in range(self._n)] for i in range(self._n)]
         for i in range(self._n): 
             for j in range(self._n): 
                 if (i, j) in self._forats: 
-                    self._matriu[i][j] = True
+                    self._matriu_0[i][j] = True
+
+        
         
         
 
