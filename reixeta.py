@@ -59,12 +59,12 @@ class Reixeta():
         if len(set(self._forats)) != self._k: 
             return -1
         
-        # Comprovem que les posicions dels forats són correctes
+        # comprovem que les posicions dels forats són correctes
         for i, j in self._forats: 
             if not (1 <= i <= self._n and 1 <= j <= self._n): 
                 return -1
 
-        # Evitar duplicats i si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        # evitar duplicats i si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
         posicions = set()
         for i, j in self._forats: 
             posicions.add((i-1, j-1))                               # Original
@@ -72,7 +72,7 @@ class Reixeta():
             posicions.add((self._n - 1 - i, self._n - 1 - j))       # 180 graus
             posicions.add((j-1, self._n - 1 - i))                   # 270 graus
 
-        # Comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        # comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
         self._matriu = [[False for j in range(self._n)] for i in range(self._n)]            # creem una matriu nxn amb tots els elements a False
 
 
@@ -103,19 +103,18 @@ class Reixeta():
 
         def girar(matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
-            if gir == 90:
-                for i in range(0, self._n):
-                    for j in range(0, self._n):
-                        if matriu[i][j]:
-                            matriu[i][j] = False
-                            matriu[self._n - 1 - j][i] = True
-            elif gir == 180:
-                girar(matriu, 90)
-                girar(matriu, 90)
-            elif gir == 270:
-                girar(matriu, 90)
-                girar(matriu, 90)
-                girar(matriu, 90)
+            matriu_nova = [[False for j in range(self._n)] for i in range(self._n)]
+            
+            for i in range(0, self._n):
+                for j in range(0, self._n):
+                    if matriu[i][j]:
+                        if gir == 90:
+                            matriu_nova[self._n - 1 - j][i] = True
+                        elif gir == 180:
+                            matriu_nova[self._n - 1 - i][self._n - 1 - j] = True
+                        elif gir == 270:
+                            matriu_nova[j][self._n - 1 - i] = True
+            return matriu_nova
 
 
 
@@ -132,17 +131,17 @@ class Reixeta():
 
         escriu_forats(self._matriu_reix)               # forats originals
 
-        girar(self._matriu_reix, 90)                                    
+        m90 = girar(self._matriu_reix, 90)                                    
 
-        escriu_forats(self._matriu_reix)              # forats girats 90 graus
+        escriu_forats(m90)              # forats girats 90 graus
 
-        girar(self._matriu_reix, 90)
+        m180 = girar(self._matriu_reix, 180)
 
-        escriu_forats(self._matriu_reix)             # forats girats 180 graus
+        escriu_forats(m180)             # forats girats 180 graus
 
-        girar(self._matriu_reix, 90)
+        m270 = girar(self._matriu_reix, 270)
 
-        escriu_forats(self._matriu_reix)               # forats girats 270 graus
+        escriu_forats(m270)               # forats girats 270 graus
 
 
 
