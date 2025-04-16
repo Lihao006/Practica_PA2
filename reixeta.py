@@ -27,15 +27,15 @@ class Reixeta():
 
         # Comprova si que els girs de la reixeta cobreixen totes les posicions
         if self._forats: 
-
+            
             
 
-        # Comprova si que les dimensions són correctes (k és igual a n^2/4)
+        # -2: Comprova si que les dimensions són correctes (k és igual a n^2/4)
         if self._k != (self._n * self._n / 4):
             return -2
         
 
-        # Si les condicions anterior s'han complert és una reixeta vàlida
+        # 1: Si les condicions anterior s'han complert és una reixeta vàlida
         return 1
 
 
