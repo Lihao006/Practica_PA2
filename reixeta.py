@@ -48,8 +48,11 @@ class Reixeta():
                 i -= 1              # índex 'i' normalitzat
                 j -= 1              # índex 'j' normalitzat
 
-                self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat  (forats originals)
-            
+                self._matriu[i][j] = True                                   # marquem com a visitat el forat original
+                self._matriu[self._n - 1 - j][i] = True                     # marquem com a visitat el forat després d'haver girat 90 graus
+                self._matriu[self._n - 1 - i][self._n - 1 - j] = True       # marquem com a visitat el forat després d'haver girat 180 graus
+                self._matriu[j][self._n - 1 - i] = True                     # marquem com a visitat el forat després d'haver girat 270 graus
+
 
         # 1: Si les condicions anterior s'han complert és una reixeta vàlida
         else: 
