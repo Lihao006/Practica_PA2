@@ -56,7 +56,7 @@ class Reixeta():
                 self._matriu[j][self._n - 1 - i] = True                     # marquem com a visitat el forat després d'haver girat 270 graus
 
         # Comprovem si hi ha duplicats o no
-        if len(set(self._forats) != self._k): 
+        if len(set(self._forats)) != self._k: 
             return -1
         
         # Comprovem que les posicions dels forats són correctes
