@@ -142,11 +142,11 @@ class Reixeta():
 
         girar(self._matriu_reix, 90)
 
-        escriu_forats(self._matriu_reix)              # forats girats 180 graus
+        escriu_forats(self._matriu_reix)             # forats girats 180 graus
 
         girar(self._matriu_reix, 90)
 
-        escriu_forats(self._matriu_reix)              # forats girats 270 graus
+        escriu_forats(self._matriu_reix)               # forats girats 270 graus
 
 
 
