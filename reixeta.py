@@ -43,7 +43,7 @@ class Reixeta():
         if self._forats: 
             
             for i, j in self._forats: 
-                assert 0 <= i < self._n and 0 <= j < self._n
+                assert 1 <= i <= self._n and 1 <= j <= self._n
 
                 self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat  (forats originals)
             
