@@ -128,20 +128,23 @@ class Reixeta():
         for i, j in self._forats:
                 self._matriu_reix[i-1][j-1] = True
 
-
-        escriu_forats(self._matriu_reix)               # forats originals
+        # forats originals
+        escriu_forats(self._matriu_reix)               
 
         m90 = girar(self._matriu_reix, 90)                                    
-
-        escriu_forats(m90)              # forats girats 90 graus
+        
+        # forats girats 90 graus
+        escriu_forats(m90)              
 
         m180 = girar(self._matriu_reix, 180)
 
-        escriu_forats(m180)             # forats girats 180 graus
+        # forats girats 180 graus
+        escriu_forats(m180)            
 
         m270 = girar(self._matriu_reix, 270)
 
-        escriu_forats(m270)               # forats girats 270 graus
+        # forats girats 270 graus
+        escriu_forats(m270)               
 
 
 
