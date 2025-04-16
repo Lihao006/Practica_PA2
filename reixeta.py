@@ -1,5 +1,4 @@
 from pytokr import item
-import copy
 
 
 class Reixeta():
@@ -11,8 +10,24 @@ class Reixeta():
         self._forats = []       
         self._matriu = None             # matriu de referència als forats de la reixeta
 
+    #getters
+    def valor_n(self):
+        return self._n
+    
+    def valor_k(self):
+        return self._k
+    
+    def ub_forats(self):
+        return self._forats
+    
+    def mostra_reixeta(self):
+        return self._matriu
 
+    #setters
+    def mod_matriu(self, matriu):
+        self._matriu = matriu
 
+    # altres funcions
     def llegeix(self):
 
         # llegim la entrada de dimensions (n,k) i les posicions dels forats de la reixeta
@@ -89,24 +104,16 @@ class Reixeta():
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
         return 1
     
-    # funcio per escriure els forats de la reixeta
-    def escriu(self):
-
-        # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
-        print(self._n, self._k)
-        
-        def escriu_forats(matriu):
-            for i in range(self._n):
-                for j in range(self._n):
-                    if matriu[i][j]:
-                        print(f"({i+1}, {j+1})", end=" ")
-            print()
-
-        # funcio per girar la matriu, nomes funciona be per a reixetes valides
-        def girar(matriu, gir):
+    def crear_matriu_False(self):
+        # funcio per crear una matriu tot de False de dimensions nxn
+        # ens servira per saber on esta cada forat de la reixeta
+        return [[False for j in range(self._n)] for i in range(self._n)]
+    
+     # funcio per girar la matriu, nomes funciona be per a reixetes valides
+    def girar(self, matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
             assert gir == 90 or gir == 180 or gir == 270
-            matriu_nova = [[False for j in range(self._n)] for i in range(self._n)]
+            matriu_nova = self.crear_matriu_False()
             
             for i in range(0, self._n):
                 for j in range(0, self._n):
@@ -118,51 +125,57 @@ class Reixeta():
                         elif gir == 270:
                             matriu_nova[j][self._n - 1 - i] = True
             return matriu_nova
-
-
+    
+    # funcio per escriure els forats de la reixeta
+    def escriu(self):
+        # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
+        print(self._n, self._k)
+        
+        def escriu_forats(matriu):
+            for i in range(self._n):
+                for j in range(self._n):
+                    if matriu[i][j]:
+                        print(f"({i+1}, {j+1})", end=" ")
+            print()
 
         # si transposem la matriu per defecte, obtenim el gir_180 graus
         # fixem-nos que n ha de ser si o si parell, ja que si fos senar, hi hauria una casella en el centre
         # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
         # ja que per molt que girem la matriu, la casella del centre no es mou
         
-        self._matriu_reix = [[False for j in range(self._n)] for i in range(self._n)]
+        self._matriu = self.crear_matriu_False()    
 
         for i, j in self._forats:
-                self._matriu_reix[i-1][j-1] = True
+                self._matriu[i-1][j-1] = True
 
         # forats originals
-        escriu_forats(self._matriu_reix)               
+        escriu_forats(self._matriu)               
 
-        m90 = girar(self._matriu_reix, 90)                                    
+        m90 = self.girar(self._matriu, 90)                                    
         
         # forats girats 90 graus
         escriu_forats(m90)              
 
-        m180 = girar(self._matriu_reix, 180)
+        m180 = self.girar(self._matriu, 180)
 
         # forats girats 180 graus
         escriu_forats(m180)            
 
-        m270 = girar(self._matriu_reix, 270)
+        m270 = self.girar(self._matriu, 270)
 
         # forats girats 270 graus
         escriu_forats(m270)               
-
-
-
-
-        
-
-        
-        
-        
 
 
     def codifica(self, missatge): 
 
         # codifiquem el 'missatge'
 
+        for i in range(self._n): 
+            for j in range(self._n): 
+                if self._matriu[i][j]:
+                    
+                    
         pass
 
 
