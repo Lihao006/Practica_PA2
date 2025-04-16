@@ -36,7 +36,7 @@ class Reixeta():
 
 
         # Comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
-        self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]            # creem una matriu nxn amb tots els elements a False
+        self._matriu = [[False for j in range(self._n)] for i in range(self._n)]            # creem una matriu nxn amb tots els elements a False
 
 
         # Comprova si que els girs de la reixeta cobreixen totes les posicions
@@ -79,7 +79,6 @@ class Reixeta():
         # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
         # ja que per molt que girem la matriu, la casella del centre no es mou
         
-        self._matriu_0 = [[False for j in range(self._n)] for i in range(self._n)]
         for i in range(self._n): 
             for j in range(self._n): 
                 if (i, j) in self._forats: 
