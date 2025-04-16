@@ -24,6 +24,11 @@ class Reixeta():
         self._n = int(item())           # Llegim la dimensió n
         self._k = int(item())           # Llegim el nombre de forats k
 
+        # -2: Comprova si que les dimensions són correctes (k és igual a n^2/4)
+        if self._k != (self._n * self._n) // 4:
+            return -2
+
+
         for _ in range(self._k): 
             i = int(item())
             j = int(item())
@@ -34,21 +39,14 @@ class Reixeta():
         self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]            # creem una matriu nxn amb tots els elements a False
 
 
-        '''# Comprova si que els girs de la reixeta cobreixen totes les posicions
+        # Comprova si que els girs de la reixeta cobreixen totes les posicions
         if self._forats: 
             
-            for tupla in self._forats: 
-                assert 1 <= i <= self._n and 1 <= j <= self._n
+            for i, j in self._forats: 
+                assert 0 <= i < self._n and 0 <= j < self._n
 
-                i = tupla[0]                        # fila
-                j = tupla[1]                        # columna
-                self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat'''
+                self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat  (forats originals)
             
-
-        # -2: Comprova si que les dimensions són correctes (k és igual a n^2/4)
-        elif self._k != (self._n * self._n / 4):
-            return -2
-        
 
         # 1: Si les condicions anterior s'han complert és una reixeta vàlida
         else: 
@@ -79,12 +77,14 @@ class Reixeta():
         pass
 
 
+
     def decodifica(self, missatge): 
 
         # decodifiquem el missatge
 
         pass
     
+
 
     def valid(self, missatge): 
 
