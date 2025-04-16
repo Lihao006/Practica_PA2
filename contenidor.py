@@ -52,7 +52,7 @@ class Contenidor:
         # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
         # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
 
-        pass
+        return self._elements.items()
 
 
 
@@ -66,7 +66,8 @@ class Contenidor:
         # obtenim l'objecte 'Reixeta' associat a 'ident'
         # obtenim l'objecte 'Patro' associat a 'ident'
 
-        pass
+        return self._elements[ident]            # No cal que comprovem si 'ident' està dins del diccionari perquè es crida 
+                                                # al mètode valor després d'haver cridat al mètode 'existeix()'
 
 
  
