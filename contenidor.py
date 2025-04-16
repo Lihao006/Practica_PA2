@@ -2,7 +2,7 @@ class Contenidor:
     # A completar pel grup d'estudiants com a part de la pràctica
     
     def __init__(self): 
-        pass
+        self._elements = dict()         # Creem un diccionari per guardar les diferents missatges/reixetes/patrons 
 
 
     def afegeix(self, ident, instancia): 
@@ -17,21 +17,23 @@ class Contenidor:
         # reixetes.afegeix(ident, r): afegim la reixeta 'r' al contenidor 'reixetes' amb l'identificador 'ident'
         # patrons.afegeix(ident, p): afegim el patró 'p' al contenidor 'patrons' amb l'identificador 'ident' 
 
+        self._elements[ident] = instancia
 
-        pass
 
 
     def existeix(self, ident): 
         
         '''
         Pre:    'ident': identificador del missatge, reixeta o patró
+        Retornar: ha de retornar True si existeix i False si no existeix
         '''
 
         # missatges.existeix(ident): verifiquem si existeix un missatge amb l'identificador 'ident' al contenidor 'missatges'
         # reixetes.existeix(idreix): verifiquem si existeix la reixeta amb l'identificador 'idreix' al contenidor 'reixetes'
         # patrons.existeix(idpat): verifiquem si existeix el patró amb l'identificar 'idpat' al contenidor 'patrons'
         
-        pass
+        return True if self._elements[ident] else False
+
 
 
     def mida(self): 
@@ -71,6 +73,10 @@ class Contenidor:
 class Missatges(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
 
+    def __init__(self): 
+        super().__init__
+        
+
     def esborra_missatge(self, ident): 
 
         # missatges.esborra_missatge(ident): eliminem el missatge amb l'identificador 'ident'
@@ -83,11 +89,15 @@ class Missatges(Contenidor):
 
 class Reixetes(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
-    pass
+    
+    def __init__(self): 
+        super().__init__
 
 
 
 
 class Patrons(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
-    pass
+     
+    def __init__(self): 
+        super().__init__

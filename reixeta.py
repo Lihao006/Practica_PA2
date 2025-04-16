@@ -5,7 +5,7 @@ class Reixeta():
     def __init__(self, n=None, k=None):
 
         self._n = n                     # tenim una matriu nxn
-        self._num_forats = k            # k: nombre de forats
+        self._k = k                     # k: nombre de forats
         self._forats = []       
         self._matriu = None             # matriu de referència als forats de la reixeta
 
@@ -21,10 +21,32 @@ class Reixeta():
         # -2: les dimensions són incorrectes (k diferent de n^2/4)
 
 
-        self._matriu = [[False for _ in range(n)] for _ in range(n)]
+        # Comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]            # creem una matriu nxn amb tots els elements a False
 
 
-        '''if forats:
+        # Comprova si que els girs de la reixeta cobreixen totes les posicions
+        if self._forats: 
+
+            
+
+        # Comprova si que les dimensions són correctes (k és igual a n^2/4)
+        if self._k != (self._n * self._n / 4):
+            return -2
+        
+
+        # Si les condicions anterior s'han complert és una reixeta vàlida
+        return 1
+
+
+
+
+
+
+
+
+        # Si tenim 
+        if self._forats:
             for element in forats:
                 assert 1 <= i <= n and 1 <= j <= n
 
@@ -33,6 +55,7 @@ class Reixeta():
                 self._matriu[i-1][j-1] = True        # marquem com a visitat a aquell forat'''
 
         pass
+
 
     
     def escriu(self):
