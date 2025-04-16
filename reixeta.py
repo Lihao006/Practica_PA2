@@ -35,6 +35,7 @@ class Reixeta():
             self._forats.append((i, j))
 
 
+
         # Comprovem si hi ha duplicats o no
         if len(set(self._forats) != self._k): 
             return -1
