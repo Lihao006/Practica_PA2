@@ -38,7 +38,7 @@ class Contenidor:
 
     def mida(self): 
 
-        # missatges.mida(): obtenim el nombre total de missatges en el contenidor 'missatges'
+        # missatges.mida(): obtenim el nombre total de missatges al contenidor 'missatges'
         # reixetes.mida(): obtenim el nombre actual de reixetes al contenidor 'reixetes'
         # patrons.mida(): obtenim el nombre actual de reixetes al contenidor 'reixetes'
 
@@ -80,10 +80,8 @@ class Missatges(Contenidor):
     def esborra_missatge(self, ident): 
 
         # missatges.esborra_missatge(ident): eliminem el missatge amb l'identificador 'ident'
-
-        pass
-    
-    pass
+        if ident in self._elements: 
+            del self._elements[ident]
 
 
 
