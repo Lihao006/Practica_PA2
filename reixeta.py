@@ -55,10 +55,39 @@ class Reixeta():
                 self._matriu[self._n - 1 - i][self._n - 1 - j] = True       # marquem com a visitat el forat després d'haver girat 180 graus
                 self._matriu[j][self._n - 1 - i] = True                     # marquem com a visitat el forat després d'haver girat 270 graus
 
+        # Comprovem si hi ha duplicats o no
+        if len(set(self._forats) != self._k): 
+            return -1
+        
+        # Comprovem que les posicions dels forats són correctes
+        for i, j in self._forats: 
+            if not (1 <= i <= self._n and 1 <= j <= self._n): 
+                return -1
 
-        # 1: Si les condicions anterior s'han complert és una reixeta vàlida
-        else: 
-            return 1
+        # Evitar duplicats i si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        posicions = set()
+        for i, j in self._forats: 
+            posicions.add((i-1, j-1))                               # Original
+            posicions.add((self._n - 1 - j, i-1))                   # 90 graus
+            posicions.add((self._n - 1 - i, self._n - 1 - j))       # 180 graus
+            posicions.add((j-1, self._n - 1 - i))                   # 270 graus
+
+        # Comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        self._matriu = [[False for j in range(self._n)] for i in range(self._n)]            # creem una matriu nxn amb tots els elements a False
+
+
+        # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
+        if len(posicions) != self._n * self._n: 
+            return - 1
+        
+        # Matriu que ens ajudarà en el mètode codifica()
+        self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]
+        for i, j in self._forats:
+            self._matriu[i-1][j-1] = True
+
+
+        # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
+        return 1
 
 
 
