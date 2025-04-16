@@ -45,30 +45,10 @@ class Reixeta():
         if self._k != (self._n * self._n) // 4:
             return -2
 
-
         for _ in range(self._k): 
             i = int(item())
             j = int(item())
             self._forats.append((i, j))
-
-
-        # comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
-        self._matriu = [[False for j in range(self._n)] for i in range(self._n)]            # creem una matriu nxn amb tots els elements a False
-
-
-        # comprova si que els girs de la reixeta cobreixen totes les posicions
-        if self._forats: 
-            
-            for i, j in self._forats: 
-                assert 1 <= i <= self._n and 1 <= j <= self._n
-
-                i -= 1              # índex 'i' normalitzat
-                j -= 1              # índex 'j' normalitzat
-
-                self._matriu[i][j] = True                                   # marquem com a visitat el forat original
-                self._matriu[self._n - 1 - j][i] = True                     # marquem com a visitat el forat després d'haver girat 90 graus
-                self._matriu[self._n - 1 - i][self._n - 1 - j] = True       # marquem com a visitat el forat després d'haver girat 180 graus
-                self._matriu[j][self._n - 1 - i] = True                     # marquem com a visitat el forat després d'haver girat 270 graus
 
         # Comprovem si hi ha duplicats o no
         if len(set(self._forats)) != self._k: 
@@ -87,28 +67,28 @@ class Reixeta():
             posicions.add((self._n - 1 - i, self._n - 1 - j))       # 180 graus
             posicions.add((j-1, self._n - 1 - i))                   # 270 graus
 
-        # comprovem si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
-        self._matriu = [[False for j in range(self._n)] for i in range(self._n)]            # creem una matriu nxn amb tots els elements a False
-
 
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
         if len(posicions) != self._n * self._n: 
             return - 1
         
-        # Matriu que ens ajudarà en el mètode codifica()
-        self._matriu = [[False for _ in range(self._n)] for _ in range(self._n)]
-        for i, j in self._forats:
-            self._matriu[i-1][j-1] = True
-
 
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
         return 1
     
+
+
+
+
     def crear_matriu_False(self):
         # funcio per crear una matriu tot de False de dimensions nxn
-        # ens servira per saber on esta cada forat de la reixeta
-        return [[False for j in range(self._n)] for i in range(self._n)]
+        # que ens servirà per saber on està cada forat de la reixeta
+        return [[False for _ in range(self._n)] for _ in range(self._n)]
     
+
+
+
+
      # funcio per girar la matriu, nomes funciona be per a reixetes valides
     def girar(self, matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
@@ -126,6 +106,8 @@ class Reixeta():
                             matriu_nova[j][self._n - 1 - i] = True
             return matriu_nova
     
+
+
     # funcio per escriure els forats de la reixeta
     def escriu(self):
         # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
@@ -167,6 +149,8 @@ class Reixeta():
         escriu_forats(m270)               
 
 
+
+
     def codifica(self, missatge): 
 
         # codifiquem el 'missatge'
@@ -180,12 +164,16 @@ class Reixeta():
 
 
 
+
+
     def decodifica(self, missatge): 
 
         # decodifiquem el missatge
 
         pass
     
+
+
 
 
     def valid(self, missatge): 
