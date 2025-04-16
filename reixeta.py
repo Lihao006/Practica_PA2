@@ -134,6 +134,7 @@ class Reixeta():
         for i, j in self._forats:
                 self._matriu_reix[i-1][j-1] = True
 
+
         escriu_forats(self._matriu_reix)               # forats originals
 
         girar(self._matriu_reix, 90)                                    
