@@ -45,6 +45,9 @@ class Reixeta():
             for i, j in self._forats: 
                 assert 1 <= i <= self._n and 1 <= j <= self._n
 
+                i -= 1              # índex 'i' normalitzat
+                j -= 1              # índex 'j' normalitzat
+
                 self._matriu[i-1][j-1] = True       # marquem com a visitat aquell forat  (forats originals)
             
 
