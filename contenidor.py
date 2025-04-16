@@ -52,7 +52,7 @@ class Contenidor:
         # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
         # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
 
-        return self._elements.items()
+        return iter(self._elements.items())
 
 
 
@@ -75,7 +75,7 @@ class Missatges(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
 
     def __init__(self): 
-        super().__init__
+        super().__init__()
         
 
     def esborra_missatge(self, ident): 
@@ -90,7 +90,7 @@ class Reixetes(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
     
     def __init__(self): 
-        super().__init__
+        super().__init__()
 
 
 
@@ -99,4 +99,4 @@ class Patrons(Contenidor):
     # A completar pel grup d'estudiants com a part de la pràctica
      
     def __init__(self): 
-        super().__init__
+        super().__init__()
