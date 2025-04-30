@@ -49,6 +49,9 @@ class Patro(ArbreBinari):
         # dividint-lo en blocs de mida 'b'
         # el missatge es posa en un arbre binari, utilizant un heap. (un None en la posicio zero)
         # els fills de cada caracter es (dret) 2k i (esq) 2k+1
+        # no destructiva
+        # recursiu
+        # chr(32 + (ord(c)+d-32)%95)
         pass 
 
 
