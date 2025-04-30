@@ -47,7 +47,8 @@ class Patro(ArbreBinari):
 
         # codifiquem el missatge fent servir el mètode 'codifica' del patró 'p', 
         # dividint-lo en blocs de mida 'b'
-
+        # el missatge es posa en un arbre binari, utilizant un heap. (un None en la posicio zero)
+        # els fills de cada caracter es (dret) 2k i (esq) 2k+1
         pass 
 
 
