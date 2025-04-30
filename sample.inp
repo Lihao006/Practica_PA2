@@ -21,15 +21,15 @@ Qualsevol_nit_5
 de colors i de perfums.
 
 
-2
-4 4
+2                                           # Seqüència de R reixetes
+4 4                                         # Dimensió Forats
 1 3 3 2 2 4 4 1                             # Això hauria de ser self._forats, però seria [(1,3), (3,2), (2,4), (4,1)]
 6 9
 4 2 2 4 3 1 4 4 5 1 1 3 1 5 5 5 6 6
 
 
 2
-7 0 -1 12 -1 -1 -1
+7 0 -1 12 -1 -1 -1                          # Està en preordre
 94 31 -1 -1 63 -1 -1
 
 
