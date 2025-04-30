@@ -171,7 +171,11 @@ class Reixeta():
     def decodifica(self, missatge): 
 
         # decodifiquem el missatge
-
+        # si es itera per cada fila
+        # sigui una llista de n*n caracters, comencem a escriure per cada n posicio
+        
+        # si es itera per cada columna
+        # anar girant i posant els caracters
         pass
     
 
