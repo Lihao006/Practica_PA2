@@ -59,5 +59,6 @@ class Patro(ArbreBinari):
 
         # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
         # en blocs de mida 'b' 
+        # chr(32 + (ord(c)-d+63)%95)
 
         pass
