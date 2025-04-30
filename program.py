@@ -11,7 +11,7 @@ missatges = Missatges()                     # Creem una instància de la classe 
 mi = int(item())                            # Nombre de missatges inicials
 for _ in range(mi):
     ident    = item()                       # Llegeix l'identificador del missatge
-    missatge = input()                      # Llegeix el missatge complet
+    missatge = input()                      # Llegeix el missatge complet (salta els espais buits)
     missatges.afegeix(ident,missatge)       # Afegim un nou missatge al contenidor 'missatges' amb l'identificador 'ident'
 
     
@@ -31,7 +31,7 @@ patrons = Patrons()                         # Creem una instància de la classe 
 
 pi = int(item())                            # Nombre de patrons inicials
 for ident in range(1,pi+1):                 # Assignar a cada patró un identificador
-    p = Patro()                             # Crear una nova instància de la classe Patro() per a cada iteració 
+    p = Patro()                             # Crear una nova instància de la classe Patro() per a cada iteració (no instància d'ArbreBinari)
     p.llegeix()                             # Llegeix la entrada dels valors de l'arbre binari en preordre (nombres enters i -1 per a nodes buits)
     patrons.afegeix(ident,p)                # Afegim el patró 'p' al contenidor 'patrons' amb l'identificador 'ident' 
 
@@ -74,7 +74,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             if status == -1:                                                                        
                 print("error: la reixeta amb els seus girs no cobreix totes les posicions")             
             elif status == -2:
-                print("error: dimensions incorrectes de la reixeta")
+                print("error: dimensions incorrectes de la reixeta")                # k != n^2/4
 
 
 

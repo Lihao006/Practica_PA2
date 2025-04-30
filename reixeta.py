@@ -27,7 +27,9 @@ class Reixeta():
     def mod_matriu(self, matriu):
         self._matriu = matriu
 
-    # altres funcions
+    # altres funcions 
+
+    # (hem de fer servir pytokr)
     def llegeix(self):
 
         # llegim la entrada de dimensions (n,k) i les posicions dels forats de la reixeta
