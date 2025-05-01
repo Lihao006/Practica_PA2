@@ -10,22 +10,27 @@ class Reixeta():
         self._forats = []       
         self._matriu = None             # matriu de referència als forats de la reixeta
 
-    #getters
+
+    '''    
+    # ** Getters ** 
     def valor_n(self):
         return self._n
     
     def valor_k(self):
         return self._k
     
-    def ub_forats(self):
+    def nombre_forats(self):
         return self._forats
     
     def mostra_reixeta(self):
         return self._matriu
 
-    #setters
+
+    # ** Setters **
     def mod_matriu(self, matriu):
         self._matriu = matriu
+    '''
+
 
     # altres funcions 
 
@@ -35,10 +40,9 @@ class Reixeta():
         # llegim la entrada de dimensions (n,k) i les posicions dels forats de la reixeta
 
         # Aquí ha de retornar un status que pot ser: 
-        # 1: la reixeta és vàlida 
-        # -1: els girs de la reixeta no cobreixen totes les posicions
-        # -2: les dimensions són incorrectes (k diferent de n^2/4)
-
+        # 1: la reixeta és vàlida ✅
+        # -1: els girs de la reixeta no cobreixen totes les posicions ❌
+        # -2: les dimensions són incorrectes (k diferent de n^2/4) ❌
 
         self._n = int(item())           # Llegim la dimensió n
         self._k = int(item())           # Llegim el nombre de forats k
@@ -82,7 +86,7 @@ class Reixeta():
 
 
 
-    def crear_matriu_False(self):
+    def crear_matriu_buit(self):
         # funcio per crear una matriu tot de False de dimensions nxn
         # que ens servirà per saber on està cada forat de la reixeta
         return [[False for _ in range(self._n)] for _ in range(self._n)]
@@ -95,7 +99,7 @@ class Reixeta():
     def girar(self, matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
             assert gir == 90 or gir == 180 or gir == 270
-            matriu_nova = self.crear_matriu_False()
+            matriu_nova = self.crear_matriu_buit()
             
             for i in range(0, self._n):
                 for j in range(0, self._n):
@@ -127,7 +131,7 @@ class Reixeta():
         # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
         # ja que per molt que girem la matriu, la casella del centre no es mou
         
-        self._matriu = self.crear_matriu_False()    
+        self._matriu = self.crear_matriu_buit()    
 
         for i, j in self._forats:
                 self._matriu[i-1][j-1] = True
@@ -162,7 +166,7 @@ class Reixeta():
                 if self._matriu[i][j]:
                     
                     
-        pass
+                    pass
 
 
 
