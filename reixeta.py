@@ -85,9 +85,13 @@ class Reixeta():
             return - 1
         
 
-        # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida
+        # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida ✅
         return 1
     
+
+
+
+
 
 
 
@@ -101,7 +105,7 @@ class Reixeta():
 
 
 
-     # funcio per girar la matriu, nomes funciona be per a reixetes valides
+    # funcio per girar la matriu, nomes funciona be per a reixetes valides
     def girar(self, matriu, gir):
             # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
             assert gir == 90 or gir == 180 or gir == 270
@@ -167,12 +171,7 @@ class Reixeta():
 
         # codifiquem el 'missatge'
 
-        for i in range(self._n): 
-            for j in range(self._n): 
-                if self._matriu[i][j]:
-                    
-                    
-                    pass
+        pass
 
 
 

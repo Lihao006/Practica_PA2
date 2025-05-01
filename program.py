@@ -5,7 +5,7 @@ from reixeta     import Reixeta
 from patro       import Patro
 
 
-# Lectura missatges inicials
+# Lectura missatges inicials ✅
 missatges = Missatges()                     # Creem una instància de la classe Missatges (subclasse de Contenidor)
 
 mi = int(item())                            # Nombre de missatges inicials
@@ -16,7 +16,7 @@ for _ in range(mi):
 
     
 # Lectura reixetes inicials: Se'ns garanteix que aquestes són correctes i vàlides
-# (no cal comprovar-ho)
+# (no cal comprovar-ho) ✅
 reixetes = Reixetes()                       # Creem una instància de la classe Reixetes (subclasse de Contenidor)
 
 ri = int(item())                            # Nombre de reixetes inicials
@@ -26,7 +26,7 @@ for ident in range(1,ri+1):                 # Assignar a cada reixeta un identif
     reixetes.afegeix(ident,r)               # Afegim la reixeta 'r' al contenidor 'reixetes' amb l'identificador 'ident' 
 
     
-# Lectura patrons inicials
+# Lectura patrons inicials ✅
 patrons = Patrons()                         # Creem una instància de la classe Patrons (subclasse de Contenidor)
 
 pi = int(item())                            # Nombre de patrons inicials
@@ -43,7 +43,8 @@ for ident in range(1,pi+1):                 # Assignar a cada patró un identifi
 instruccio = item()                 # llegim la comanda a processar
 while instruccio != 'fi':           # continuem processant instruccions fins que 'instruccio' sigui 'fi'
     
-    if   instruccio == 'nou_missatge' or instruccio == 'nm':                        
+    # ✅
+    if instruccio == 'nou_missatge' or instruccio == 'nm':                        
         ident    = item()                                                           # llegeixo una línia de text: Identificador
         print("#",instruccio," ",ident,sep='')                                      # imprimim la instrucció i l'identificador
         missatge = input()                                                          # llegeixo una línia de text: Missatge
@@ -59,6 +60,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
 
 
 
+    # ✅
     elif instruccio == 'nova_reixeta' or instruccio == 'nr':                        
         print("#",instruccio,sep='')                                               
         r = Reixeta()                                                               
@@ -78,6 +80,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
 
 
 
+    # ❌, ens falta el mètode llegeix()
     elif instruccio == 'nou_patro' or instruccio == 'np':
         print("#",instruccio,sep='')                                    
         p = Patro()                                                     
@@ -87,7 +90,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
         print(num+1)
         
 
-
+    # ✅
     elif instruccio == 'esborra_missatge' or instruccio == 'em':
         ident    = item()                                               # llegeixo una línia de text: Identificador
         print("#",instruccio," ",ident,sep='')
@@ -102,7 +105,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             print(num)
 
 
-
+    # ✅
     elif instruccio == 'llista_missatges' or instruccio == 'lm':
         print("#",instruccio,sep='')
         
@@ -111,7 +114,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             print('"',v,'"',sep='')                                     # imprimim el contingut del missatge (v) entre cometes
             
 
-
+    # ❌, ens falta el mètode escriu()
     elif instruccio == 'llista_reixetes' or instruccio == 'lr':         
         print("#",instruccio,sep='')
 
@@ -120,7 +123,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             r.escriu()                                                      # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
         
 
-
+    # ❌, ens falta el mètode escriu()
     elif instruccio == 'llista_patrons' or instruccio == 'lp':
         print("#",instruccio,sep='')
 
@@ -129,7 +132,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             p.escriu()                                                      # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits)               
         
 
-
+    # ❌, ens falta el mètode codifica()
     elif instruccio == 'codifica_amb_reixeta' or instruccio == 'cr':
         idreix   = int(item())                                              # identificador de la reixeta
         print("#",instruccio," ",idreix,sep='')     
@@ -145,7 +148,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             print('"',m,'"',sep='')                                         # imprimim el missatge codificat entre cometes
             
 
-
+    # ❌, ens falta el mètode codifica()
     elif instruccio == 'codifica_amb_reixeta_guardat' or instruccio == 'crg':
         ident    = item()                                           # llegim l'identificador del missatge emmagatzemat que es vol codificar
         idreix   = int(item())                                      # llegim l'identificador de la reixeta a utilitzar
@@ -167,6 +170,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
+    # ❌, ens falta el mètode decodifica() i valid()
     elif instruccio == 'decodifica_amb_reixeta' or instruccio == 'dr':
         idreix   = int(item())                                      # llegim l'identificador de la reixeta a utilitzar
         print("#",instruccio," ",idreix,sep='')                     # imprimim la instrucció i l'identificador de la reixeta
@@ -187,6 +191,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
+    # ❌, ens falta el mètode codifica()
     elif instruccio == 'codifica_amb_patro' or instruccio == 'cp':
         idpat   = int(item())                                       # llegim l'identificador del patró (arbre binari) a utilitzar
         b       = int(item())                                       # llegim un enter (b) que indica la mida dels blocs en què es dividirà el missatge per a la codificació
@@ -204,6 +209,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
+    # ❌, ens falta el mètode codifica()
     elif instruccio == 'codifica_amb_patro_guardat' or instruccio == 'cpg':
         ident   = item()   
         idpat   = int(item())
@@ -226,6 +232,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
                 
 
 
+    # ❌, ens fala el mètode decodifica()
     elif instruccio == 'decodifica_amb_patro' or instruccio == 'dp':       
         idpat   = int(item())
         b       = int(item())
