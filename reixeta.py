@@ -7,7 +7,7 @@ class Reixeta():
 
         self._n = n                     # tenim una matriu nxn
         self._k = k                     # k: nombre de forats
-        self._forats = []       
+        self._forats = []               # llista per guardar les posicions dels forats
         self._matriu = None             # matriu de referència als forats de la reixeta
 
 
@@ -47,10 +47,12 @@ class Reixeta():
         self._n = int(item())           # Llegim la dimensió n
         self._k = int(item())           # Llegim el nombre de forats k
 
-        # -2: comprovem si que les dimensions són correctes (k és igual a n^2/4)
-        if self._k != (self._n * self._n) // 4:
+        # -2: comprovem si les dimensions són correctes (k és igual a n^2/4)
+        if self._k != (self._n * self._n) / 4:
             return -2
 
+        # **** Es compleix k = n^2/4) ****
+        # Per afegir les posiciones dels forats
         for _ in range(self._k): 
             i = int(item())
             j = int(item())
@@ -60,18 +62,22 @@ class Reixeta():
         if len(set(self._forats)) != self._k: 
             return -1
         
-        # comprovem que les posicions dels forats són correctes
-        for i, j in self._forats: 
-            if not (1 <= i <= self._n and 1 <= j <= self._n): 
-                return -1
 
-        # evitar duplicats i si els girs de la reixeta (90, 180 i 270 graus) cobreixen totes les posicions
+        # Comprovem que les posicions dels forats són correctes i si els girs de la reixeta (90, 180 i 270 graus) 
+        # cobreixen totes les posicions
         posicions = set()
+        
         for i, j in self._forats: 
-            posicions.add((i-1, j-1))                               # Original
-            posicions.add((self._n - 1 - j, i-1))                   # 90 graus
-            posicions.add((self._n - 1 - i, self._n - 1 - j))       # 180 graus
-            posicions.add((j-1, self._n - 1 - i))                   # 270 graus
+            if (1 <= i <= self._n and 1 <= j <= self._n): 
+
+                posicions.add((i, j))                                   # Original
+                posicions.add((self._n - j + 1, i))                     # 90º
+                posicions.add((self._n - i + 1, self._n - j + 1))       # 180º
+                posicions.add((j, self._n - i + 1))                     # 270º
+
+
+            else: 
+                return -1
 
 
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
