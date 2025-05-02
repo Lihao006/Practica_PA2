@@ -22,7 +22,7 @@ Resistire_4
 
 
 #llista_reixetes
-Reixeta 1:
+Reixeta 1: 
 4 4
 (1,3) (2,4) (3,2) (4,1)             # Posicions forats originals
 (1,2) (2,1) (3,3) (4,4)             # Posicions forats després de 90 graus (antihorari)

@@ -75,7 +75,7 @@ class Reixeta():
                 return -1
 
 
-        # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
+        # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
         if len(posicions) != self.valor_n() * self.valor_n(): 
             return - 1
         
