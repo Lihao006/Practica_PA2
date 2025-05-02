@@ -49,7 +49,8 @@ class Patro(ArbreBinari):
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
         llista_missatge = [None] + list(missatge)
-        
+        arbre_missatge = ArbreBinari()
+        arbre_missatge.modi
 
 
 
