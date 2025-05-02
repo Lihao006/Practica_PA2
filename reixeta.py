@@ -181,7 +181,8 @@ class Reixeta():
 
         for block in blocks: 
 
-            
+            if len(block) < len(missatge): 
+                block
 
 
 
