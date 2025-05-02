@@ -13,11 +13,11 @@ class Patro(ArbreBinari):
         # Llegeix el següent valor de la seqüència en preordre amb item() 
         x = int(item())
 
-        # ** Cas Base **
+        # Cas Base
         if x == -1: 
             return ArbreBinari()                    # retornem l'Arbre buit
 
-        # ** Cas recursiu ** 
+        # Cas recursiu 
         else: 
             l = self.llegeix()                      # obtenim el fill esquerre
             r = self.llegeix()                      # obtenim el fill dret
@@ -36,8 +36,7 @@ class Patro(ArbreBinari):
             print(self.valor_arrel(), end="")           # imprimim l'arrel
             self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
             self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
-            print(f")", end="")                         # imprimim )
-
+            print(f")", end="")                     # imprimim )
 
 
     def codifica(self, missatge, b): 
@@ -49,7 +48,12 @@ class Patro(ArbreBinari):
         # no destructiva
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
-        
+        llista_missatge = [None] + list(missatge)
+        arbre_missatge = ArbreBinari()
+        arbre_missatge.modificar_valor_arrel
+
+
+
         pass 
 
 
