@@ -64,17 +64,14 @@ class Reixeta():
         
         for i, j in self.lst_forats(): 
             if (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
-
-                posicions.add((self.valor_n() - j + 1, i))                              # 90º
-                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))         # 180º
-                posicions.add((j, self.valor_n() - i + 1))                              # 270º
-
-
+                posicions.add((self.valor_n() - j + 1, i))   # 90º
+                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))   # 180º
+                posicions.add((j, self.valor_n() - i + 1))   # 270º
             else: 
                 return -1
             
-        # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
-        if len(posicions) != self.valor_n() * self.valor_n(): 
+        # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
+        if len(posicions) != (self.valor_n() * self.valor_n()): 
             return - 1
         
 
