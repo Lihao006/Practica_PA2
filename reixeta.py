@@ -12,7 +12,7 @@ class Reixeta():
 
 
     '''    
-    # ** Getters ** 
+    #Getters
     def valor_n(self):
         return self._n
     
@@ -25,10 +25,6 @@ class Reixeta():
     def mostra_reixeta(self):
         return self._matriu
 
-
-    # ** Setters **
-    def mod_matriu(self, matriu):
-        self._matriu = matriu
     '''
 
 
@@ -124,11 +120,11 @@ class Reixeta():
     # Funció per escriure els forats de la reixeta després de cada gir antihorari 
     def escriu(self):
         
-        # ** Imprimim la dimensió (n) de la reixeta i el nombre de forats (k) **
+        #Imprimim la dimensió (n) de la reixeta i el nombre de forats (k)
         print(self._n, self._k)
 
 
-        # ** Imprimim les posicions dels forats **
+        # Imprimim les posicions dels forats
 
         # Imprimim les posicions dels forats originals
         print(" ".join(f"({i},{j})") for i, j in self._forats)
@@ -185,7 +181,7 @@ class Reixeta():
 
     def codifica(self, missatge): 
 
-        # codifiquem el 'missatge'
+        #codifiquem el 'missatge'
 
         block_size = self._n * self._n 
         blocks = [missatge[i:block_size+1] for i in range(0, len(missatge), block_size)]
@@ -198,10 +194,10 @@ class Reixeta():
 
 
 
-            # ** Creem una matriu buida de None**
+            #Creem una matriu buida de None.
             matriu_buida = [[None for _ in range(self._n)] for _ in range(self._n)]
 
-            # Convertim el missatge en una llista, d'aquesta manera podrem obtenir cada lletra
+            # Convertim el missatge en una llista, d'aquesta manera podrem obtenir cada lletra.
             missatge_lst = list(missatge)
 
             # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
