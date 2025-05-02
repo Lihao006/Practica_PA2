@@ -64,19 +64,14 @@ class Reixeta():
         
         for i, j in self.lst_forats(): 
             if (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
-
-                posicions.add((i, j))                                                   # Original
-                posicions.add((self.valor_n() - j + 1, i))                              # 90º
-                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))         # 180º
-                posicions.add((j, self.valor_n() - i + 1))                              # 270º
-
-
+                posicions.add((self.valor_n() - j + 1, i))   # 90º
+                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))   # 180º
+                posicions.add((j, self.valor_n() - i + 1))   # 270º
             else: 
                 return -1
-
-
+            
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
-        if len(posicions) != self.valor_n() * self.valor_n(): 
+        if len(posicions) != (self.valor_n() * self.valor_n()): 
             return - 1
         
 
@@ -191,7 +186,7 @@ class Reixeta():
 
 
 
-            # ** Creem una matriu buida de None**
+            # Creem una matriu buida de None
             matriu_buida = [[None for _ in range(self._n)] for _ in range(self._n)]
 
             # Convertim el missatge en una llista, d'aquesta manera podrem obtenir cada lletra
@@ -226,7 +221,7 @@ class Reixeta():
 
 
         # Recorrem la matriu per retornar el missatge codificat
-        codi = ''        # ** Variable que ens servirà per concatenar les lletres **
+        codi = ''        # Variable que ens servirà per concatenar les lletres
 
         for fila in matriu_buida:                               # Obtenim cada fila de matriu 
             for element in fila:                                # Obtenim cada element de cada fila
