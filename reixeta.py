@@ -124,16 +124,16 @@ class Reixeta():
         #Imprimim les posicions dels forats
 
         # Imprimim les posicions dels forats originals
-        print(" ".join(f"({i},{j})") for i, j in self._forats)
+        print(" ".join(f"({i},{j})") for i, j in self.lst_forats())
 
         # Imprimim les posicions dels forats després de 90 graus (antihorari)
-        print(" ".join(f"({self._n - j + 1},{i})") for i, j in self._forats)
+        print(" ".join(f"({self.valor_n() - j + 1},{i})") for i, j in self.lst_forats())
 
         # Imprimim les posicions dels forats després de 180 graus
-        print(" ".join(f"({self._n - i + 1},{self._n - j + 1})") for i, j in self._forats)
+        print(" ".join(f"({self.valor_n() - i + 1},{self.valor_n() - j + 1})") for i, j in self.lst_forats())
 
         # Imprimim les posicions dels forats després de 270 graus
-        print(" ".join(f"({j},{self._n - i + 1})") for i, j in self._forats)
+        print(" ".join(f"({j},{self.valor_n() - i + 1})") for i, j in self.lst_forats())
 
 
 
