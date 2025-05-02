@@ -12,7 +12,7 @@ class Reixeta():
 
 
     
-    # ** Getters ** 
+    # Getters 
     def valor_n(self):
         return self._n
     
@@ -117,11 +117,11 @@ class Reixeta():
     # Funció per escriure els forats de la reixeta després de cada gir antihorari 
     def escriu(self):
         
-        # ** Imprimim la dimensió (n) de la reixeta i el nombre de forats (k) **
+        # Imprimim la dimensió (n) de la reixeta i el nombre de forats (k)
         print(self._n, self._k)
 
 
-        # ** Imprimim les posicions dels forats **
+        #Imprimim les posicions dels forats
 
         # Imprimim les posicions dels forats originals
         print(" ".join(f"({i},{j})") for i, j in self._forats)
@@ -259,6 +259,6 @@ class Reixeta():
         missatge: llegeixo una línia de text: Missatge xifrat
         '''
 
-        # He de verificar que la mida del missatge és adeqüada per a la reixeta
+        # He de verificar que la valor_k del missatge és adeqüada per a la reixeta
 
         pass
