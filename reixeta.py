@@ -19,7 +19,7 @@ class Reixeta():
     def valor_k(self):
         return self._k
     
-    def nombre_forats(self):
+    def lst_forats(self):
         return self._forats
     
     def mostra_reixeta(self):
@@ -43,18 +43,18 @@ class Reixeta():
         self._k = int(item())           # Llegim el nombre de forats k
 
         # -2: comprovem si les dimensions són correctes (k és igual a n^2/4)
-        if self._k != (self._n * self._n) / 4:
+        if self.valor_k() != (self.valor_n() * self.valor_n()) / 4:
             return -2
 
         #Es compleix k = n^2/4)
         # Per afegir les posiciones dels forats
-        for _ in range(self._k): 
+        for _ in range(self.valor_k()): 
             i = int(item())
             j = int(item())
             self._forats.append((i, j))
 
         # Comprovem si hi ha duplicats o no
-        if len(set(self._forats)) != self._k: 
+        if len(set(self.lst_forats())) != self.valor_k(): 
             return -1
         
 
@@ -62,13 +62,13 @@ class Reixeta():
         # cobreixen totes les posicions
         posicions = set()
         
-        for i, j in self._forats: 
-            if (1 <= i <= self._n and 1 <= j <= self._n): 
+        for i, j in self.lst_forats(): 
+            if (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
 
-                posicions.add((i, j))                                   # Original
-                posicions.add((self._n - j + 1, i))                     # 90º
-                posicions.add((self._n - i + 1, self._n - j + 1))       # 180º
-                posicions.add((j, self._n - i + 1))                     # 270º
+                posicions.add((i, j))                                                   # Original
+                posicions.add((self.valor_n() - j + 1, i))                              # 90º
+                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))         # 180º
+                posicions.add((j, self.valor_n() - i + 1))                              # 270º
 
 
             else: 
@@ -76,15 +76,13 @@ class Reixeta():
 
 
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n2 posicions de la matriu
-        if len(posicions) != self._n * self._n: 
+        if len(posicions) != self.valor_n() * self.valor_n(): 
             return - 1
         
 
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida ✅
         return 1
     
-
-
 
 
 
