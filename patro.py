@@ -39,7 +39,6 @@ class Patro(ArbreBinari):
             print(f")", end="")                     # imprimim )
 
 
-
     def codifica(self, missatge, b): 
 
         # codifiquem el missatge fent servir el mètode 'codifica' del patró 'p', 
@@ -49,9 +48,9 @@ class Patro(ArbreBinari):
         # no destructiva
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
+        llista_missatge = [None] + list(missatge)
         
-        llista_miss = list(missatge)
-        
+
 
 
         pass 
