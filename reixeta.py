@@ -64,9 +64,12 @@ class Reixeta():
         
         for i, j in self.lst_forats(): 
             if (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
-                posicions.add((self.valor_n() - j + 1, i))   # 90º
-                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))   # 180º
-                posicions.add((j, self.valor_n() - i + 1))   # 270º
+                
+                posicions.add((i, j))                                               # 0º
+                posicions.add((self.valor_n() - j + 1, i))                          # 90º
+                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))     # 180º
+                posicions.add((j, self.valor_n() - i + 1))                          # 270º
+            
             else: 
                 return -1
             
@@ -180,9 +183,8 @@ class Reixeta():
 
         for block in blocks: 
 
-
             if len(block) < len(missatge): 
-                block
+                block += ' '
 
 
             # Creem una matriu buida de None
@@ -195,6 +197,12 @@ class Reixeta():
             # dels forats comencem per 1). 
             lletra = 0
             
+
+
+
+
+
+
         while lletra < (self._n * self._n): 
             for i, j in sorted(self._forats): 
                 matriu_buida[i-1][j-1] = missatge_lst[lletra]
