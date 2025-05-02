@@ -11,7 +11,7 @@ class Reixeta():
         self._matriu = None             # matriu de referència als forats de la reixeta
 
 
-    '''    
+    
     # ** Getters ** 
     def valor_n(self):
         return self._n
@@ -25,11 +25,6 @@ class Reixeta():
     def mostra_reixeta(self):
         return self._matriu
 
-
-    # ** Setters **
-    def mod_matriu(self, matriu):
-        self._matriu = matriu
-    '''
 
 
     # altres funcions 
