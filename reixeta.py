@@ -115,7 +115,6 @@ class Reixeta():
         # Imprimim la dimensió (n) de la reixeta i el nombre de forats (k)
         print(self._n, self._k)
 
-
         #Imprimim les posicions dels forats
 
         # Imprimim les posicions dels forats originals
@@ -181,11 +180,6 @@ class Reixeta():
 
         for block in blocks: 
 
-            
-
-
-
-
             # Creem una matriu buida de None
             matriu_buida = [[None for _ in range(self._n)] for _ in range(self._n)]
 
@@ -196,11 +190,6 @@ class Reixeta():
             # dels forats comencem per 1). 
             lletra = 0
             
-
-
-
-
-
         while lletra < (self._n * self._n): 
             for i, j in sorted(self._forats): 
                 matriu_buida[i-1][j-1] = missatge_lst[lletra]
