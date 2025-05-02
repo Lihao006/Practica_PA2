@@ -47,7 +47,7 @@ class Reixeta():
         if self._k != (self._n * self._n) / 4:
             return -2
 
-        # **** Es compleix k = n^2/4) ****
+        #Es compleix k = n^2/4)
         # Per afegir les posiciones dels forats
         for _ in range(self._k): 
             i = int(item())
