@@ -24,7 +24,6 @@ class Patro(ArbreBinari):
             return ArbreBinari(x,l,r)               # construïm l'arbre amb l'arrel 'x', fill esquerre 'l' i fill dret 'r'
 
 
-
     def escriu(self): 
         
         # Cas base: si l'arbre binari és buit, imprimim ()
@@ -49,8 +48,13 @@ class Patro(ArbreBinari):
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
         llista_missatge = [None] + list(missatge)
+        for i in range(1, len(llista_missatge)):
+            llista_missatge[i] = ord(llista_missatge[i])
+        
         arbre_missatge = ArbreBinari()
-        arbre_missatge.modificar_valor_arrel
+
+        for k in range(1, len(llista_missatge)):
+            
 
 
 
