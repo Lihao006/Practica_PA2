@@ -178,9 +178,9 @@ class Reixeta():
         # codifiquem el 'missatge'
 
         block_size = self._n * self._n 
-        blocks = [missatge[i:block_size+1] for i in range(0, len(missatge), block_size)]
+        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]            # Correcte ✅
 
-        
+
         for block in blocks: 
 
             if len(block) < len(missatge): 
