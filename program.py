@@ -80,7 +80,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
 
 
 
-    # ❌, ens falta el mètode llegeix()
+    # ✅
     elif instruccio == 'nou_patro' or instruccio == 'np':
         print("#",instruccio,sep='')                                    
         p = Patro()                                                     
@@ -114,7 +114,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             print('"',v,'"',sep='')                                     # imprimim el contingut del missatge (v) entre cometes
             
 
-    # ❌, ens falta el mètode escriu()
+    # ✅
     elif instruccio == 'llista_reixetes' or instruccio == 'lr':         
         print("#",instruccio,sep='')
 

@@ -24,6 +24,7 @@ class Patro(ArbreBinari):
             return ArbreBinari(x,l,r)               # construïm l'arbre amb l'arrel 'x', fill esquerre 'l' i fill dret 'r'
 
 
+
     def escriu(self): 
         
         # Cas base: si l'arbre binari és buit, imprimim ()
@@ -36,6 +37,8 @@ class Patro(ArbreBinari):
             self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
             self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
             print(f")", end="")                     # imprimim )
+
+
 
 
     def codifica(self, missatge, b): 

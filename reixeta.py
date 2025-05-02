@@ -180,7 +180,7 @@ class Reixeta():
         block_size = self._n * self._n 
         blocks = [missatge[i:block_size+1] for i in range(0, len(missatge), block_size)]
 
-
+        
         for block in blocks: 
 
             if len(block) < len(missatge): 
@@ -220,6 +220,8 @@ class Reixeta():
             for i, j in sorted((j, self._n - i + 1) for i, j in self._forats): 
                 matriu_buida[i-1][j-1] = missatge_lst[lletra]
                 lletra += 1
+
+
 
 
         # Recorrem la matriu per retornar el missatge codificat
