@@ -10,21 +10,18 @@ class Patro(ArbreBinari):
         # Construeix l'arbre binari de l'objecte Patro a partir d'una seqüència en preordre
         # self: Instància de la classe Patro (per exemple, p a program.py)
         
-        def llegeix_node():
+        # Llegeix el següent valor de la seqüència en preordre amb item() 
+        x = int(item())
 
-            # Llegeix el següent valor de la seqüència en preordre amb item() 
-            valor = int(item())
+        # ** Cas Base **
+        if x == -1: 
+            return ArbreBinari()                    # retornem l'Arbre buit
 
-            # Cas base: si el valor és -1, retornem None per indicar un node buit
-            if valor == -1: 
-                return None
-            
-            # Cas recursiu: creem un node amb el valor com a _element i processem els fills esquerre i dret recursivament, seguint l'ordre preordre
-            return self._Node(valor, llegeix_node(), llegeix_node())
-
-
-        # després de cridar p = Patro(), self._root = None, però quan fem p.llegeix(), self._root es configura amb els nodes segons el preordre donat 
-        self._root = llegeix_node()
+        # ** Cas recursiu ** 
+        else: 
+            l = self.llegeix()                      # obtenim el fill esquerre
+            r = self.llegeix()                      # obtenim el fill dret
+            return ArbreBinari(x,l,r)               # construïm l'arbre amb l'arrel 'x', fill esquerre 'l' i fill dret 'r'
 
 
 
@@ -52,6 +49,7 @@ class Patro(ArbreBinari):
         # no destructiva
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
+        
         pass 
 
 

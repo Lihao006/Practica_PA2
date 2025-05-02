@@ -93,10 +93,7 @@ class Reixeta():
 
 
 
-
-
-
-    def crear_matriu_buit(self):
+    '''def crear_matriu_buit(self):
         # funcio per crear una matriu tot de False de dimensions nxn
         # que ens servirà per saber on està cada forat de la reixeta
         return [[False for _ in range(self._n)] for _ in range(self._n)]
@@ -120,16 +117,34 @@ class Reixeta():
                             matriu_nova[self._n - 1 - i][self._n - 1 - j] = True
                         elif gir == 270:
                             matriu_nova[j][self._n - 1 - i] = True
-            return matriu_nova
+            return matriu_nova'''
     
 
 
-    # funcio per escriure els forats de la reixeta
+    # Funció per escriure els forats de la reixeta després de cada gir antihorari 
     def escriu(self):
-        # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
-        print(self._n, self._k)
         
-        def escriu_forats(matriu):
+        # ** Imprimim la dimensió (n) de la reixeta i el nombre de forats (k) **
+        print(self._n, self._k)
+
+
+        # ** Imprimim les posicions dels forats **
+
+        # Imprimim les posicions dels forats originals
+        print(" ".join(f"({i},{j})") for i, j in self._forats)
+
+        # Imprimim les posicions dels forats després de 90 graus (antihorari)
+        print(" ".join(f"({self._n - j + 1},{i})") for i, j in self._forats)
+
+        # Imprimim les posicions dels forats després de 180 graus
+        print(" ".join(f"({self._n - i + 1},{self._n - j + 1})") for i, j in self._forats)
+
+        # Imprimim les posicions dels forats després de 270 graus
+        print(" ".join(f"({j},{self._n - i + 1})") for i, j in self._forats)
+
+
+
+        '''def escriu_forats(matriu):
             for i in range(self._n):
                 for j in range(self._n):
                     if matriu[i][j]:
@@ -162,7 +177,8 @@ class Reixeta():
         m270 = self.girar(self._matriu, 270)
 
         # forats girats 270 graus
-        escriu_forats(m270)               
+        escriu_forats(m270)'''           
+
 
 
 
@@ -171,10 +187,63 @@ class Reixeta():
 
         # codifiquem el 'missatge'
 
-        pass
+        block_size = self._n * self._n 
+        blocks = [missatge[i:block_size+1] for i in range(0, len(missatge), block_size)]
+
+
+        for block in blocks: 
+
+            
 
 
 
+
+            # ** Creem una matriu buida de None**
+            matriu_buida = [[None for _ in range(self._n)] for _ in range(self._n)]
+
+            # Convertim el missatge en una llista, d'aquesta manera podrem obtenir cada lletra
+            missatge_lst = list(missatge)
+
+            # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
+            # dels forats comencem per 1). 
+            lletra = 0
+            
+
+
+
+
+
+        while lletra < (self._n * self._n): 
+            for i, j in sorted(self._forats): 
+                matriu_buida[i-1][j-1] = missatge_lst[lletra]
+                lletra += 1
+
+
+            for i, j in sorted((self._n - j + 1, i) for i, j in self._forats): 
+                matriu_buida[i-1][j-1] = missatge_lst[lletra]
+                lletra += 1
+
+            for i, j in sorted((self._n - i + 1, self._n - j + 1) for i, j in self._forats): 
+                matriu_buida[i-1][j-1] = missatge_lst[lletra]
+                lletra += 1
+
+            for i, j in sorted((j, self._n - i + 1) for i, j in self._forats): 
+                matriu_buida[i-1][j-1] = missatge_lst[lletra]
+                lletra += 1
+
+
+        # Recorrem la matriu per retornar el missatge codificat
+        codi = ''        # ** Variable que ens servirà per concatenar les lletres **
+
+        for fila in matriu_buida:                               # Obtenim cada fila de matriu 
+            for element in fila:                                # Obtenim cada element de cada fila
+                codi += element if element is not None else ' '            
+
+        # Retornem el missatge codificat
+        return codi
+                
+
+    
 
 
     def decodifica(self, missatge): 
