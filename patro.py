@@ -36,7 +36,7 @@ class Patro(ArbreBinari):
             print(self.valor_arrel(), end="")           # imprimim l'arrel
             self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
             self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
-            print(f")", end="")                     # imprimim )
+            print(f")", end="")                         # imprimim )
 
 
 
@@ -58,10 +58,7 @@ class Patro(ArbreBinari):
 
         for k in range(1, len(llista_missatge)):
             
-
-
-
-        pass 
+            pass 
 
 
     def decodifica(self, missatge, b):

@@ -132,7 +132,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             p.escriu()                                                      # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits)               
         
 
-    # ❌, ens falta el mètode codifica()
+    # ✅
     elif instruccio == 'codifica_amb_reixeta' or instruccio == 'cr':
         idreix   = int(item())                                              # identificador de la reixeta
         print("#",instruccio," ",idreix,sep='')     
@@ -148,7 +148,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             print('"',m,'"',sep='')                                         # imprimim el missatge codificat entre cometes
             
 
-    # ❌, ens falta el mètode codifica()
+    # ✅
     elif instruccio == 'codifica_amb_reixeta_guardat' or instruccio == 'crg':
         ident    = item()                                           # llegim l'identificador del missatge emmagatzemat que es vol codificar
         idreix   = int(item())                                      # llegim l'identificador de la reixeta a utilitzar
