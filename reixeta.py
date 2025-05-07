@@ -7,7 +7,8 @@ class Reixeta():
 
         self._n = n                     # tenim una matriu nxn
         self._k = k                     # k: nombre de forats
-        self._forats = []               # llista per guardar les posicions dels forats
+        self._forats = []               # llista per guardar les posicions inicials dels forats
+        self._forats_rotacions = []     # llista on guardarem les 4 rotacions
         self._matriu = None             # matriu de referència als forats de la reixeta
 
 
@@ -58,25 +59,34 @@ class Reixeta():
             return -1
         
 
+        forats_rotacions = [[] for _ in range(4)]       # guardarem les 4 rotacions
+
+
         # Comprovem que les posicions dels forats són correctes i si els girs de la reixeta (90, 180 i 270 graus) 
         # cobreixen totes les posicions
-        posicions = set()
-        
-        for i, j in self.lst_forats(): 
-            if (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
-                
-                posicions.add((i, j))                                               # 0º
-                posicions.add((self.valor_n() - j + 1, i))                          # 90º
-                posicions.add((self.valor_n() - i + 1, self.valor_n() - j + 1))     # 180º
-                posicions.add((j, self.valor_n() - i + 1))                          # 270º
+        for i, j in self._forats: 
+            if not (1 <= i <= self.valor_n() and 1 <= j <= self.valor_n()): 
+
+                return -1   # retornem -1 si les posicions i,j no són vàlides
+
+            forats_rotacions[0].append((i,j))                                           # Original, 0º
+            forats_rotacions[1].append((self.valor_n()-j+1, i))                         # 90º
+            forats_rotacions[2].append((self.valor_n()-i+1, self.valor_n()-j+1))        # 180º      
+            forats_rotacions[3].append((j,self.valor_n()-i+1))                          # 270º
             
-            else: 
-                return -1
+
+        totes_posicions = set()
+        for sub_lst in forats_rotacions: 
+            totes_posicions.update(sub_lst)         # aquí bàsicament el que fem és posar totes les tuples posicions de les 4 rotacions en 'totes_posicions'
+                                                    # per tal de veure si hem repetit algun forat o no
+
             
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
-        if len(posicions) != (self.valor_n() * self.valor_n()): 
+        if len(totes_posicions) != (self.valor_n() * self.valor_n()): 
             return - 1
         
+        # Obtenim les posicions de les 4 rotacions ordenades 
+        self._forats_rotacions = [sorted(fila) for fila in totes_posicions]
 
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida ✅
         return 1
@@ -84,91 +94,28 @@ class Reixeta():
 
 
 
-    '''def crear_matriu_buit(self):
-        # funcio per crear una matriu tot de False de dimensions nxn
-        # que ens servirà per saber on està cada forat de la reixeta
-        return [[False for _ in range(self._n)] for _ in range(self._n)]
-    
-
-
-
-
-    # funcio per girar la matriu, nomes funciona be per a reixetes valides
-    def girar(self, matriu, gir):
-            # sigui "gir" el nombre de graus a girar la matriu (90, 180 o 270)
-            assert gir == 90 or gir == 180 or gir == 270
-            matriu_nova = self.crear_matriu_buit()
-            
-            for i in range(0, self._n):
-                for j in range(0, self._n):
-                    if matriu[i][j]:
-                        if gir == 90:
-                            matriu_nova[self._n - 1 - j][i] = True
-                        elif gir == 180:
-                            matriu_nova[self._n - 1 - i][self._n - 1 - j] = True
-                        elif gir == 270:
-                            matriu_nova[j][self._n - 1 - i] = True
-            return matriu_nova'''
-    
-
-
     # Funció per escriure els forats de la reixeta després de cada gir antihorari 
     def escriu(self):
         
         # Imprimim la dimensió (n) de la reixeta i el nombre de forats (k)
-        print(self._n, self._k)
+        print(self.valor_n(), self.valor_k())
+
 
         #Imprimim les posicions dels forats
 
-        # Imprimim les posicions dels forats originals
-        print(" ".join(f"({i},{j})") for i, j in self.lst_forats())
+        for rotacio in self._forats_rotacions: 
 
-        # Imprimim les posicions dels forats després de 90 graus (antihorari)
-        print(" ".join(f"({self.valor_n() - j + 1},{i})") for i, j in self.lst_forats())
+            # Imprimim les posicions dels forats originals
+            print(" ".join(f"({i},{j})") for i, j in rotacio)
 
-        # Imprimim les posicions dels forats després de 180 graus
-        print(" ".join(f"({self.valor_n() - i + 1},{self.valor_n() - j + 1})") for i, j in self.lst_forats())
+            # Imprimim les posicions dels forats després de 90 graus (antihorari)
+            print(" ".join(f"({self.valor_n() - j + 1},{i})") for i, j in rotacio)
 
-        # Imprimim les posicions dels forats després de 270 graus
-        print(" ".join(f"({j},{self.valor_n() - i + 1})") for i, j in self.lst_forats())
+            # Imprimim les posicions dels forats després de 180 graus
+            print(" ".join(f"({self.valor_n() - i + 1},{self.valor_n() - j + 1})") for i, j in rotacio)
 
-
-
-        '''def escriu_forats(matriu):
-            for i in range(self._n):
-                for j in range(self._n):
-                    if matriu[i][j]:
-                        print(f"({i+1}, {j+1})", end=" ")
-            print()
-
-        # si transposem la matriu per defecte, obtenim el gir_180 graus
-        # fixem-nos que n ha de ser si o si parell, ja que si fos senar, hi hauria una casella en el centre
-        # de la matriu de manera que, o bé aquesta casella mai és forat, o bé sempre ho és (per tant mai no pot ser una reixeta vàlida),
-        # ja que per molt que girem la matriu, la casella del centre no es mou
-        
-        self._matriu = self.crear_matriu_buit()    
-
-        for i, j in self._forats:
-                self._matriu[i-1][j-1] = True
-
-        # forats originals
-        escriu_forats(self._matriu)               
-
-        m90 = self.girar(self._matriu, 90)                                    
-        
-        # forats girats 90 graus
-        escriu_forats(m90)              
-
-        m180 = self.girar(self._matriu, 180)
-
-        # forats girats 180 graus
-        escriu_forats(m180)            
-
-        m270 = self.girar(self._matriu, 270)
-
-        # forats girats 270 graus
-        escriu_forats(m270)'''           
-
+            # Imprimim les posicions dels forats després de 270 graus
+            print(" ".join(f"({j},{self.valor_n() - i + 1})") for i, j in rotacio)
 
 
 
@@ -177,62 +124,57 @@ class Reixeta():
 
         # codifiquem el 'missatge'
 
-        block_size = self._n * self._n 
-        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]            # Correcte ✅
+        block_size = self.valor_n() * self.valor_n()
+        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
+        missatge_codificat = ''
 
-
+        # Obtenim cada missatge de blocks
         for block in blocks: 
 
-            if len(block) < len(missatge): 
-                block += ' '
+            i = 0
+
+            # Reomplim el bloc abans d'encriptar si i només si no es completa amb caràcters del text
+            block = block + ' ' * (block_size - len(block)) if len(block) < block_size else block
 
 
             # Creem una matriu buida de None
-            matriu_buida = [[None for _ in range(self._n)] for _ in range(self._n)]
-
-            # Convertim el missatge en una llista, d'aquesta manera podrem obtenir cada lletra
-            missatge_lst = list(missatge)
+            matriu_buida = [[None for _ in range(self.valor_n())] for _ in range(self.valor_n())]
 
             # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
             # dels forats comencem per 1). 
             lletra = 0
-            
+
+            forats = [
+                    sorted(self._forats),                                                                   # original (0º)
+                    sorted([(self.valor_n() - j + 1, i) for i,j in self._forats]),                          # 90º
+                    sorted([(self.valor_n() - i + 1, self.valor_n() - j + 1) for i,j in self._forats]),     # 180º
+                    sorted([(j, self.valor_n() - i + 1) for i,j in self._forats])                           # 270º
+            ]
 
 
+            # Obtinc les posicions dels forats de cada rotació/gir
+            for forat in forats: 
+
+                # Obtinc la fila 'i' i la columna 'j'
+                for i,j in forat: 
+
+                    if lletra < len(block): 
+                        matriu_buida[i-1][j-1] = block[lletra]
+                    
+                        lletra += 1
 
 
+            # Recorrem la matriu per retornar el missatge codificat
+            bloc_codificat = ""
 
+            for fila in matriu_buida: 
+                bloc_codificat += "".join(fila)
 
-        while lletra < (self._n * self._n): 
-            for i, j in sorted(self._forats): 
-                matriu_buida[i-1][j-1] = missatge_lst[lletra]
-                lletra += 1
+            missatge_codificat += bloc_codificat
 
-
-            for i, j in sorted((self._n - j + 1, i) for i, j in self._forats): 
-                matriu_buida[i-1][j-1] = missatge_lst[lletra]
-                lletra += 1
-
-            for i, j in sorted((self._n - i + 1, self._n - j + 1) for i, j in self._forats): 
-                matriu_buida[i-1][j-1] = missatge_lst[lletra]
-                lletra += 1
-
-            for i, j in sorted((j, self._n - i + 1) for i, j in self._forats): 
-                matriu_buida[i-1][j-1] = missatge_lst[lletra]
-                lletra += 1
-
-
-
-
-        # Recorrem la matriu per retornar el missatge codificat
-        codi = ''        # Variable que ens servirà per concatenar les lletres
-
-        for fila in matriu_buida:                               # Obtenim cada fila de matriu 
-            for element in fila:                                # Obtenim cada element de cada fila
-                codi += element if element is not None else ' '            
 
         # Retornem el missatge codificat
-        return codi
+        return missatge_codificat
                 
 
     
