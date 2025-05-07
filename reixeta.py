@@ -85,8 +85,8 @@ class Reixeta():
         if len(totes_posicions) != (self.valor_n() * self.valor_n()): 
             return - 1
         
-        # Obtenim les posicions de les 4 rotacions ordenades 
-        self._forats_rotacions = [sorted(fila) for fila in totes_posicions]
+        # Obtenim les posicions de les 4 rotacions ordenades. Això és molt útil i eficient perquè ja no ens caldria recalcular les posicions en altres mètodes de la classe
+        self._forats_rotacions = [sorted(fila) for fila in forats_rotacions]
 
         # 1: Si les condicions anteriors no s'han complert ==> és una reixeta vàlida ✅
         return 1
@@ -101,22 +101,11 @@ class Reixeta():
         print(self.valor_n(), self.valor_k())
 
 
-        #Imprimim les posicions dels forats
+        #Imprimim les posicions dels forats (0º, 90º, 180º, 270º)
 
         for rotacio in self._forats_rotacions: 
 
-            # Imprimim les posicions dels forats originals
             print(" ".join(f"({i},{j})") for i, j in rotacio)
-
-            # Imprimim les posicions dels forats després de 90 graus (antihorari)
-            print(" ".join(f"({self.valor_n() - j + 1},{i})") for i, j in rotacio)
-
-            # Imprimim les posicions dels forats després de 180 graus
-            print(" ".join(f"({self.valor_n() - i + 1},{self.valor_n() - j + 1})") for i, j in rotacio)
-
-            # Imprimim les posicions dels forats després de 270 graus
-            print(" ".join(f"({j},{self.valor_n() - i + 1})") for i, j in rotacio)
-
 
 
 
@@ -144,16 +133,8 @@ class Reixeta():
             # dels forats comencem per 1). 
             lletra = 0
 
-            forats = [
-                    sorted(self._forats),                                                                   # original (0º)
-                    sorted([(self.valor_n() - j + 1, i) for i,j in self._forats]),                          # 90º
-                    sorted([(self.valor_n() - i + 1, self.valor_n() - j + 1) for i,j in self._forats]),     # 180º
-                    sorted([(j, self.valor_n() - i + 1) for i,j in self._forats])                           # 270º
-            ]
-
-
             # Obtinc les posicions dels forats de cada rotació/gir
-            for forat in forats: 
+            for forat in self._forats_rotacions: 
 
                 # Obtinc la fila 'i' i la columna 'j'
                 for i,j in forat: 
