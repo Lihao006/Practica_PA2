@@ -22,9 +22,6 @@ class Reixeta():
     
     def lst_forats(self):
         return self._forats
-    
-    def mostra_reixeta(self):
-        return self._matriu
 
 
 
