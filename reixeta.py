@@ -195,4 +195,4 @@ class Reixeta():
 
         # He de verificar que la valor_k del missatge és adeqüada per a la reixeta
         # Ha de retornar un booleà
-        return len(missatge) == self.valor_k() * self.valor_k()
+        return ((len(missatge) % (self._valor_k() * self._valor_k())) == 0)
