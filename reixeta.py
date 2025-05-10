@@ -169,7 +169,19 @@ class Reixeta():
         
         # si es itera per cada columna
         # anar girant i posant els caracters
-        pass
+
+
+        # Nosaltres iterarem per cada fila.
+        # Creem una llista buida de None de mida n*n per anar guardant el missatge original.
+        missatge_orig = ""
+
+
+        for forats in self._forats_rotacions:
+            for forat in forats:
+                i,j = forat
+                missatge_orig += missatge[(i-1)*self.valor_n() + j-1]
+        
+        return missatge_orig
     
 
 
