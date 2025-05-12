@@ -123,7 +123,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             r.escriu()                                                      # mostrem les dimensions (n,k) i les posicions dels forats per a la reixeta i els seus girs
         
 
-    # ❌, ens falta el mètode escriu()
+    # ✅
     elif instruccio == 'llista_patrons' or instruccio == 'lp':
         print("#",instruccio,sep='')
 
@@ -170,7 +170,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
-    # ❌, ens falta el mètode decodifica() i valid()
+    # ✅
     elif instruccio == 'decodifica_amb_reixeta' or instruccio == 'dr':
         idreix   = int(item())                                      # llegim l'identificador de la reixeta a utilitzar
         print("#",instruccio," ",idreix,sep='')                     # imprimim la instrucció i l'identificador de la reixeta
