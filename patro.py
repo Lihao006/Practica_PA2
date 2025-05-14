@@ -112,6 +112,7 @@ class Patro(ArbreBinari):
             return arbre
 
 
+
     def _crear_mosaic(self, mida): 
         pass
 
