@@ -71,9 +71,24 @@ class Patro(ArbreBinari):
             # Pas 1: El missatge es transforma en un arbre binari de caràcters el més complet possible
             arbre_missatge = self._trans_missatge_arbre(block)          # transformem el missatge en un arbre binari
 
+            # Pas 2: Un cop copiat el missatge a l'arbre, s'obté un segon arbre, aquesta vegada d'enters, amb la mateixa 
+            # estructura que el primer. Aquest segon arbre es construeix replicant el patró totalment o parcialment 
+            # tantes vegades com sigui necessari, utilitzant fragments tan grans com sigui possible, començant per 
+            # l'arrel. A aquest segon arbre l'anomenem mosaic. 
 
-            # Pas 2: Copiar l'arbre binari i posar el patró a l'arbre binari
-            mosaic = self._crear_mosaic(len(block))
+            arbre_mosaic = self._mosaic(arbre_missatge)             # obtenim el mosaic de l'arbre missatge
+
+
+
+            # Pas 3: Substituïm cada caràcter de l’arbre-missatge pel resultat de sumar-li circularment 
+            # l’enter situat en la seva posició corresponent al mosaic. El text encriptat s’obté desfent la 
+            # transformació del pas 1 a partir d’aquest tercer arbre.
+
+
+
+
+
+
 
 
 
@@ -83,38 +98,54 @@ class Patro(ArbreBinari):
 
 
 
-    
+    # Función privat per transformar el missatge en un arbre binari
     def _trans_missatge_arbre(self, missatge): 
 
-        nodes = [None] + list(missatge)              # llista on la primera posició és None, per tal de poder aplicar la idea del Heap
-                                                     # 2k ==> fill esquerre i 2k+1 ==> fill dret
-
-        arbre = ArbreBinari()                        # creem un arbre binari buit
-
-        if len(nodes) > 1: 
-
-            arbre.modificar_valor_arrel(nodes[1])    # l'element a l'índex 1 de la llista 'nodes' serà l'arrel de l'arbre
-
-            for k in range(1, len(nodes)):             
-
-                fill_esq = 2*k
-                fill_dre = 2*k + 1
-
-                if fill_esq < len(nodes): 
-                    subarbre_esq = ArbreBinari(nodes[fill_esq])
-                    arbre.modificar_fill_esq(subarbre_esq)
+        # ** Cas base ** 
+        if not missatge: 
+            return ArbreBinari()
 
 
-                if fill_dre < len(nodes): 
-                    subarbre_dre = ArbreBinari(nodes[fill_dre])
-                    arbre.modificar_fill_dre(subarbre_dre)
+        caracters = [None] + list(missatge)         # llista on la primera posició és None, per tal de poder aplicar la idea del Heap
+                                                    # 2k ==> fill esquerre i 2k+1 ==> fill dret
 
-            return arbre
+
+        # Funció auxiliar que ens permet crear l'arbre binari
+        def f(index, n): 
+
+            if index >= n: 
+                return ArbreBinari()
+
+            left = f(2*index, n)
+            right = f((2*index) + 1, n)
+            return ArbreBinari(caracters[index], left, right)
+
+        return f(1, len(caracters))
 
 
 
-    def _crear_mosaic(self, mida): 
-        pass
+    # Funció privat que copiar l'arbre binari que hem obtingut de la transformació del missatge
+    def _copia(self):
+
+        # ** Cas base **
+        if self.buit(): 
+            return ArbreBinari()
+        
+
+        # ** Cas recursiu **
+        else: 
+
+            left = self.fill_esq()._copia()
+            right = self.fill_dre()._copia()
+            return ArbreBinari(self._valor_arrel(), left, right)
+
+
+
+    def _mosaic(self, arbre_missatge): 
+
+
+        mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
+
 
 
 
