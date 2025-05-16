@@ -85,6 +85,8 @@ class Patro(ArbreBinari):
             # transformació del pas 1 a partir d’aquest tercer arbre.
 
 
+
+
         # Retornem el missatge codificat
         return missatge_codificat
 
@@ -137,7 +139,7 @@ class Patro(ArbreBinari):
 
 
         mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
-
+        
 
 
 
