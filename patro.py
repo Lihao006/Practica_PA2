@@ -169,12 +169,12 @@ class Patro(ArbreBinari):
     def mod_mosaic(self, mosaic):
         mosaic.modificar_valor_arrel(self.valor_arrel())
         if self.fill_esq().buit():
-            mosaic.mod_mosaic(mosaic.fill_esq())
+            self.mod_mosaic(mosaic.fill_esq())
         elif not self.fill_esq().buit() and not mosaic.fill_esq().buit(): 
             mosaic.modificar_fill_esq(self.fill_esq())
 
         if self.fill_dre().buit():
-            mosaic.mod_mosaic(mosaic.fill_dre())
+            self.mod_mosaic(mosaic.fill_dre())
         elif not self.fill_dre().buit() and not mosaic.fill_dre().buit():
             mosaic.modificar_fill_dre(self.fill_dre())
         return mosaic
