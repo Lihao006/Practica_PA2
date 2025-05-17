@@ -152,14 +152,44 @@ class Patro(ArbreBinari):
     # Funció privat per posar el patró en l'arbre binari que conté el missatge
     def _mosaic(self, arbre_missatge): 
 
-        mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
+        """
+        mosaic = Patro()
+        if arbre_missatge.buit():
+            return mosaic
+        elif arbre_missatge.fulla():
+            mosaic.modificar_valor_arrel(self.valor_arrel())
+            return mosaic
+        else: # Si no esta buida ni es una fulla, llavors te fills
+            if not self.fill_esq().buit():
+
+            elif self.fill_esq().buit():
+                mosaic.modificar_fill_esq()
+
+            if self.fill_dre().buit():
+                
+            elif self.fill_dre().buit():
+                mosaic.modificar_fill_dre()
+        """
+        # mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
+
+    def mod_mosaic(self, mosaic):
+        mosaic.modificar_valor_arrel(self.valor_arrel())
+        if self.fill_esq().buit() and not mosaic.fill_esq().buit():
+            self.mod_mosaic(mosaic.fill_esq())
+        elif not self.fill_esq().buit() and not mosaic.fill_esq().buit(): 
+            mosaic.modificar_fill_esq(self.fill_esq())
+
+        if self.fill_dre().buit() and not mosaic.fill_dre().buit():
+            self.mod_mosaic(mosaic.fill_dre())
+        elif not self.fill_dre().buit() and not mosaic.fill_dre().buit():
+            mosaic.modificar_fill_dre(self.fill_dre())
+        return mosaic
         
-        pass
 
 
 
     # Funció privat per fer la suma circular
-    def _suma_circular(self, arbre_missatge, arbre_mosaic): 
+    def _suma_circular(self, arbre_missatge, arbre_mosaic, d, c): 
 
         # Obtenim 
         # 32 + (ord(c) + d – 32) % 95
