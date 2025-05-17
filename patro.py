@@ -254,7 +254,7 @@ class Patro(ArbreBinari):
         return arbre
 
 
-
+    # Esta no la he utilizado
     # Funció privat per fer la suma circular
     def _suma_circular(self, arbre_missatge, arbre_mosaic, d, c): 
 
