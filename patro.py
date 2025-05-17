@@ -164,7 +164,7 @@ class Patro(ArbreBinari):
             elif self.fill_dre().buit():
                 mosaic.modificar_fill_dre()
         """
-        # mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
+        mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
 
     def mod_mosaic(self, mosaic):
         mosaic.modificar_valor_arrel(self.valor_arrel())
