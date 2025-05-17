@@ -31,6 +31,8 @@ class Patro(ArbreBinari):
     def escriu(self):
         return self.escriu_b()
 
+
+
     def escriu_b(self, primer_cop=True):
 
         # ** Cas base **: si l'arbre binari és buit, imprimim ()
@@ -40,13 +42,17 @@ class Patro(ArbreBinari):
         else:
             # ** Cas recursiu 1 **
             print("(", end="")                         # imprimim (
-            print(self.valor_arrel(), end="")           # imprimim l'arrel
-            self.fill_esq().escriu_b(False)                 # imprimim el fill esquerre de l'arrel
-            self.fill_dre().escriu_b(False)                    # imprimim el fill dret de l'arrel                  
+            print(self.valor_arrel(), end="")          # imprimim l'arrel
+            self.fill_esq().escriu_b(False)            # imprimim el fill esquerre de l'arrel
+            self.fill_dre().escriu_b(False)            # imprimim el fill dret de l'arrel                  
+            
             if primer_cop:
-                print(")")                     # imprimim ) saltant de linia
+                print(")")                             # imprimim ) saltant de linia
+            
             else:               
                 print(")", end="")                     # imprimim ) sense saltar de linia
+
+
 
     def codifica(self, missatge, b): 
 
