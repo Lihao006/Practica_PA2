@@ -219,6 +219,7 @@ class Patro(ArbreBinari):
         # Anem modificant l'arbre copiat per convertir-lo en el mosaic
         # Comencant des de l'arrel de l'arbre
         # Fem una copia del patro per poder fer reset en qualsevol moment de la recursio 
+        # Com que la codificacio i decodificacio fan el mateix proces, aprofitem aquesta funcio
         if instr == "codifica":
             arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
         elif instr == "decodifica":
