@@ -6,7 +6,7 @@ class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
     def __init__(self, valor=None, fill_esq=None, fill_dre=None): 
         super().__init__(valor, fill_esq, fill_dre)
-        # inicialitzem una llista dels valors llegits per facilitar la funcio escriu()
+
 
     def llegeix(self):
 
