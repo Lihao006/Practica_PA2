@@ -9,7 +9,6 @@ class Reixeta():
         self._k = k                     # k: nombre de forats
         self._forats = []               # llista per guardar les posicions inicials dels forats
         self._forats_rotacions = []     # llista on guardarem les 4 rotacions
-        self._matriu = None             # matriu de referència als forats de la reixeta
 
 
     
@@ -41,7 +40,7 @@ class Reixeta():
         self._k = int(item())           # Llegim el nombre de forats k
 
         # -2: comprovem si les dimensions són correctes (k és igual a n^2/4)
-        if self.valor_k() != (self.valor_n() * self.valor_n()) / 4:
+        if self.valor_k() != (self.valor_n() * self.valor_n()) // 4:
             return -2
 
         #Es compleix k = n^2/4)
@@ -51,10 +50,6 @@ class Reixeta():
             j = int(item())
             self._forats.append((i, j))
 
-        # Comprovem si hi ha duplicats o no
-        if len(set(self.lst_forats())) != self.valor_k(): 
-            return -1
-        
 
         forats_rotacions = [[] for _ in range(4)]       # guardarem les 4 rotacions
 
@@ -102,7 +97,7 @@ class Reixeta():
 
         for rotacio in self._forats_rotacions: 
 
-            print(" ".join(f"({i},{j})") for i, j in rotacio)
+            print(" ".join(f"({i},{j})" for i, j in rotacio))
 
 
 
@@ -117,35 +112,32 @@ class Reixeta():
         # Obtenim cada missatge de blocks
         for block in blocks: 
 
-            i = 0
-
             # Reomplim el bloc abans d'encriptar si i només si no es completa amb caràcters del text
             block = block + ' ' * (block_size - len(block)) if len(block) < block_size else block
 
 
             # Creem una matriu buida de None
-            matriu_buida = [[None for _ in range(self.valor_n())] for _ in range(self.valor_n())]
+            matriu = [[' ' for _ in range(self.valor_n())] for _ in range(self.valor_n())]
 
             # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
             # dels forats comencem per 1). 
             lletra = 0
 
             # Obtinc les posicions dels forats de cada rotació/gir
-            for forat in self._forats_rotacions: 
+            for rotacio in self._forats_rotacions: 
 
                 # Obtinc la fila 'i' i la columna 'j'
-                for i,j in forat: 
+                for i,j in rotacio: 
 
                     if lletra < len(block): 
-                        matriu_buida[i-1][j-1] = block[lletra]
-                    
+                        matriu[i-1][j-1] = block[lletra]
                         lletra += 1
 
 
             # Recorrem la matriu per retornar el missatge codificat
             bloc_codificat = ""
 
-            for fila in matriu_buida: 
+            for fila in matriu: 
                 bloc_codificat += "".join(fila)
 
             missatge_codificat += bloc_codificat
@@ -170,7 +162,7 @@ class Reixeta():
 
         # Nosaltres iterarem per cada fila.
         # Creem una llista buida de None de mida n*n per anar guardant el missatge original.
-        missatge_orig = ""
+        '''missatge_orig = ""
 
 
         for forats in self._forats_rotacions:
@@ -178,7 +170,49 @@ class Reixeta():
                 i,j = forat
                 missatge_orig += missatge[(i-1)*self.valor_n() + j-1]
         
-        return missatge_orig
+        return missatge_orig'''
+
+
+        # Mitjançant blocs: 
+
+                # codifiquem el 'missatge'
+
+        block_size = self.valor_n() * self.valor_n()
+        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
+        missatge_original = ''
+
+        # Obtenim cada missatge de blocks
+        for block in blocks: 
+
+            # Reomplim el bloc abans d'encriptar si i només si no es completa amb caràcters del text
+            block = block + ' ' * (block_size - len(block)) if len(block) < block_size else block
+
+
+            # Creem una matriu buida de None
+            matriu = [[' ' for _ in range(self.valor_n())] for _ in range(self.valor_n())]
+
+            # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
+            # dels forats comencem per 1). 
+            idx = 0
+
+            # Obtinc la fila 'i' i la columna 'j'
+            for i in range(self._n): 
+                for j in range(self._n): 
+                    matriu[i][j] = block[idx]
+                    idx += 1
+
+            bloc_original = ''
+
+            # Obtinc les posicions dels forats de cada rotació/gir
+            for rotacio in self._forats_rotacions: 
+                for i,j in rotacio: 
+                    bloc_original += matriu[i-1][j-1]
+
+            missatge_original += bloc_original
+
+
+        # Retornem el missatge original (descodificat)
+        return missatge_original
     
 
 
@@ -190,6 +224,5 @@ class Reixeta():
         missatge: llegeixo una línia de text: Missatge xifrat
         '''
 
-        # He de verificar que la valor_k del missatge és adeqüada per a la reixeta
         # Ha de retornar un booleà
-        return ((len(missatge) % (self._valor_k() * self._valor_k())) == 0)
+        return ((len(missatge) % (self.valor_n() * self.valor_n())) == 0)

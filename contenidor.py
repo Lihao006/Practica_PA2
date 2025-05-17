@@ -52,7 +52,7 @@ class Contenidor:
         # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
         # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
 
-        return iter(self._elements.items())
+        return iter(sorted(self._elements.items(), key=lambda x: x[0]))
 
 
 
@@ -81,8 +81,7 @@ class Missatges(Contenidor):
     def esborra_missatge(self, ident): 
 
         # missatges.esborra_missatge(ident): eliminem el missatge amb l'identificador 'ident'
-        if ident in self._elements: 
-            del self._elements[ident]
+        del self._elements[ident]
 
 
 
