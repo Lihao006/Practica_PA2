@@ -4,6 +4,9 @@ from arbre_binari_amb_nodes import ArbreBinari
 
 class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
+    def __init__(self, valor=None, fill_esq=None, fill_dre=None): 
+        super().__init__(valor, fill_esq, fill_dre)
+        # inicialitzem una llista dels valors llegits per facilitar la funcio escriu()
 
     def llegeix(self):
 
@@ -25,27 +28,25 @@ class Patro(ArbreBinari):
             # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldra fer res
 
 
+    def escriu(self):
+        return self.escriu_b()
 
-    def escriu(self): 
-        # Per fer-ho mes facil, utilitzem un altre metode amb un parametre adicional que indiqui quan ha de imprimir l'ultim )
-        return self.escriu_b(True)
-    
+    def escriu_b(self, primer_cop=True):
 
-    def escriu_b(self, primer_cop):
         # ** Cas base **: si l'arbre binari és buit, imprimim ()
         if self.buit(): 
                 print("()", end="")
+        
         else:
-            # ** Cas recursiu **
+            # ** Cas recursiu 1 **
             print("(", end="")                         # imprimim (
             print(self.valor_arrel(), end="")           # imprimim l'arrel
             self.fill_esq().escriu_b(False)                 # imprimim el fill esquerre de l'arrel
             self.fill_dre().escriu_b(False)                    # imprimim el fill dret de l'arrel                  
             if primer_cop:
-                print(")")                             # imprimim l'ultim ) saltant la linia
-            else:
+                print(")")                     # imprimim ) saltant de linia
+            else:               
                 print(")", end="")                     # imprimim ) sense saltar de linia
-
 
     def codifica(self, missatge, b): 
 
@@ -155,7 +156,7 @@ class Patro(ArbreBinari):
     def _suma_circular(self, arbre_missatge, arbre_mosaic): 
 
         # Obtenim 
-        32 + (ord(c) + d – 32) % 95
+        # 32 + (ord(c) + d – 32) % 95
         pass
 
 
