@@ -149,6 +149,8 @@ class Patro(ArbreBinari):
 
 
 
+
+
     def decodifica(self, missatge, b):
 
         # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
