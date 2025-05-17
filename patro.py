@@ -15,12 +15,15 @@ class Patro(ArbreBinari):
         x = int(item())
 
         if x != -1: 
-            l = self.llegeix()                      # obtenim el fill esquerre
-            r = self.llegeix()                      # obtenim el fill dret
-            return ArbreBinari(x,l,r)               # construïm l'arbre amb l'arrel 'x', fill esquerre 'l' i fill dret 'r'
-
-        else:
-            return ArbreBinari()                    # retornem l'Arbre buit
+            l = Patro()
+            l.llegeix()                      # obtenim el fill esquerre
+            r = Patro()
+            r.llegeix()                      # obtenim el fill dret             
+            # modifiquem aquest patro amb l'arrel 'x', fill esquerre 'l' i fill dret 'r'
+            self.modificar_valor_arrel(x)
+            self.modificar_fill_esq(l)
+            self.modificar_fill_dre(r)
+            # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldrà fer res
 
 
 
@@ -28,16 +31,15 @@ class Patro(ArbreBinari):
         
         # ** Cas base **: si l'arbre binari és buit, imprimim ()
         if self.buit(): 
-            print(f"()", end="")
+            print("()", end="")
 
         # ** Cas recursiu **
         else: 
-            print(f"(", end="")                         # imprimim (
+            print("(", end="")                         # imprimim (
             print(self.valor_arrel(), end="")           # imprimim l'arrel
             self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
             self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
-            print(f")", end="")                         # imprimim )
-
+            print(")", end="")                         # imprimim )
 
 
 
