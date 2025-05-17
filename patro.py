@@ -5,13 +5,12 @@ from arbre_binari_amb_nodes import ArbreBinari
 class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
 
-
     def llegeix(self):
 
-        # Construeix l'arbre binari de l'objecte Patro a partir d'una seqüència en preordre
+        # Construeix l'arbre binari de l'objecte Patro a partir d'una sequencia en preordre
         # self: Instància de la classe Patro (per exemple, p a program.py)
         
-        # Llegeix el següent valor de la seqüència en preordre amb item() 
+        # Llegeix el següent valor de la sequencia en preordre amb item() 
         x = int(item())
 
         if x != -1: 
@@ -23,24 +22,27 @@ class Patro(ArbreBinari):
             self.modificar_valor_arrel(x)
             self.modificar_fill_esq(l)
             self.modificar_fill_dre(r)
-            # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldrà fer res
+            # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldra fer res
 
 
 
     def escriu(self): 
-        
         # ** Cas base **: si l'arbre binari és buit, imprimim ()
-        if self.buit(): 
-            print("()", end="")
+        def escriu_aux(primer_cop):
+            if self.buit(): 
+                print("()", end="")
+            else:
+                # ** Cas recursiu **
+                print("(", end="")                         # imprimim (
+                print(self.valor_arrel(), end="")           # imprimim l'arrel
+                self.fill_esq().escriu()(False)                  # imprimim el fill esquerre de l'arrel
+                self.fill_dre().escriu()(False)                    # imprimim el fill dret de l'arrel                  
+                if primer_cop == 0:
+                    print(")")                             # imprimim l'ultim ) saltant la linia
+                else:
+                    print(")", end="")                     # imprimim ) sense saltar de linia
 
-        # ** Cas recursiu **
-        else: 
-            print("(", end="")                         # imprimim (
-            print(self.valor_arrel(), end="")           # imprimim l'arrel
-            self.fill_esq().escriu()                    # imprimim el fill esquerre de l'arrel
-            self.fill_dre().escriu()                    # imprimim el fill dret de l'arrel
-            print(")", end="")                         # imprimim )
-
+        return escriu_aux(0)
 
 
     def codifica(self, missatge, b): 
@@ -99,7 +101,7 @@ class Patro(ArbreBinari):
 
         # ** Cas base ** 
         if not missatge: 
-            return ArbreBinari()
+            return Patro()
 
 
         caracters = [None] + list(missatge)         # llista on la primera posició és None, per tal de poder aplicar la idea del Heap
@@ -110,11 +112,11 @@ class Patro(ArbreBinari):
         def f(index, n): 
 
             if index >= n: 
-                return ArbreBinari()
+                return Patro()
 
             left = f(2*index, n)
             right = f((2*index) + 1, n)
-            return ArbreBinari(caracters[index], left, right)
+            return Patro(caracters[index], left, right)
 
         return f(1, len(caracters))
 
@@ -126,7 +128,7 @@ class Patro(ArbreBinari):
 
         # ** Cas base **
         if self.buit(): 
-            return ArbreBinari()
+            return Patro()
         
 
         # ** Cas recursiu **
@@ -134,7 +136,7 @@ class Patro(ArbreBinari):
 
             left = self.fill_esq()._copia()
             right = self.fill_dre()._copia()
-            return ArbreBinari(self.valor_arrel(), left, right)
+            return Patro(self.valor_arrel(), left, right)
 
 
 
