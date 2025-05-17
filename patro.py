@@ -167,18 +167,40 @@ class Patro(ArbreBinari):
         mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
 
     def mod_mosaic(self, mosaic):
+        # Suposem que el mosaic no es buit
+        # Anem modificant l'arbre copiat per convertir-lo en el mosaic
+        # Comencant des de l'arrel de l'arbre
         mosaic.modificar_valor_arrel(self.valor_arrel())
-        if self.fill_esq().buit() and not mosaic.fill_esq().buit():
-            self.mod_mosaic(mosaic.fill_esq())
-        elif not self.fill_esq().buit() and not mosaic.fill_esq().buit(): 
-            mosaic.modificar_fill_esq(self.fill_esq())
+        
+        # Si aquest node de l'arbre te fill esquerre
+        if not mosaic.fill_esq().buit():
+            # pero el node del patro no, llavors comencem de nou des de l'arrel del patro, 
+            # evaluant en el fill esquerre d'aquest node de l'arbre.
+            if self.fill_esq().buit():
+                self.mod_mosaic(mosaic.fill_esq())
+            # si el node del patro tambe te fill esquerre, llavors perfecte, 
+            # cridem recursivament la funcio per avaluar el fill esquerre de l'arbre
+            # amb el fill esquerre del patro.
+            elif not self.fill_esq().buit(): 
+                self.fill_esq.mod_mosaic(mosaic.fill_esq())
 
-        if self.fill_dre().buit() and not mosaic.fill_dre().buit():
-            self.mod_mosaic(mosaic.fill_dre())
-        elif not self.fill_dre().buit() and not mosaic.fill_dre().buit():
-            mosaic.modificar_fill_dre(self.fill_dre())
+        # Analogament, si el node de l'arbre te fill dret
+        if not mosaic.fill_dre().buit():
+            # pero el node del patro no, llavors comencem de nou des de l'arrel del patro, 
+            # evaluant en el fill dret d'aquest node de l'arbre.
+            if self.fill_dre().buit():
+                self.mod_mosaic(mosaic.fill_dre())
+            # si el node del patro tambe te fill dret, llavors perfecte, 
+            # cridem recursivament la funcio per avaluar el fill dret de l'arbre
+            # amb el fill dret del patro.
+            elif not self.fill_dre().buit():
+                self.fill_dre.mod_mosaic(mosaic.fill_dre())
+
+        # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
+        # no hi ha mes espai per posar el patro.
         return mosaic
         
+    def 
 
 
 
