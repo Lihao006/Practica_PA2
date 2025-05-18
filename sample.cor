@@ -1,4 +1,4 @@
-#llista_missatges (l'ordre de la sortida ha de coincidir amb l'ordre d'entrada quan afegim els missatges a program.py)
+#llista_missatges
 Itaca_1
 "Quan surts per fer el viatge cap a Itaca"
 Qualsevol_nit_1
@@ -19,35 +19,28 @@ Resistire_3
 "Cuando se me cierren las salidas."
 Resistire_4
 "Y la noche no me deje en paz."
-
-
 #llista_reixetes
-Reixeta 1: 
+Reixeta 1:
 4 4
-(1,3) (2,4) (3,2) (4,1)             # Posicions forats originals
-(1,2) (2,1) (3,3) (4,4)             # Posicions forats després de 90 graus (antihorari)
-(1,4) (2,3) (3,1) (4,2)             # Posicions forats després de 180 graus
-(1,1) (2,2) (3,4) (4,3)             # Posicions forats després de 270 graus
+(1,3) (2,4) (3,2) (4,1) 
+(1,2) (2,1) (3,3) (4,4) 
+(1,4) (2,3) (3,1) (4,2) 
+(1,1) (2,2) (3,4) (4,3) 
 Reixeta 2:
 6 9
 (1,3) (1,5) (2,4) (3,1) (4,2) (4,4) (5,1) (5,5) (6,6) 
 (1,6) (2,1) (2,5) (3,2) (3,4) (4,1) (5,4) (6,3) (6,5) 
 (1,1) (2,2) (2,6) (3,3) (3,5) (4,6) (5,3) (6,2) (6,4) 
-(1,2) (1,4) (2,3) (3,6) (4,3) (4,5) (5,2) (5,6) (6,1)
-
-
-
+(1,2) (1,4) (2,3) (3,6) (4,3) (4,5) (5,2) (5,6) (6,1) 
 #llista_patrons
 Patró 1:
-(7(0()(12()()))())              # sortida de p.escriu()
+(7(0()(12()()))())
 Patró 2:
 (94(31()())(63()()))
-
-
 #nou_missatge Resistire_1
 error: ja existeix un missatge amb aquest identificador
 #nou_missatge Let_it_be_1
-11                                  # sortida print(num), sent num = missatges.mida()
+11
 #nm Let_it_be_2
 12
 #nou_missatge vie_en_rose_1
@@ -58,32 +51,24 @@ error: ja existeix un missatge amb aquest identificador
 15
 #nou_missatge Hotel_California_5
 16
-
-
 #nova_reixeta
 error: dimensions incorrectes de la reixeta
 #nr
 error: la reixeta amb els seus girs no cobreix totes les posicions
 #nova_reixeta
-3                       # sortida print(num++1), d'on num = reixetes.mida()
+3
 #nr
 4
-
-
 #nou_patro
-3                       # sortida print(num+1), d'on num = patrons.mida()
+3
 #np
 4
-
-
 #esborra_missatge Resistire_1
-15                                          # sortida print(num), d'on num = missatges.mida()
+15
 #esborra_missatge vie_en_rose
 error: el missatge no existeix
 #em vie_en_rose_2
 14
-
-
 #lm
 Hotel_California_5
 "So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say..."
@@ -113,8 +98,6 @@ vie_en_rose_1
 "Quand il me prend dans ses bras"
 vie_en_rose_3
 "Je vois la vie en rose"
-
-
 #lr
 Reixeta 1:
 4 4
@@ -140,8 +123,6 @@ Reixeta 4:
 (1,3) (1,4) (2,2) (2,3) (2,4) (4,4) (5,1) (6,1) (6,2) 
 (3,1) (3,2) (3,4) (4,1) (4,2) (5,2) (5,6) (6,5) (6,6) 
 (1,5) (1,6) (2,6) (3,3) (5,3) (5,4) (5,5) (6,3) (6,4) 
-
-
 #lp
 Patró 1:
 (7(0()(12()()))())
@@ -151,22 +132,18 @@ Patró 3:
 (1(2(4()())())(3()(5()())))
 Patró 4:
 (22(88(77(55()())())())())
-
-
 #codifica_amb_reixeta 1
 " ,Hi qgoolaua,em ?     t a  l   "
 #codifica_amb_reixeta 5
 error: la reixeta no existeix
 #cr 2
 "a H ogol l,?a  q  u,    a  em     ti"
-
-
 #codifica_amb_reixeta_guardat Let_it_be_1 4
 "Whnd oe mynf i n I t sfieitromlfubesler   ,Mar  me sMo ttyhe o    co  me"
 #crg Let_it_be_3 1
 error: el missatge no existeix
 #crg vie_en_rose_1 3
-"dQ u pmrialnee nnds ersa dsa sb "                  # sortida print('"',m,'"',sep=''), d'on m = r.codifica(missatge)
+"dQ u pmrialnee nnds ersa dsa sb "
 #crg vie_en_rose_1 0
 error: la reixeta no existeix
 #codifica_amb_reixeta_guardat Qualsevol_nit_1 4
@@ -183,10 +160,8 @@ error: la reixeta no existeix
 "Soed "  upIP Cla cpta lltaeasihee n,brmy "i winW Heeg  smne ea hai".ved,n'hanctt s et  hhaerdp tienin rietsiee nthnine onds sistx"ty.ie vl Aoil cealayslin ,om  arfaeg c rwak fre awyo t nuhe  ileg upof mini ht,tdd jheusar  t th  ay .to.. ehem      s    "
 #crg Hotel_California_5 1
 "u Slcpeod a I tl"ahipPne, tlC ea bagrm smeiy e ni"we.d isn ,ea Hhh"naa'Wtevd   eh trseihtaprt eiec ieensei nnt n ysn Aei"xnnt.di l hlvosst oieitiaccrnaelseg l  y f f,arwoa mawrnyauo pk eut ih tde dho fmlei  ettnu,ositg  h hj.te h.saare. y m"
-
-
 #decodifica_amb_reixeta 4
-"When I find myself in times of trouble, Mother Mary comes to me         "              # sortida print('"',m,'"',sep=''), sent m = r.decodifica(missatge)
+"When I find myself in times of trouble, Mother Mary comes to me         "
 #decodifica_amb_reixeta 2
 "Hola, amigo, que tal?               "
 #dr 6
@@ -199,20 +174,16 @@ error: la mida del missatge és inadeqüada per a la reixeta
 "Fa una nit clara i tranquila,   "
 #dr 1
 "So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say... "
-
-
 #codifica_amb_patro 2 15
-"@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"             # sortida print(('"',m,'"',sep='')), sent m = p.codifica(missatge,b)
+"@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"
 #cp 0 15
 error: el patró no existeix
 #cp 3 20
 "bodrfdj!nc*u#ufostdrp"
 #cp 4 32
 "%h6[&k{Wxewy6[#wBxxZw46F&x$])^6[#ZBmxewc6[#OQx%&6f&`{xxDw%6P#ZBxxew"
-
-
 #codifica_amb_patro_guardat Resistire_2 1 31
-"Juhupo'd|lytm jvz sa'svllkhk:"                                     # sortida print('"',mx,'"',sep=''), sent mx = p.codifica(m,b)
+"Juhupo'd|lytm jvz sa'svllkhk:"
 #codifica_amb_patro_guardat Let_it_be_2 5 10
 error: el patró no existeix
 #cpg Hotel_California_5 4 64
@@ -225,10 +196,8 @@ error: el missatge no existeix
 "c%_b/Ln2S~)_c%_o%Re5MrM"
 #cpg Let_it_be_1 3 7
 "Xjhr!J%gkqh!n~tgoj!js!vlqft%ph#xspzcnh0!Ntujhv!Nfs{#gpnjt"ws!nj"
-
-
 #decodifica_amb_patro 3 20
-"amanece ma's temprano"                             # sortida print('"',m,'"',sep=''), sent m = p.decodifica(missatge,b)
+"amanece ma's temprano"
 #decodifica_amb_patro 20 3
 error: el patró no existeix
 #dp 2 3
