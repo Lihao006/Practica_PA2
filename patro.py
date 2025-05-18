@@ -242,6 +242,7 @@ class Patro(ArbreBinari):
             elif not self.fill_esq().buit(): 
                 self.fill_esq()._modificar(arbre.fill_esq(), patro, instr)
 
+
         # Analogament, si el node de l'arbre te fill dret
         if not arbre.fill_dre().buit():
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
