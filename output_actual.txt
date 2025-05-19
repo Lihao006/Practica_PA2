@@ -1,0 +1,177 @@
+#llista_missatges
+Itaca_1
+"Quan surts per fer el viatge cap a Itaca"
+Qualsevol_nit_1
+"Fa una nit clara i tranquila,"
+Qualsevol_nit_2
+"hi ha la lluna que fa llum,"
+Qualsevol_nit_3
+"els convidats van arribant"
+Qualsevol_nit_4
+"i van omplint tota la casa"
+Qualsevol_nit_5
+"de colors i de perfums."
+Resistire_1
+"Cuando pierda todas las partidas."
+Resistire_2
+"Cuando duerma con la soledad."
+Resistire_3
+"Cuando se me cierren las salidas."
+Resistire_4
+"Y la noche no me deje en paz."
+#llista_reixetes
+Reixeta 1:
+4 4
+(1,3) (2,4) (3,2) (4,1)
+(1,2) (2,1) (3,3) (4,4)
+(1,4) (2,3) (3,1) (4,2)
+(1,1) (2,2) (3,4) (4,3)
+Reixeta 2:
+6 9
+(1,3) (1,5) (2,4) (3,1) (4,2) (4,4) (5,1) (5,5) (6,6)
+(1,6) (2,1) (2,5) (3,2) (3,4) (4,1) (5,4) (6,3) (6,5)
+(1,1) (2,2) (2,6) (3,3) (3,5) (4,6) (5,3) (6,2) (6,4)
+(1,2) (1,4) (2,3) (3,6) (4,3) (4,5) (5,2) (5,6) (6,1)
+#llista_patrons
+Patró 1:
+(7(0()(12()()))())
+Patró 2:
+(94(31()())(63()()))
+#nou_missatge Resistire_1
+error: ja existeix un missatge amb aquest identificador
+#nou_missatge Let_it_be_1
+11
+#nm Let_it_be_2
+12
+#nou_missatge vie_en_rose_1
+13
+#nm vie_en_rose_2
+14
+#nm vie_en_rose_3
+15
+#nou_missatge Hotel_California_5
+16
+#nova_reixeta
+error: dimensions incorrectes de la reixeta
+#nr
+error: la reixeta amb els seus girs no cobreix totes les posicions
+#nova_reixeta
+3
+#nr
+4
+#nou_patro
+3
+#np
+4
+#esborra_missatge Resistire_1
+15
+#esborra_missatge vie_en_rose
+error: el missatge no existeix
+#em vie_en_rose_2
+14
+#lm
+Hotel_California_5
+"So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say..."
+Itaca_1
+"Quan surts per fer el viatge cap a Itaca"
+Let_it_be_1
+"When I find myself in times of trouble, Mother Mary comes to me"
+Let_it_be_2
+"Speaking words of wisdom, let it be."
+Qualsevol_nit_1
+"Fa una nit clara i tranquila,"
+Qualsevol_nit_2
+"hi ha la lluna que fa llum,"
+Qualsevol_nit_3
+"els convidats van arribant"
+Qualsevol_nit_4
+"i van omplint tota la casa"
+Qualsevol_nit_5
+"de colors i de perfums."
+Resistire_2
+"Cuando duerma con la soledad."
+Resistire_3
+"Cuando se me cierren las salidas."
+Resistire_4
+"Y la noche no me deje en paz."
+vie_en_rose_1
+"Quand il me prend dans ses bras"
+vie_en_rose_3
+"Je vois la vie en rose"
+#lr
+Reixeta 1:
+4 4
+(1,3) (2,4) (3,2) (4,1)
+(1,2) (2,1) (3,3) (4,4)
+(1,4) (2,3) (3,1) (4,2)
+(1,1) (2,2) (3,4) (4,3)
+Reixeta 2:
+6 9
+(1,3) (1,5) (2,4) (3,1) (4,2) (4,4) (5,1) (5,5) (6,6)
+(1,6) (2,1) (2,5) (3,2) (3,4) (4,1) (5,4) (6,3) (6,5)
+(1,1) (2,2) (2,6) (3,3) (3,5) (4,6) (5,3) (6,2) (6,4)
+(1,2) (1,4) (2,3) (3,6) (4,3) (4,5) (5,2) (5,6) (6,1)
+Reixeta 3:
+4 4
+(1,2) (1,4) (3,2) (3,4)
+(1,1) (1,3) (3,1) (3,3)
+(2,1) (2,3) (4,1) (4,3)
+(2,2) (2,4) (4,2) (4,4)
+Reixeta 4:
+6 9
+(1,1) (1,2) (2,1) (2,5) (3,5) (3,6) (4,3) (4,5) (4,6)
+(1,3) (1,4) (2,2) (2,3) (2,4) (4,4) (5,1) (6,1) (6,2)
+(3,1) (3,2) (3,4) (4,1) (4,2) (5,2) (5,6) (6,5) (6,6)
+(1,5) (1,6) (2,6) (3,3) (5,3) (5,4) (5,5) (6,3) (6,4)
+#lp
+Patró 1:
+(7(0()(12()()))())
+Patró 2:
+(94(31()())(63()()))
+Patró 3:
+(1(2(4()())())(3()(5()())))
+Patró 4:
+(22(88(77(55()())())())())
+#codifica_amb_reixeta 1
+" ,Hi qgoolaua,em ?     t a  l   "
+#codifica_amb_reixeta 5
+error: la reixeta no existeix
+#cr 2
+"a H ogol l,?a  q  u,    a  em     ti"
+#codifica_amb_reixeta_guardat Let_it_be_1 4
+"Whnd oe mynf i n I t sfieitromlfubesler   ,Mar  me sMo ttyhe o    co  me"
+#crg Let_it_be_3 1
+error: el missatge no existeix
+#crg vie_en_rose_1 3
+"dQ u pmrialnee nnds ersa dsa sb "
+#crg vie_en_rose_1 0
+error: la reixeta no existeix
+#codifica_amb_reixeta_guardat Qualsevol_nit_1 4
+"Fat a, clau  t rnaan rniaq   u i  il"
+#crg Qualsevol_nit_1 1
+"lnFiaata   rucan,r ua iil n ta q"
+#crg Resistire_2 2
+"ldC.uera am nas o cd o l  eod  dna u"
+#crg Resistire_2 3
+"dCouuae  adnrcmo ns e.d ollaa d "
+#crg Itaca_1 2
+" eQ us ecaplne rva  ps iuaafr Itegrt  t a    c  a                       "
+#crg Hotel_California_5 4
+"Soed "  upIP Cla cpta lltaeasihee n,brmy "i winW Heeg  smne ea hai".ved,n'hanctt s et  hhaerdp tienin rietsiee nthnine onds sistx"ty.ie vl Aoil cealayslin ,om  arfaeg c rwak fre awyo t nuhe  ileg upof mini ht,tdd jheusar  t th  ay .to.. ehem      s    "
+#crg Hotel_California_5 1
+"u Slcpeod a I tl"ahipPne, tlC ea bagrm smeiy e ni"we.d isn ,ea Hhh"naa'Wtevd   eh trseihtaprt eiec ieensei nnt n ysn Aei"xnnt.di l hlvosst oieitiaccrnaelseg l  y f f,arwoa mawrnyauo pk eut ih tde dho fmlei  ettnu,ositg  h hj.te h.saare. y m"
+#decodifica_amb_reixeta 4
+"When I find myself in times of trouble, Mother Mary comes to me         "
+#decodifica_amb_reixeta 2
+"Hola, amigo, que tal?               "
+#dr 6
+error: la reixeta no existeix
+#dr 3
+error: la mida del missatge és inadeqüada per a la reixeta
+#dr 3
+"Cuando duerma con la soledad.   "
+#dr 1
+"Fa una nit clara i tranquila,   "
+#dr 1
+"So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say... "
+#codifica_amb_patro 2 15
