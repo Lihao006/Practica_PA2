@@ -214,7 +214,7 @@ class Patro(ArbreBinari):
         mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
         return self.modificar(mosaic, self.patro(), instr) 
 
-    def modificar(self, arbre, patro, instr="codifica"):
+    def modificar(self, arbre, patro, instr):
         # Suposem que el mosaic no es buit
         # Anem modificant l'arbre copiat per convertir-lo en el mosaic
         # Comencant des de l'arrel de l'arbre
