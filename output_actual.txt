@@ -175,3 +175,36 @@ error: la mida del missatge és inadeqüada per a la reixeta
 #dr 1
 "So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say... "
 #codifica_amb_patro 2 15
+"@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"
+#cp 0 15
+error: el patró no existeix
+#cp 3 20
+"bodrfdj!nc*u#ufostdrp"
+#cp 4 32
+"%h6[&k{Wxewy6[#wBxxZw46F&x$])^6[#ZBmxewc6[#OQx%&6f&`{xxDw%6P#ZBxxew"
+#codifica_amb_patro_guardat Resistire_2 1 31
+"Juhupo'd|lytm jvz sa'svllkhk:"
+#codifica_amb_patro_guardat Let_it_be_2 5 10
+error: el patró no existeix
+#cpg Hotel_California_5 4 64
+"ih676\wD#^zm,i6+~^61wi+9 gBm8I#^wl{mxk F}x$S6f06.b%S8'6 {x*O ]Bm8P{m~Z-=% +m~Zz6+awb6l'A)b+m~^)^6l \y^6F g{b{^%6*b/b0x%A%^8{6:%R6l+W#e6L~h*S6o& y^*mwk{WyZ#Z g}x|k&[6_wJ6Z.O0%6.wd{m0h,W,i6W%x+V{x$Wz]#=6h|m+a{6%b}V+%6B,l+m+h6a{Z)m+a{E6lwgD'D"
+#cpg Hotel_California_1 4 64
+error: el missatge no existeix
+#cpg Itaca_1 1 23
+"Xuhu,s|r{z'wqr'mqr'es }pa{nq jaw'h'Uthjm"
+#cpg Qualsevol_nit_5 2 3
+"c%_b/Ln2S~)_c%_o%Re5MrM"
+#cpg Let_it_be_1 3 7
+"Xjhr!J%gkqh!n~tgoj!js!vlqft%ph#xspzcnh0!Ntujhv!Nfs{#gpnjt"ws!nj"
+#decodifica_amb_patro 3 20
+"amanece ma's temprano"
+#decodifica_amb_patro 20 3
+error: el patró no existeix
+#dp 2 3
+"de colors i de perfums."
+#dp 1 29
+"Cuando duerma con la soledad."
+#dp 4 32
+"no more bla, bla, bla; no more bla, bla, bla; no more bla, bla, bla"
+#dp 2 15
+"Al despertar Gregorio Samsa una man~ana, tras un suen~o intranquilo, se encontro' en su cama convertido en un monstruoso insecto."
