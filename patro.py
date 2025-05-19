@@ -57,7 +57,7 @@ class Patro(ArbreBinari):
                 print(")", end="")                     # imprimim ) sense saltar de linia
 
 
-    def funcio_DRY(self, missatge, b, instr):
+    def _funcio_DRY(self, missatge, b, instr):
         # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
         # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
 
@@ -102,7 +102,7 @@ class Patro(ArbreBinari):
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
 
-        return self.funcio_DRY(missatge, b, "codifica")
+        return self._funcio_DRY(missatge, b, "codifica")
         """
         # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
         # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
@@ -204,15 +204,15 @@ class Patro(ArbreBinari):
             if not self.fill_esq().buit():
 
             elif self.fill_esq().buit():
-                mosaic.modificar_fill_esq()
+                mosaic._modificar_fill_esq()
 
             if self.fill_dre().buit():
                 
             elif self.fill_dre().buit():
-                mosaic.modificar_fill_dre()
+                mosaic._modificar_fill_dre()
         """
         mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
-        return self.modificar(mosaic, self.patro(), instr) 
+        return self._modificar(mosaic, self.patro(), instr) 
 
     def modificar(self, arbre, patro, instr):
         # Suposem que el mosaic no es buit
@@ -222,53 +222,39 @@ class Patro(ArbreBinari):
         # Com que la codificacio i decodificacio fan el mateix proces, aprofitem aquesta funcio
         if instr == "codifica":
             arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
+        
         elif instr == "decodifica":
             arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
+
 
         # Si aquest node de l'arbre te fill esquerre
         if not arbre.fill_esq().buit():
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill esquerre d'aquest node de l'arbre.
             if self.fill_esq().buit():
-                patro.modificar(arbre.fill_esq(), patro, instr)
+                patro._modificar(arbre.fill_esq(), patro, instr)
             # si el node del patro tambe te fill esquerre, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill esquerre de l'arbre
             # amb el fill esquerre del patro.
             elif not self.fill_esq().buit(): 
-                self.fill_esq().modificar(arbre.fill_esq(), patro, instr)
+                self.fill_esq()._modificar(arbre.fill_esq(), patro, instr)
+
 
         # Analogament, si el node de l'arbre te fill dret
         if not arbre.fill_dre().buit():
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill dret d'aquest node de l'arbre.
             if self.fill_dre().buit():
-                patro.modificar(arbre.fill_dre(), patro, instr)
+                patro._modificar(arbre.fill_dre(), patro, instr)
             # si el node del patro tambe te fill dret, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill dret de l'arbre
             # amb el fill dret del patro.
             elif not self.fill_dre().buit():
-                self.fill_dre().modificar(arbre.fill_dre(), patro, instr)
+                self.fill_dre()._modificar(arbre.fill_dre(), patro, instr)
 
         # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
         # no hi ha mes espai per posar el patro.
         return arbre
-
-
-    # Esta no la he utilizado
-    # Funció privat per fer la suma circular
-    def _suma_circular(self, arbre_missatge, arbre_mosaic, d, c): 
-
-        # Obtenim 
-        # ** Cas base **
-        if arbre_missatge.fulla():
-            return arbre_missatge
-        
-        pass
-
-
-
-
-
 
 
 
@@ -282,4 +268,4 @@ class Patro(ArbreBinari):
         # en blocs de mida 'b' 
         # chr(32 + (ord(c)-d+63)%95)
 
-        return self.funcio_DRY(missatge, b, "decodifica")
+        return self._funcio_DRY(missatge, b, "decodifica")
