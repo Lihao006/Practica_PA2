@@ -230,10 +230,10 @@ class Patro(ArbreBinari):
         # Fem una copia del patro per poder fer reset en qualsevol moment de la recursio 
         # Com que la codificacio i decodificacio fan el mateix proces, aprofitem aquesta funcio
         if instr == "codifica":
-            arbre._modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
+            arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
         
         elif instr == "decodifica":
-            arbre._modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
+            arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
 
 
         # Si aquest node de l'arbre te fill esquerre
