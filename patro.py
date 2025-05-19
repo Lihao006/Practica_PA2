@@ -7,6 +7,7 @@ class Patro(ArbreBinari):
     def __init__(self, valor=None, fill_esq=None, fill_dre=None): 
         super().__init__(valor, fill_esq, fill_dre)
 
+
     # Un getter de si mateix, per facilitar el reset en la codificació
     def patro(self):
         return self
@@ -32,6 +33,7 @@ class Patro(ArbreBinari):
             # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldra fer res
 
 
+
     def escriu(self):
         return self._escriu_b()
 
@@ -55,6 +57,8 @@ class Patro(ArbreBinari):
             
             else:               
                 print(")", end="")                     # imprimim ) sense saltar de linia
+
+
 
 
     def _funcio_DRY(self, missatge, b, instr):
@@ -91,6 +95,9 @@ class Patro(ArbreBinari):
 
         # Retornem el missatge codificat
         return missatge_codificat
+
+
+
 
     def codifica(self, missatge, b): 
 
