@@ -214,17 +214,17 @@ class Patro(ArbreBinari):
         mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
         return self._modificar(mosaic, self.patro(), instr) 
 
-    def modificar(self, arbre, patro, instr):
+    def _modificar(self, arbre, patro, instr):
         # Suposem que el mosaic no es buit
         # Anem modificant l'arbre copiat per convertir-lo en el mosaic
         # Comencant des de l'arrel de l'arbre
         # Fem una copia del patro per poder fer reset en qualsevol moment de la recursio 
         # Com que la codificacio i decodificacio fan el mateix proces, aprofitem aquesta funcio
         if instr == "codifica":
-            arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
+            arbre._modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
         
         elif instr == "decodifica":
-            arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
+            arbre._modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
 
 
         # Si aquest node de l'arbre te fill esquerre
@@ -232,12 +232,12 @@ class Patro(ArbreBinari):
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill esquerre d'aquest node de l'arbre.
             if self.fill_esq().buit():
-                patro.modificar(arbre.fill_esq(), patro, instr)
+                patro._modificar(arbre.fill_esq(), patro, instr)
             # si el node del patro tambe te fill esquerre, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill esquerre de l'arbre
             # amb el fill esquerre del patro.
             elif not self.fill_esq().buit(): 
-                self.fill_esq().modificar(arbre.fill_esq(), patro, instr)
+                self.fill_esq()._modificar(arbre.fill_esq(), patro, instr)
 
 
         # Analogament, si el node de l'arbre te fill dret
@@ -245,12 +245,12 @@ class Patro(ArbreBinari):
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill dret d'aquest node de l'arbre.
             if self.fill_dre().buit():
-                patro.modificar(arbre.fill_dre(), patro, instr)
+                patro._modificar(arbre.fill_dre(), patro, instr)
             # si el node del patro tambe te fill dret, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill dret de l'arbre
             # amb el fill dret del patro.
             elif not self.fill_dre().buit():
-                self.fill_dre().modificar(arbre.fill_dre(), patro, instr)
+                self.fill_dre()._modificar(arbre.fill_dre(), patro, instr)
 
         # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
         # no hi ha mes espai per posar el patro.
