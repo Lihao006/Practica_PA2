@@ -77,7 +77,7 @@ class Patro(ArbreBinari):
             # tantes vegades com sigui necessari, utilitzant fragments tan grans com sigui possible, començant per 
             # l'arrel. A aquest segon arbre l'anomenem mosaic. 
 
-            arbre_codificat = self._mosaic(arbre_missatge, instr)             # obtenim el mosaic de l'arbre missatge
+            arbre_codificat = self.modificar(arbre_missatge, self.patro(), instr)              # obtenim el mosaic de l'arbre missatge
             llista_missatge = arbre_codificat.nivells()
             missatge_codificat += "".join(llista_missatge)        # obtenim el missatge codificat a partir de l'arbre codificat
 
@@ -232,12 +232,12 @@ class Patro(ArbreBinari):
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill esquerre d'aquest node de l'arbre.
             if self.fill_esq().buit():
-                patro._modificar(arbre.fill_esq(), patro, instr)
+                patro.modificar(arbre.fill_esq(), patro, instr)
             # si el node del patro tambe te fill esquerre, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill esquerre de l'arbre
             # amb el fill esquerre del patro.
             elif not self.fill_esq().buit(): 
-                self.fill_esq()._modificar(arbre.fill_esq(), patro, instr)
+                self.fill_esq().modificar(arbre.fill_esq(), patro, instr)
 
 
         # Analogament, si el node de l'arbre te fill dret
@@ -245,12 +245,12 @@ class Patro(ArbreBinari):
             # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
             # evaluant en el fill dret d'aquest node de l'arbre.
             if self.fill_dre().buit():
-                patro._modificar(arbre.fill_dre(), patro, instr)
+                patro.modificar(arbre.fill_dre(), patro, instr)
             # si el node del patro tambe te fill dret, llavors perfecte, 
             # cridem recursivament la funcio per avaluar el fill dret de l'arbre
             # amb el fill dret del patro.
             elif not self.fill_dre().buit():
-                self.fill_dre()._modificar(arbre.fill_dre(), patro, instr)
+                self.fill_dre().modificar(arbre.fill_dre(), patro, instr)
 
         # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
         # no hi ha mes espai per posar el patro.
