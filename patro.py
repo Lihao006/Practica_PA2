@@ -57,10 +57,8 @@ class Patro(ArbreBinari):
                                                         # , o sigui, o bé estem al subpatró esquerre de l'arrel o al subpatró dret de l'arrel
 
 
-
+    # ** Mètode intern que ens ajudarà a codificar o a descodificar el missatge **
     def _funcio_DRY(self, missatge, b, instr):
-        # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
-        # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
 
 
         blocks = [missatge[i:i+b] for i in range(0, len(missatge), b)]       # Dividim el missatge en un bloc de b caràcters
@@ -146,51 +144,54 @@ class Patro(ArbreBinari):
     # ------------------------------------------------------------------------------------------------------------------
 
     # ***********************************************
-    # ** Funcions privats per al mètode codifica() **
+    # ** Mètodes interns per al mètode codifica() ***
     # ***********************************************
 
 
-    # Función privat per transformar el missatge en un arbre binari
+    # ** Mètode intern per transformar el missatge en un arbre binari **
     def _trans_missatge_arbre(self, missatge): 
 
+        # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
+        # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
+
         # ** Cas base ** 
-        if not missatge: 
-            return Patro()
+        if not missatge:        # ja no tenim cap caràcter a transformar (llista buida)
+            return ArbreBinari()      
 
 
         caracters = [None] + list(missatge)         # llista on la primera posició és None, per tal de poder aplicar la idea del Heap
                                                     # 2k ==> fill esquerre i 2k+1 ==> fill dret
 
 
-        # Funció auxiliar que ens permet crear l'arbre binari
+        # ** Funció auxiliar que ens permet crear l'arbre binari **
         def f(index, n): 
 
-            if index >= n: 
-                return Patro()
+            if index >= n:                                      # es compleix aquesta condició <=> el caracter no té o bé un fill esq
+                return ArbreBinari()                                  # o bé un fill dret
 
-            left = f(2*index, n)
-            right = f((2*index) + 1, n)
-            return Patro(caracters[index], left, right)
+            left = f(2*index, n)                                # fill esq a la posició 2*index
+            right = f((2*index) + 1, n)                         # fill dret a la posició (2*index) + 1
+            return ArbreBinari(caracters[index], left, right)         # retornem
 
         return f(1, len(caracters))
 
 
 
 
-    # Funció privat que copiar l'arbre binari que hem obtingut de la transformació del missatge
+    # ** Mètode intern per tal de copiar l'arbre binari que hem obtingut de la transformació del missatge **
     def _copia(self):
 
         # ** Cas base **
-        if self.buit(): 
-            return Patro()
+        if self.buit():         # si l'arbre és buit...
+            return ArbreBinari()      # ...retornem un arbre buit
         
 
         # ** Cas recursiu **
         else: 
 
-            left = self.fill_esq()._copia()
-            right = self.fill_dre()._copia()
-            return Patro(self.valor_arrel(), left, right)
+            left = self.fill_esq()._copia()                     # copiem el subarbre esq.
+            right = self.fill_dre()._copia()                    # copiem el subarbre dret
+            return ArbreBinari(self.valor_arrel(), left, right)       # retornem un nou arbre
 
 
 
