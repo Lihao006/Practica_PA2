@@ -102,10 +102,9 @@ class Patro(ArbreBinari):
 
         # no destructiva
         # recursiu
-        # chr(32 + (ord(c)+d-32)%95)
+        # ** Fórmula que ens permet codificar **: chr(32 + (ord(c)+d-32)%95)
 
         return self._funcio_DRY(missatge, b, "codifica")
-
 
 
 
@@ -113,7 +112,8 @@ class Patro(ArbreBinari):
 
         # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
         # en blocs de mida 'b' 
-        # chr(32 + (ord(c)-d+63)%95)
+
+        # ** Fórmula que ens permet descodificar **: chr(32 + (ord(c)-d+63)%95)
 
         return self._funcio_DRY(missatge, b, "decodifica")
 
@@ -121,10 +121,9 @@ class Patro(ArbreBinari):
 
     # ------------------------------------------------------------------------------------------------------------------
 
-    # ***********************************************
-    # ** Mètodes interns per al mètode codifica() ***
-    # ***********************************************
-
+    # ***************************************************************
+    # ** Mètodes interns per als mètodes codifica() i decodifica() **
+    # ***************************************************************
 
     # ** Mètode intern per transformar el missatge en un arbre binari **
     def _trans_missatge_arbre(self, missatge): 
@@ -144,19 +143,20 @@ class Patro(ArbreBinari):
         # ** Funció auxiliar que ens permet crear l'arbre binari **
         def f(index, n): 
 
-            if index >= n:                                      # es compleix aquesta condició <=> el caracter no té o bé un fill esq
+            if index >= n:                                            # es compleix aquesta condició <=> el caràcter no té o bé un fill esq
                 return ArbreBinari()                                  # o bé un fill dret
 
-            left = f(2*index, n)                                # fill esq a la posició 2*index
-            right = f((2*index) + 1, n)                         # fill dret a la posició (2*index) + 1
-            return ArbreBinari(caracters[index], left, right)         # retornem
+            left = f(2*index, n)                                      # obtenim el fill esq del caràcter a la posició 'índex'
+            right = f((2*index) + 1, n)                               # obtenim el fill dret del caràcter a la posició 'índex'
+            return ArbreBinari(caracters[index], left, right)         # retornem una instància d'ArbreBinari() que té com a arrel el caràcter
+                                                                      # i els seus fills corresponents.
 
-        return f(1, len(caracters))
+        return f(1, len(caracters))     
 
 
 
 
-    # ** Mètode intern per tal de copiar l'arbre binari que hem obtingut de la transformació del missatge **
+    # ** Mètode intern per tal de copiar l'arbre binari que hem obtingut de la transformació del missatge a arbre binari **
     def _copia(self):
 
         # ** Cas base **
@@ -214,8 +214,6 @@ class Patro(ArbreBinari):
         # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
         # no hi ha mes espai per posar el patro.
         return arbre
-
-
-
+    
 
     # ------------------------------------------------------------------------------------------------------------------
