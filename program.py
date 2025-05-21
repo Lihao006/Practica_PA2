@@ -32,7 +32,7 @@ patrons = Patrons()                         # Creem una instància de la classe 
 pi = int(item())                            # Nombre de patrons inicials
 for ident in range(1,pi+1):                 # Assignar a cada patró un identificador
     p = Patro()                             # Crear una nova instància de la classe Patro() per a cada iteració (no instància d'ArbreBinari)
-    p.llegeix()                             # Llegeix la entrada dels valors de l'arbre binari en preordre (nombres enters i -1 per a nodes buits)
+    p.llegeix()                             # Llegeix la entrada dels valors del patró en preordre (nombres enters i -1 per a nodes buits)
     patrons.afegeix(ident,p)                # Afegim el patró 'p' al contenidor 'patrons' amb l'identificador 'ident' 
 
 
@@ -129,7 +129,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
 
         for ident,p in patrons.itera():
             print('Patró ',ident,':',sep='')
-            p.escriu()                                                      # cridem el mètode 'escriu' de 'Patro' que imprimeix l'arbre binari en preordre (valors dels nodes i -1 per a nodes buits)               
+            p.escriu()                                                      # cridem el mètode 'escriu' de 'Patro' que imprimeix el patró en preordre (valors dels nodes i -1 per a nodes buits)               
         
 
     # ✅

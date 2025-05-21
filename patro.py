@@ -8,21 +8,21 @@ class Patro(ArbreBinari):
         super().__init__(valor, fill_esq, fill_dre)
 
 
-    # Un getter de si mateix, per facilitar el reset en la codificació
+    # * Un getter de si mateix, per facilitar el reset en la codificació *
     def patro(self):
         return self
     
-
+    # *** Mètode que llegeix el patró en preordre de manera que modifica el patró que abans estava buit ***
     def llegeix(self):
 
         # Construeix l'arbre binari de l'objecte Patro a partir d'una sequencia en preordre
-        # self: Instància de la classe Patro (per exemple, p a program.py)
+        # self: Instància de la classe Patro (per exemple, 'p' a program.py)
         
         # Llegeix el següent valor de la sequencia en preordre amb item() 
         x = int(item())
 
         if x != -1: 
-            l = Patro()
+            l = Patro()             
             l.llegeix()                      # obtenim el fill esquerre
             r = Patro()
             r.llegeix()                      # obtenim el fill dret             
@@ -33,31 +33,31 @@ class Patro(ArbreBinari):
             # no cal fer un cas else, ja que si x == -1, ja tenim definit un Patro buit i no caldra fer res
 
 
-
+    # *** Mètode per imprimir el patró ***
     def escriu(self):
         return self._escriu_b()
 
 
-
+    # ** Mètode intern que farem servir a 'escriu' **
     def _escriu_b(self, primer_cop=True):
 
-        # ** Cas base **: si l'arbre binari és buit, imprimim ()
+        # ** Cas base **: si el patró és buit, imprimim ()
         if self.buit(): 
                 print("()", end="")
         
+        # ** Cas recursiu **:
         else:
-            # ** Cas recursiu 1 **
-            print("(", end="")                         # imprimim (
-            print(self.valor_arrel(), end="")          # imprimim l'arrel
+            print("(", end="")                          # imprimim (
+            print(self.valor_arrel(), end="")           # imprimim l'arrel del patró
             self.fill_esq()._escriu_b(False)            # imprimim el fill esquerre de l'arrel
             self.fill_dre()._escriu_b(False)            # imprimim el fill dret de l'arrel                  
             
             if primer_cop:
-                print(")")                             # imprimim ) saltant de linia
+                print(")")                              # imprimim ) fent un salt de línia (això passa quan estem a l'arrel (primer_cop=True))
             
             else:               
-                print(")", end="")                     # imprimim ) sense saltar de linia
-
+                print(")", end="")                      # imprimim ) sense salt de línia (això passa quan estem a dins del patró (primer_cop=False)
+                                                        # , o sigui, o bé estem al subpatró esquerre de l'arrel o al subpatró dret de l'arrel
 
 
 
