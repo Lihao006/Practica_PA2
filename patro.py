@@ -72,20 +72,10 @@ class Patro(ArbreBinari):
             # Pas 1: El missatge es transforma en un arbre binari de caràcters el més complet possible
             arbre_missatge = self._trans_missatge_arbre(block)          # transformem el missatge en un arbre binari
 
-            # Pas 2: Un cop copiat el missatge a l'arbre, s'obté un segon arbre, aquesta vegada d'enters, amb la mateixa 
-            # estructura que el primer. Aquest segon arbre es construeix replicant el patró totalment o parcialment 
-            # tantes vegades com sigui necessari, utilitzant fragments tan grans com sigui possible, començant per 
-            # l'arrel. A aquest segon arbre l'anomenem mosaic. 
 
             arbre_codificat = self._modificar(arbre_missatge, self.patro(), instr)              # obtenim el mosaic de l'arbre missatge
             llista_missatge = arbre_codificat.nivells()
             missatge_codificat += "".join(llista_missatge)        # obtenim el missatge codificat a partir de l'arbre codificat
-
-
-            # Pas 3: Substituïm cada caràcter de l’arbre-missatge pel resultat de sumar-li circularment 
-            # l’enter situat en la seva posició corresponent al mosaic. El text encriptat s’obté desfent la 
-            # transformació del pas 1 a partir d’aquest tercer arbre.
-            # bloc_codificat = self._suma_circular(arbre_missatge, arbre_mosaic)
 
 
 
@@ -102,7 +92,7 @@ class Patro(ArbreBinari):
 
         # no destructiva
         # recursiu
-        # ** Fórmula que ens permet codificar **: chr(32 + (ord(c)+d-32)%95)
+        # ** Fórmula que ens permet codificar: chr(32 + (ord(c)+d-32)%95) **
 
         return self._funcio_DRY(missatge, b, "codifica")
 
@@ -113,7 +103,7 @@ class Patro(ArbreBinari):
         # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
         # en blocs de mida 'b' 
 
-        # ** Fórmula que ens permet descodificar **: chr(32 + (ord(c)-d+63)%95)
+        # ** Fórmula que ens permet descodificar: chr(32 + (ord(c)-d+63)%95) **
 
         return self._funcio_DRY(missatge, b, "decodifica")
 
