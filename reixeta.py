@@ -12,7 +12,7 @@ class Reixeta():
 
 
     
-    # Getters 
+    # ** Getters **
     def valor_n(self):
         return self._n
     

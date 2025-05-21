@@ -57,6 +57,7 @@ class Patro(ArbreBinari):
                                                         # , o sigui, o bé estem al subpatró esquerre de l'arrel o al subpatró dret de l'arrel
 
 
+
     # ** Mètode intern que ens ajudarà a codificar o a descodificar el missatge **
     def _funcio_DRY(self, missatge, b, instr):
 
@@ -93,53 +94,30 @@ class Patro(ArbreBinari):
 
 
 
-
+    # *** Mètode que codifica el missatge a partir d'una mida de bloc 'b'***
     def codifica(self, missatge, b): 
 
         # codifiquem el missatge fent servir el mètode 'codifica' del patró 'p', 
         # dividint-lo en blocs de mida 'b'
-
 
         # no destructiva
         # recursiu
         # chr(32 + (ord(c)+d-32)%95)
 
         return self._funcio_DRY(missatge, b, "codifica")
-        """
-        # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
-        # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
-
-
-        blocks = [missatge[i:i+b] for i in range(0, len(missatge), b)]       # Dividim el missatge en un bloc de b caràcters
-        missatge_codificat = ''
-
-        # Obtenim cada missatge de blocks
-        for block in blocks: 
-
-
-            # Pas 1: El missatge es transforma en un arbre binari de caràcters el més complet possible
-            arbre_missatge = self._trans_missatge_arbre(block)          # transformem el missatge en un arbre binari
-
-            # Pas 2: Un cop copiat el missatge a l'arbre, s'obté un segon arbre, aquesta vegada d'enters, amb la mateixa 
-            # estructura que el primer. Aquest segon arbre es construeix replicant el patró totalment o parcialment 
-            # tantes vegades com sigui necessari, utilitzant fragments tan grans com sigui possible, començant per 
-            # l'arrel. A aquest segon arbre l'anomenem mosaic. 
-
-            arbre_codificat = self._mosaic(arbre_missatge, "codifica")             # obtenim el mosaic de l'arbre missatge
-            llista_missatge = arbre_codificat.nivells()
-            missatge_codificat += "".join(llista_missatge)        # obtenim el missatge codificat a partir de l'arbre codificat
-
-
-            # Pas 3: Substituïm cada caràcter de l’arbre-missatge pel resultat de sumar-li circularment 
-            # l’enter situat en la seva posició corresponent al mosaic. El text encriptat s’obté desfent la 
-            # transformació del pas 1 a partir d’aquest tercer arbre.
-            # bloc_codificat = self._suma_circular(arbre_missatge, arbre_mosaic)
 
 
 
-        # Retornem el missatge codificat
-        return missatge_codificat
-        """
+
+    def decodifica(self, missatge, b):
+
+        # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
+        # en blocs de mida 'b' 
+        # chr(32 + (ord(c)-d+63)%95)
+
+        return self._funcio_DRY(missatge, b, "decodifica")
+
+
 
     # ------------------------------------------------------------------------------------------------------------------
 
@@ -155,7 +133,7 @@ class Patro(ArbreBinari):
         # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
 
         # ** Cas base ** 
-        if not missatge:        # ja no tenim cap caràcter a transformar (llista buida)
+        if not missatge:                # ja no tenim cap caràcter a transformar (llista buida)
             return ArbreBinari()      
 
 
@@ -189,35 +167,9 @@ class Patro(ArbreBinari):
         # ** Cas recursiu **
         else: 
 
-            left = self.fill_esq()._copia()                     # copiem el subarbre esq.
-            right = self.fill_dre()._copia()                    # copiem el subarbre dret
+            left = self.fill_esq()._copia()                           # copiem el subarbre esq.
+            right = self.fill_dre()._copia()                          # copiem el subarbre dret
             return ArbreBinari(self.valor_arrel(), left, right)       # retornem un nou arbre
-
-
-
-    # Funció privat per posar el patró en l'arbre binari que conté el missatge
-    def _mosaic(self, arbre_missatge, instr): 
-
-        """
-        mosaic = Patro()
-        if arbre_missatge.buit():
-            return mosaic
-        elif arbre_missatge.fulla():
-            mosaic._modificar_valor_arrel(self.valor_arrel())
-            return mosaic
-        else: # Si no esta buida ni es una fulla, llavors te fills
-            if not self.fill_esq().buit():
-
-            elif self.fill_esq().buit():
-                mosaic.modificar_fill_esq()
-
-            if self.fill_dre().buit():
-                
-            elif self.fill_dre().buit():
-                mosaic.modificar_fill_dre()
-        """
-        mosaic = arbre_missatge._copia()              # copiem l'arbre binari que conté el missatge que volem codificar
-        return self._modificar(mosaic, self.patro(), instr) 
 
 
 
@@ -267,12 +219,3 @@ class Patro(ArbreBinari):
 
 
     # ------------------------------------------------------------------------------------------------------------------
-
-
-    def decodifica(self, missatge, b):
-
-        # decodifiquem el 'missatge' utilitzant el mètode 'decodifica' del patró 'p', dividint-lo 
-        # en blocs de mida 'b' 
-        # chr(32 + (ord(c)-d+63)%95)
-
-        return self._funcio_DRY(missatge, b, "decodifica")
