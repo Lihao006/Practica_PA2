@@ -4,9 +4,6 @@ from arbre_binari_amb_nodes import ArbreBinari
 
 class Patro(ArbreBinari):
     # A completar pel grup d'estudiants com a part de la pràctica
-    def __init__(self, valor=None, fill_esq=None, fill_dre=None): 
-        super().__init__(valor, fill_esq, fill_dre)
-
 
     # * Un getter de si mateix, per facilitar el reset en la codificació *
     def patro(self):
