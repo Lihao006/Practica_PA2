@@ -132,7 +132,7 @@ class Reixeta():
                     lletra += 1                            # pasem al següent caràcter a afegir
 
 
-            # Recorrem la matriu per retornar el missatge codificat
+            # Recorrem la matriu per retornar el missatge codificat del block actual
             bloc_codificat = ""
 
             for fila in matriu: 
@@ -147,7 +147,7 @@ class Reixeta():
 
     
 
-
+    # *** Mètode per descodificar el missatge ***
     def decodifica(self, missatge): 
 
         # decodifiquem el missatge
@@ -160,7 +160,7 @@ class Reixeta():
 
         # Nosaltres iterarem per cada fila.
         # Creem una llista buida de None de mida n*n per anar guardant el missatge original.
-        '''missatge_orig = ""
+        missatge_orig = ""
 
 
         for forats in self._forats_rotacions:
@@ -168,12 +168,9 @@ class Reixeta():
                 i,j = forat
                 missatge_orig += missatge[(i-1)*self.valor_n() + j-1]
         
-        return missatge_orig'''
+        return missatge_orig
 
-
-        # Mitjançant blocs: 
-
-                # codifiquem el 'missatge'
+        '''
 
         block_size = self.valor_n() * self.valor_n()
         blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
@@ -210,7 +207,7 @@ class Reixeta():
 
 
         # Retornem el missatge original (descodificat)
-        return missatge_original
+        return missatge_original'''
     
 
 
