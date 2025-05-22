@@ -97,38 +97,39 @@ class Reixeta():
 
 
 
-
+    # *** Mètode per codificar el missatge ***
     def codifica(self, missatge): 
 
-        # codifiquem el 'missatge'
+        '''
+        Pre: rep el missatge a codificar
+        Post: retorna el missatge codificat
+        '''
 
-        block_size = self.valor_n() * self.valor_n()
-        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
-        missatge_codificat = ''
+        block_size = self.valor_n() * self.valor_n()        # per dividir el missatge en blocks de mida n^2
+        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en blocks de n^2 caràcters
+        missatge_codificat = ''     # on posarem el missatge codificat
 
-        # Obtenim cada missatge de blocks
+        # Obtenim els blocs en què s’ha dividit el missatge
         for block in blocks: 
 
-            # Reomplim el bloc abans d'encriptar si i només si no es completa amb caràcters del text
+            # Reomplim el bloc abans d'encriptar <=> no es completa amb caràcters del text
             block = block + ' ' * (block_size - len(block)) if len(block) < block_size else block
 
-
-            # Creem una matriu buida de None
+            # Creem una matriu buida d'espais buits ' '
             matriu = [[' ' for _ in range(self.valor_n())] for _ in range(self.valor_n())]
 
-            # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
+            # Posem els primers k caràcters del bloc en la matriu buida (ATENCIÓ!!: la matriu comença per 0 però les posicions
             # dels forats comencem per 1). 
             lletra = 0
 
-            # Obtinc les posicions dels forats de cada rotació/gir
+            # Obtinc les posicions dels forats en cada rotació/gir
             for rotacio in self._forats_rotacions: 
 
-                # Obtinc la fila 'i' i la columna 'j'
+                # Obtinc la fila 'i' i la columna 'j' del forat
                 for i,j in rotacio: 
 
-                    if lletra < len(block): 
-                        matriu[i-1][j-1] = block[lletra]
-                        lletra += 1
+                    matriu[i-1][j-1] = block[lletra]       # poso el caràcter a la posició del forat corresponent
+                    lletra += 1                            # pasem al següent caràcter a afegir
 
 
             # Recorrem la matriu per retornar el missatge codificat
