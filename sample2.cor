@@ -7,6 +7,8 @@ Cancion_3
 "El sol brilla en mi corazon"
 Cancion_4
 "Sigo son~ando con libertad"
+Mensaje_Motivacional
+"El perro no muerde de tanto ladrar"
 Noche_1
 "La noche es clara y serena"
 Noche_2
@@ -32,17 +34,17 @@ Patró 2:
 #nou_missatge Cancion_1
 error: ja existeix un missatge amb aquest identificador
 #nou_missatge Imagine_1
-11
-#nm Imagine_2
 12
-#nou_missatge Luna_1
+#nm Imagine_2
 13
-#nm Luna_2
+#nou_missatge Luna_1
 14
-#nm Luna_3
+#nm Luna_2
 15
-#nou_missatge Bohemian_1
+#nm Luna_3
 16
+#nou_missatge Bohemian_1
+17
 #nova_reixeta
 error: dimensions incorrectes de la reixeta
 #nr
@@ -56,11 +58,11 @@ error: la reixeta amb els seus girs no cobreix totes les posicions
 #np
 4
 #esborra_missatge Cancion_1
-15
+16
 #esborra_missatge Luna_0
 error: el missatge no existeix
 #em Luna_2
-14
+15
 #lm
 Bohemian_1
 "Is this the real life? Is this just fantasy? Caught in a landslide, no escape from reality. Open your eyes, look up to the skies and see..."
@@ -78,6 +80,8 @@ Luna_1
 "Bajo la luna plateada"
 Luna_3
 "Luces en el firmamento"
+Mensaje_Motivacional
+"El perro no muerde de tanto ladrar"
 Noche_1
 "La noche es clara y serena"
 Noche_2
@@ -164,6 +168,8 @@ error: el patró no existeix
 "Gblqt%gbmp#md!ozsf%qqjsf"
 #codifica_amb_patro_guardat Imagine_2 5 10
 error: el patró no existeix
+#cpg Mensaje_Motivacional 4 5
+"c&>%$1,.4-.9,*$1}$4#$93u-3)>! #, '"
 #cpg Bohemian_1 4 64
 "g->)'#2>3"$41~ &>&(z$X>g293|(->~4-34%z-3 -8S>\ /&"34((> >& ##-+(#~J4-)>$2| %$9%,.'>'$z+(33L4m*$#>3.*19$8$-J4+).%>//43)>3'~>(*#$2>z-x>-$$LGL"
 #cpg Bohemian_2 4 64
@@ -171,7 +177,7 @@ error: el missatge no existeix
 #cpg Viaje_1 1 23
 "Zo#hfrnor!kbfjd%jq%mtwn pqyj"
 #cpg Noche_5 2 3
-"ix/( tx)~4v{yx~4nt4m~!y"y}"
+"ix/( t#)~4v{yx~4nt4m~!y"y}"
 #cpg Imagine_1 3 7
 "Kqgikpg"xngtg)u$tq"jgczkp"
 #decodifica_amb_patro 3 20
