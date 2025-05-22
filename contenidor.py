@@ -40,16 +40,6 @@ class Contenidor:
 
 
 
-    def itera(self): 
-
-        # missatges.itera(): iterem sobre els elements del contenidor 'missatges'
-        # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
-        # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
-
-        return sorted(self._elements.items())
-
-
-
     def valor(self, ident): 
 
         '''
@@ -62,6 +52,17 @@ class Contenidor:
 
         return self._elements[ident]            # No cal que comprovem si 'ident' està dins del diccionari perquè es crida 
                                                 # al mètode valor() després d'haver cridat al mètode 'existeix()'
+
+
+
+    def itera(self): 
+
+        # missatges.itera(): iterem sobre els elements del contenidor 'missatges'
+        # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
+        # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
+
+        return sorted(self._elements.items())
+
 
 
  
