@@ -7,12 +7,6 @@ class Contenidor:
 
     def afegeix(self, ident, instancia): 
 
-        '''
-        Pre:    'self': instància de Contenidor
-                'ident': identificador de cada missatge, reixeta o patró 
-                'instancia': nombre de missatges, reixetes o patrons
-        '''
-
         # missatges.afegeix(ident, missatge): afegim un nou missatge al contenidor 'missatges' amb l'identificador 'ident'
         # reixetes.afegeix(ident, r): afegim la reixeta 'r' al contenidor 'reixetes' amb l'identificador 'ident'
         # patrons.afegeix(ident, p): afegim el patró 'p' al contenidor 'patrons' amb l'identificador 'ident' 
@@ -24,8 +18,8 @@ class Contenidor:
     def existeix(self, ident): 
         
         '''
-        Pre:    'ident': identificador del missatge, reixeta o patró
-        Retornar: ha de retornar True si existeix i False si no existeix
+        Pre: 'ident': identificador del missatge, reixeta o patró
+        Post: ha de retornar True si existeix i False si no existeix
         '''
 
         # missatges.existeix(ident): verifiquem si existeix un missatge amb l'identificador 'ident' al contenidor 'missatges'
@@ -59,7 +53,7 @@ class Contenidor:
     def valor(self, ident): 
 
         '''
-        Pre:    'ident': identificador del missatge, reixeta o patró
+        Pre: 'ident': identificador del missatge, reixeta o patró
         '''
 
         # obtenim l'objecte 'Missatge' associat a 'ident'
@@ -67,7 +61,7 @@ class Contenidor:
         # obtenim l'objecte 'Patro' associat a 'ident'
 
         return self._elements[ident]            # No cal que comprovem si 'ident' està dins del diccionari perquè es crida 
-                                                # al mètode valor després d'haver cridat al mètode 'existeix()'
+                                                # al mètode valor() després d'haver cridat al mètode 'existeix()'
 
 
  
@@ -80,6 +74,10 @@ class Missatges(Contenidor):
 
     def esborra_missatge(self, ident): 
 
+        '''
+        Pre: 'ident' identificador del missatge a esborrar
+        '''
+
         # missatges.esborra_missatge(ident): eliminem el missatge amb l'identificador 'ident'
         del self._elements[ident]
 
@@ -90,7 +88,6 @@ class Reixetes(Contenidor):
     
     def __init__(self): 
         super().__init__()
-
 
 
 

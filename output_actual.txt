@@ -161,7 +161,7 @@ error: la reixeta no existeix
 #crg Hotel_California_5 1
 "u Slcpeod a I tl"ahipPne, tlC ea bagrm smeiy e ni"we.d isn ,ea Hhh"naa'Wtevd   eh trseihtaprt eiec ieensei nnt n ysn Aei"xnnt.di l hlvosst oieitiaccrnaelseg l  y f f,arwoa mawrnyauo pk eut ih tde dho fmlei  ettnu,ositg  h hj.te h.saare. y m"
 #decodifica_amb_reixeta 4
-"When I find myself in times of troub"
+"When I find myself in times of trouble, Mother Mary comes to me         "
 #decodifica_amb_reixeta 2
 "Hola, amigo, que tal?               "
 #dr 6
@@ -169,11 +169,11 @@ error: la reixeta no existeix
 #dr 3
 error: la mida del missatge és inadeqüada per a la reixeta
 #dr 3
-"Cuando duerma co"
+"Cuando duerma con la soledad.   "
 #dr 1
-"Fa una nit clara"
+"Fa una nit clara i tranquila,   "
 #dr 1
-"So I called up t"
+"So I called up the Captain, "Please bring me my wine". He said, "We haven't had that spirit here since nineteen sixty nine". And still those voices are calling from far away, wake you up in the middle of the night, just to hear them say... "
 #codifica_amb_patro 2 15
 "@,_cdro%R4A2_fRd'Oqhn~rA-S!_5N`?M`m}`.AK_4R!S~5N~rtd.^/_)N4R`.QthknK_3E?E.Cn.Tqn&~%N?S5_#Al!_bnmu%R4I$O?Em?Um~ln.S4R5O3O~)Nrdbs/m"
 #cp 0 15
