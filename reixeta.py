@@ -95,8 +95,8 @@ class Reixeta():
         for rotacio in self._forats_rotacions: 
             # print(" ".join(f"({i},{j})" for i, j in rotacio))
 
-            for i, j in rotacio: 
-                print(i,j," ")
+            for x, y in rotacio:
+                print(f"({x},{y})", end=' ')
 
 
 
