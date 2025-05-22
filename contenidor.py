@@ -52,7 +52,7 @@ class Contenidor:
         # reixetes.itera(): iterem sobre els elements del contenidor 'reixetes' 
         # patrons.itera(): iterem sobre els elements del contenidor 'patrons' 
 
-        return iter(sorted(self._elements.items(), key=lambda x: x[0]))
+        return sorted(self._elements.items())
 
 
 
