@@ -93,7 +93,10 @@ class Reixeta():
 
         #Imprimim les posicions dels forats (0º, 90º, 180º, 270º)
         for rotacio in self._forats_rotacions: 
-            print(" ".join(f"({i},{j})" for i, j in rotacio))
+            # print(" ".join(f"({i},{j})" for i, j in rotacio))
+
+            for i, j in rotacio: 
+                print(i,j," ")
 
 
 
