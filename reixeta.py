@@ -1,8 +1,9 @@
 from pytokr import item
 
-
 class Reixeta():
     # A completar pel grup d'estudiants com a part de la pràctica
+
+    # ** Mètode constructor on crearem algunes variables d'instància que ens seran úitls **
     def __init__(self, n=None, k=None):
 
         self._n = n                     # tenim una matriu nxn
@@ -13,23 +14,23 @@ class Reixeta():
 
     
     # ** Getters **
-    def valor_n(self):
+    def valor_n(self):      # per saber la dimensió de la matriu
         return self._n
     
-    def valor_k(self):
+    def valor_k(self):      # per saber el nombre de forats
         return self._k
-    
-    def lst_forats(self):
-        return self._forats
-
 
 
     # altres funcions 
 
-    # (hem de fer servir pytokr)
+    # *** Mètode per llegir la entrada de dimensions (n,k) i les posicions dels forats de la reixeta ****
     def llegeix(self):
 
-        # llegim la entrada de dimensions (n,k) i les posicions dels forats de la reixeta
+        '''
+        Pre: llegeix una sèrie d'entrades mitjançant pytokr, concretament, la entrada de dimensions i les posicions dels forats
+        Post: retorn 1 si la reixeta és vàlida ✅, -1 si els girs de la reixeta no cobreixen totes les posicions ❌,
+        -2: les dimensions són incorrectes (k diferent de n^2/4) ❌
+        '''
 
         # Aquí ha de retornar un status que pot ser: 
         # 1: la reixeta és vàlida ✅
