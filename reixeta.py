@@ -150,53 +150,40 @@ class Reixeta():
     # *** Mètode per descodificar el missatge ***
     def decodifica(self, missatge): 
 
-        # decodifiquem el missatge
-        # si es itera per cada fila
-        # sigui una llista de n*n caracters, comencem a escriure per cada n posicio
-        
-        # si es itera per cada columna
-        # anar girant i posant els caracters
-
-
-        # Nosaltres iterarem per cada fila.
-        # Creem una llista buida de None de mida n*n per anar guardant el missatge original.
-        missatge_orig = ""
-
-
-        for forats in self._forats_rotacions:
-            for forat in forats:
-                i,j = forat
-                missatge_orig += missatge[(i-1)*self.valor_n() + j-1]
-        
-        return missatge_orig
-
+        '''
+        Pre: rep el missatge a descodificar
+        Post: retorna el missatge descodificat
         '''
 
-        block_size = self.valor_n() * self.valor_n()
-        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
-        missatge_original = ''
 
-        # Obtenim cada missatge de blocks
+        block_size = self.valor_n() * self.valor_n()                # per dividir el missatge en blocks de mida n^2
+        blocks = [missatge[i:i+block_size] for i in range(0, len(missatge), block_size)]       # Dividim el missatge en un bloc de n^2 caràcters
+        missatge_original = ''          # on posarem el missatge descodificat
+
+        # Obtenim els blocs en què s’ha dividit el missatge codificat
         for block in blocks: 
 
-            # Reomplim el bloc abans d'encriptar si i només si no es completa amb caràcters del text
-            block = block + ' ' * (block_size - len(block)) if len(block) < block_size else block
-
-
-            # Creem una matriu buida de None
+            # Creem una matriu buida d'espais buits ' '
             matriu = [[' ' for _ in range(self.valor_n())] for _ in range(self.valor_n())]
 
-            # Posem els primers k caràcters del bloc en la matriu buida (atenció, la matriu comença per 0 però les posicions
-            # dels forats comencem per 1). 
-            idx = 0
+            idx = 0      # per posar el caràcter del missatge codificat en la matriu
 
-            # Obtinc la fila 'i' i la columna 'j'
+            # El nostre objectiu és reconstruïr la matriu reixeta amb el missatge codificat: 
+            # Obtinc la fila 'i' de la matriu 
             for i in range(self._n): 
-                for j in range(self._n): 
-                    matriu[i][j] = block[idx]
-                    idx += 1
 
-            bloc_original = ''
+                # Obtinc la columna 'j' de la matriu
+                for j in range(self._n): 
+
+                    matriu[i][j] = block[idx]       # posem el caràcter en la posició (i,j) de la matriu
+                    idx += 1                        # posem el següent caràcter
+
+
+            # Nota: El pas anterior és bàsicament reconstruïr la matriu reixeta que ens quedaria una vegada codificat. 
+            # Ara el següent pas, és obtenir el missatge original que simplement és obtenir els caràcters en l'ordre 
+            # que les hem afegit a través de les posicions dels forats
+
+            bloc_original = ''      
 
             # Obtinc les posicions dels forats de cada rotació/gir
             for rotacio in self._forats_rotacions: 
@@ -207,17 +194,13 @@ class Reixeta():
 
 
         # Retornem el missatge original (descodificat)
-        return missatge_original'''
+        return missatge_original
     
 
 
 
-
+    # *** Mètode per comprovar si és vàlid la mida del missatge és adequeada per a la reixeta ***
     def valid(self, missatge): 
-
-        '''
-        missatge: llegeixo una línia de text: Missatge xifrat
-        '''
 
         # Ha de retornar un booleà
         return ((len(missatge) % (self.valor_n() * self.valor_n())) == 0)
