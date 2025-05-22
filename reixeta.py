@@ -27,7 +27,7 @@ class Reixeta():
     def llegeix(self):
 
         '''
-        Pre: llegeix una sèrie d'entrades mitjançant pytokr, concretament, la entrada de dimensions i les posicions dels forats
+        Pre: llegeix una sèrie d'entrades mitjançant pytokr, concretament, la entrada de dimensions (n,k) i les posicions dels forats de a reixeta.
         Post: retorn 1 si la reixeta és vàlida ✅, -1 si els girs de la reixeta no cobreixen totes les posicions ❌,
         -2: les dimensions són incorrectes (k diferent de n^2/4) ❌
         '''
