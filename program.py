@@ -191,7 +191,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
-    # ❌, ens falta el mètode codifica()
+    # ✅
     elif instruccio == 'codifica_amb_patro' or instruccio == 'cp':
         idpat   = int(item())                                       # llegim l'identificador del patró (arbre binari) a utilitzar
         b       = int(item())                                       # llegim un enter (b) que indica la mida dels blocs en què es dividirà el missatge per a la codificació
@@ -209,7 +209,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
             
 
 
-    # ❌, ens falta el mètode codifica()
+    # ✅
     elif instruccio == 'codifica_amb_patro_guardat' or instruccio == 'cpg':
         ident   = item()   
         idpat   = int(item())
@@ -232,7 +232,7 @@ while instruccio != 'fi':           # continuem processant instruccions fins que
                 
 
 
-    # ❌, ens fala el mètode decodifica()
+    # ✅
     elif instruccio == 'decodifica_amb_patro' or instruccio == 'dp':       
         idpat   = int(item())
         b       = int(item())

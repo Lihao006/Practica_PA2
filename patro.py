@@ -12,6 +12,11 @@ class Patro(ArbreBinari):
     # *** Mètode que llegeix el patró en preordre de manera que modifica el patró que abans estava buit ***
     def llegeix(self):
 
+        '''
+        Pre: rep el recorregut en preordre del patró
+        Post: retorna el patró (arbre binari)
+        '''
+
         # Construeix l'arbre binari de l'objecte Patro a partir d'una sequencia en preordre
         # self: Instància de la classe Patro (per exemple, 'p' a program.py)
         
@@ -34,9 +39,14 @@ class Patro(ArbreBinari):
     def escriu(self):
         return self._escriu_b()
 
-
+    # ------------------------------------------------------------------------------------------------------------------
     # ** Mètode intern que farem servir a 'escriu' **
     def _escriu_b(self, primer_cop=True):
+
+        '''
+        Pre: rep el patró (self)
+        Post: imprimeix el patró
+        '''
 
         # ** Cas base **: si el patró és buit, imprimim ()
         if self.buit(): 
@@ -55,32 +65,7 @@ class Patro(ArbreBinari):
             else:               
                 print(")", end="")                      # imprimim ) sense salt de línia (això passa quan estem a dins del patró (primer_cop=False)
                                                         # , o sigui, o bé estem al subpatró esquerre de l'arrel o al subpatró dret de l'arrel
-
-
-
-    # ** Mètode intern que ens ajudarà a codificar o a descodificar el missatge **
-    def _funcio_DRY(self, missatge, b, instr):
-
-
-        blocks = [missatge[i:i+b] for i in range(0, len(missatge), b)]       # Dividim el missatge en un bloc de b caràcters
-        missatge_codificat = ''
-
-        # Obtenim cada missatge de blocks
-        for block in blocks: 
-
-
-            # Pas 1: El missatge es transforma en un arbre binari de caràcters el més complet possible
-            arbre_missatge = self._trans_missatge_arbre(block)          # transformem el missatge en un arbre binari
-
-
-            arbre_codificat = self._modificar(arbre_missatge, self.patro(), instr)              # obtenim el mosaic de l'arbre missatge
-            llista_missatge = arbre_codificat.nivells()
-            missatge_codificat += "".join(llista_missatge)        # obtenim el missatge codificat a partir de l'arbre codificat
-
-
-
-        # Retornem el missatge codificat
-        return missatge_codificat
+    # ------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -115,8 +100,39 @@ class Patro(ArbreBinari):
     # ** Mètodes interns per als mètodes codifica() i decodifica() **
     # ***************************************************************
 
+    # ** Mètode intern que ens ajudarà a codificar o a descodificar el missatge **
+    def _funcio_DRY(self, missatge, b, instr):
+
+        '''
+        Pre: rep un missatge que vol codificar o descodificar (segons el paràmetre 'instr') dividit en blocs de mida b
+        Post: retorna el missatge una vegada codificat o descodificat 
+        '''
+
+        blocks = [missatge[i:i+b] for i in range(0, len(missatge), b)]       # Dividim el missatge en un bloc de b caràcters
+        missatge_resultant = ''         # variable on guardarem el missatge codificat o decodificat
+
+        # Obtenim cada missatge de blocks
+        for block in blocks: 
+
+
+            # Pas 1: El missatge es transforma en un arbre binari de caràcters el més complet possible
+            arbre_missatge = self._trans_missatge_arbre(block)          # transformem el missatge en un arbre binari
+            arbre_resultant = self._modificar(arbre_missatge, self.patro(), instr)           # obtenim l'arbre codificat o decodificat
+            llista_missatge = arbre_resultant.nivells()         # fem un recorregut per nivell de l'arbre binari per tal d'obtenir el missatge codificat o decodificat
+            missatge_resultant += "".join(llista_missatge)        # obtenim el missatge codificat o decodificat
+
+
+        # Retornem el missatge codificat o decodificat
+        return missatge_resultant
+
+
     # ** Mètode intern per transformar el missatge en un arbre binari **
     def _trans_missatge_arbre(self, missatge): 
+
+        '''
+        Pre: rep un missatge (string) que vol convertir en un arbre binari que conté el missatge
+        Post: retorna un arbre binari amb els caràcters del missatge com a nodes
+        '''
 
         # Hem de transformar el missatge en un arbre binari (hem d'utilitzar la idea del Heap, és a dir, 
         # els fills d'un arrel és 2k (fill_esq) i 2k+1 (fill_dre)). Posarem un None a la primera posició. 
@@ -145,65 +161,65 @@ class Patro(ArbreBinari):
 
 
 
-
-    # ** Mètode intern per tal de copiar l'arbre binari que hem obtingut de la transformació del missatge a arbre binari **
-    def _copia(self):
-
-        # ** Cas base **
-        if self.buit():         # si l'arbre és buit...
-            return ArbreBinari()      # ...retornem un arbre buit
-        
-
-        # ** Cas recursiu **
-        else: 
-
-            left = self.fill_esq()._copia()                           # copiem el subarbre esq.
-            right = self.fill_dre()._copia()                          # copiem el subarbre dret
-            return ArbreBinari(self.valor_arrel(), left, right)       # retornem un nou arbre
-
-
-
+    # ** Mètode intern per tal de modificar l'arbre missatge i modificar-lo perquè sigui directament l'arbre amb  el missatge codificat **
     def _modificar(self, arbre, patro, instr):
-        # Suposem que el mosaic no es buit
-        # Anem modificant l'arbre copiat per convertir-lo en el mosaic
-        # Comencant des de l'arrel de l'arbre
+
+        '''
+        self: patró que ens serveix per saber, per exemple, si el node de l'arbre té un fill esq veure si el patró també té un fill esq o no. 
+              També veiem amb el fill dret. 
+        arbre: arbre missatge que conté els caràcters a codificar o a descodificar
+        patro: retornem tot el patró per tal de fer reset
+        instr: instrucció per saber si s'ha de codificar o de descodificar
+        '''
+
+        # Anem modificant l'arbre missatge de manera que l'arbre missatge que ens retorna al final, sigui l'arbre que conté el missatge codificat
+        # Comencem des de l'arrel de l'arbre missatge
+
         # Fem una copia del patro per poder fer reset en qualsevol moment de la recursio 
         # Com que la codificacio i decodificacio fan el mateix proces, aprofitem aquesta funcio
+        
+        # Si la instrucció és 'codifica', codifiquem el node actual que conté el caràcter a codificar de l'arbre missatge
         if instr == "codifica":
             arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) + self.valor_arrel() - 32) % 95))
         
+        # Si la instrucció és 'decodifica', decodifiquem el node actual de l'arbre missatge
         elif instr == "decodifica":
             arbre.modificar_valor_arrel(chr(32 + (ord(arbre.valor_arrel()) - self.valor_arrel() + 63) % 95))
 
 
-        # Si aquest node de l'arbre te fill esquerre
+
+        # Una vegada codificat el node, mirem el subarbre esq i el subarbre dret i fem el mateix pas anterior (recursivament)
+
+        # Si aquest node de l'arbre té fill esquerre...
         if not arbre.fill_esq().buit():
-            # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
+
+            # ...però el node del patró no, llavors comencem de nou (reset) des de l'arrel del patró, 
             # evaluant en el fill esquerre d'aquest node de l'arbre.
             if self.fill_esq().buit():
                 patro._modificar(arbre.fill_esq(), patro, instr)
-            # si el node del patro tambe te fill esquerre, llavors perfecte, 
-            # cridem recursivament la funcio per avaluar el fill esquerre de l'arbre
-            # amb el fill esquerre del patro.
+
+            # ...i el node del patro també té fill esquerre, llavors PERFECTE ✅, 
+            # cridem recursivament la funció per avaluar el fill esquerre de l'arbre
+            # amb el fill esquerre del patró.
             elif not self.fill_esq().buit(): 
                 self.fill_esq()._modificar(arbre.fill_esq(), patro, instr)
 
 
-        # Analogament, si el node de l'arbre te fill dret
+        # Anàlogament, si el node de l'arbre té fill dret...
         if not arbre.fill_dre().buit():
-            # pero el node del patro no, llavors comencem de nou (reset) des de l'arrel del patro, 
+            # ...però el node del patró no, llavors comencem de nou (reset) des de l'arrel del patró, 
             # evaluant en el fill dret d'aquest node de l'arbre.
             if self.fill_dre().buit():
                 patro._modificar(arbre.fill_dre(), patro, instr)
-            # si el node del patro tambe te fill dret, llavors perfecte, 
-            # cridem recursivament la funcio per avaluar el fill dret de l'arbre
-            # amb el fill dret del patro.
+
+            # ...i el node del patro també té fill dret, llavors PERFECTE ✅, 
+            # cridem recursivament la funció per avaluar el fill dret de l'arbre
+            # amb el fill dret del patró.
             elif not self.fill_dre().buit():
                 self.fill_dre()._modificar(arbre.fill_dre(), patro, instr)
 
-        # Per a quan el node del l'arbre no te fills, llavors no cal fer res, ja que
-        # no hi ha mes espai per posar el patro.
+        # Per a quan el node del l'arbre no té fills, llavors no cal fer res, ja que
+        # no hi ha més espai per posar el patró.
         return arbre
     
-
     # ------------------------------------------------------------------------------------------------------------------
