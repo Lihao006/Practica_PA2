@@ -1,4 +1,4 @@
-10
+11
 Cancion_1
 Vivo cantando siempre feliz
 Cancion_2
@@ -19,6 +19,8 @@ Noche_4
 Luces danzando en la oscuridad
 Noche_5
 Un suen~o lleno de colores
+Mensaje_Motivacional
+El perro no muerde de tanto ladrar
 2
 4 4
 1 2 2 1 3 4 4 3
@@ -114,6 +116,7 @@ cp 4 32
 viento suave, cielo azul, dia perfecto
 codifica_amb_patro_guardat Cancion_2 1 31
 codifica_amb_patro_guardat Imagine_2 5 10
+cpg Mensaje_Motivacional 4 5
 cpg Bohemian_1 4 64
 cpg Bohemian_2 4 64
 cpg Viaje_1 1 23
