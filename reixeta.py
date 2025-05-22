@@ -44,15 +44,14 @@ class Reixeta():
         if self.valor_k() != (self.valor_n() * self.valor_n()) // 4:
             return -2
 
-        #Es compleix k = n^2/4)
-        # Per afegir les posiciones dels forats
+        # Si la condició anterior no es compleix, ja sabrem que es complirà que k = n^2/4 ✅
+        # Afegim les posicions dels forats en la variable d'instància 'self._forats'
         for _ in range(self.valor_k()): 
-            i = int(item())
-            j = int(item())
-            self._forats.append((i, j))
+            i = int(item())                     # llegim la fila
+            j = int(item())                     # llegim la columna
+            self._forats.append((i, j))         # afegim (fila, columna) com a tupla
 
-
-        forats_rotacions = [[] for _ in range(4)]       # guardarem les 4 rotacions
+        forats_rotacions = [[] for _ in range(4)]       # llista on guardarem les 4 rotacions (0, 90, 180 i 270 graus)
 
 
         # Comprovem que les posicions dels forats són correctes i si els girs de la reixeta (90, 180 i 270 graus) 
@@ -68,10 +67,10 @@ class Reixeta():
             forats_rotacions[3].append((j,self.valor_n()-i+1))                          # 270º
             
 
-        totes_posicions = set()
+        totes_posicions = set()             # ens servirà per saber si hi ha alguna posició del forat repetida o no
         for sub_lst in forats_rotacions: 
-            totes_posicions.update(sub_lst)         # aquí bàsicament el que fem és posar totes les tuples posicions de les 4 rotacions en 'totes_posicions'
-                                                    # per tal de veure si hem repetit algun forat o no
+            totes_posicions.update(sub_lst)         # aquí bàsicament el que fem és posar totes les tuples posicions de cada una de les 4 rotacions en 
+                                                    # 'totes_posicions per tal de veure si hem repetit algun forat o no
 
             
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
@@ -86,19 +85,17 @@ class Reixeta():
     
 
 
-
-    # Funció per escriure els forats de la reixeta després de cada gir antihorari 
+    # *** Mètode per escriure els forats de la reixeta després de cada gir antihorari ***
     def escriu(self):
         
         # Imprimim la dimensió (n) de la reixeta i el nombre de forats (k)
         print(self.valor_n(), self.valor_k())
 
-
         #Imprimim les posicions dels forats (0º, 90º, 180º, 270º)
-
         for rotacio in self._forats_rotacions: 
+            print(f"({i},{j} )" for i, j in rotacio)
 
-            print(" ".join(f"({i},{j})" for i, j in rotacio))
+            #print(" ".join(f"({i},{j})" for i, j in rotacio))
 
 
 
