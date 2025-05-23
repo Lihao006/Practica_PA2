@@ -75,7 +75,7 @@ class Reixeta():
             
         # Mirem si els 4k forats de la unió de les quatre reixetes cobreixen les n^2 posicions de la matriu
         if len(totes_posicions) != (self.valor_n() * self.valor_n()): 
-            return - 1
+            return -1
         
         # Obtenim les posicions de les 4 rotacions ordenades. Això és molt útil i eficient perquè ja no ens caldria recalcular les posicions en altres mètodes de la classe
         self._forats_rotacions = [sorted(fila) for fila in forats_rotacions]
