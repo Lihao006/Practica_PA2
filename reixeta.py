@@ -122,7 +122,7 @@ class Reixeta():
             # dels forats comencem per 1). 
             lletra = 0
 
-            # Obtinc les posicions dels forats en cada rotació/gir
+            # Obtinc les posicions ordenades dels forats en cada rotació/gir
             for rotacio in self._forats_rotacions: 
 
                 # Obtinc la fila 'i' i la columna 'j' del forat
@@ -132,7 +132,7 @@ class Reixeta():
                     lletra += 1                            # pasem al següent caràcter a afegir
 
 
-            # Recorrem la matriu per retornar el missatge codificat del block actual
+            # Recorrem la matriu per aconseguir el missatge codificat del bloc actual
             bloc_codificat = ""
 
             for fila in matriu: 
@@ -199,7 +199,7 @@ class Reixeta():
 
 
 
-    # *** Mètode per comprovar si és vàlid la mida del missatge és adequeada per a la reixeta ***
+    # *** Mètode per comprovar si la mida del missatge és adequada per a la reixeta ***
     def valid(self, missatge): 
 
         # Ha de retornar un booleà
