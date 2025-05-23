@@ -14,7 +14,7 @@ class Patro(ArbreBinari):
 
         '''
         Pre: rep el recorregut en preordre del patró
-        Post: retorna el patró (arbre binari)
+        Post: retorna el patró (arbre binari) modificat
         '''
 
         # Construeix l'arbre binari de l'objecte Patro a partir d'una sequencia en preordre
