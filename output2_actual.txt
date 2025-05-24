@@ -120,8 +120,8 @@ error: la mida del missatge és inadeqüada per a la reixeta
 error: la mida del missatge és inadeqüada per a la reixeta
 #dr 1
 "1234567890      "
-#cp 3 11
-"jrase una vez, un drag5n y una mariposa."
+#cp 4 5
+"!kwa{6n%O6-^1y6,g6R)w`K\60x,\w6fw` 'h*OD"
 #codifica_amb_patro 1 6
 "Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX"
 #cp 2 3
@@ -130,6 +130,8 @@ error: la mida del missatge és inadeqüada per a la reixeta
 "M/_rnx~vO3k?P%Rn~sd~cnx~k`?Vtdks!_,A?T/Rshkk`-"
 #cpg Buenos_dias 3 8
 "Buenos dias Buenos dias"
+#cpg Nuevo_Mensaje 2 4
+"B/Mdl/S~m!Cgn?Cnm?Gt`#Aln,E~d8Tq`?Phb!Nsd"
 #cpg msg8 1 8
 "Ti'yqiuo'pvy,uu jaihxlv"
 #decodifica_amb_patro 3 20
