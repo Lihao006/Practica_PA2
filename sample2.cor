@@ -11,7 +11,7 @@ msg5
 "Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
-xd1
+msg7
 "Buenos dias"
 #llista_reixetes
 Reixeta 1:
@@ -49,7 +49,7 @@ error: dimensions incorrectes de la reixeta
 error: el missatge no existeix
 #em msg2
 8
-#nm xd3
+#nm msg8
 9
 #lm
 Buenos_dias
@@ -66,10 +66,10 @@ msg5
 "Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
-xd1
+msg7
 "Buenos dias"
-xd3
-"1234567890"
+msg8
+"Mi reino por un caballo"
 #lr
 Reixeta 1:
 4 4
@@ -102,19 +102,17 @@ Patró 5:
 (99999999(1()())(1()()))
 #cr 1
 " 5196 02 37 4  8"
-#cr 2
-"  1 20   3  4      5 6  7   8      9"
-#cr 3
-"12  34  569078  "
 #codifica_amb_reixeta 1
 "rrQpemaurineea, is tigom eea gnndytooeye , l aavn ndm itceeK,ei  on n  g  g K  ."
+#cr 2
+"s H o t. la al    e,    q  su   t ae"
 #codifica_amb_reixeta_guardat msg6 2
 "evNuos, e  dspoeylrotya   loWlaa  to    t.   o  r      t i  l   l      a"
 #crg msg3 100
 error: la reixeta no existeix
 #crg msg2 3
 error: el missatge no existeix
-#crg xd1 3
+#crg msg7 3
 "Bu  en  osia ds "
 #decodifica_amb_reixeta 1
 error: la mida del missatge és inadeqüada per a la reixeta
@@ -122,31 +120,21 @@ error: la mida del missatge és inadeqüada per a la reixeta
 error: la mida del missatge és inadeqüada per a la reixeta
 #dr 1
 "1234567890      "
-#dr 2
-"1234567890                          "
+#cp 3 11
+"jrase una vez, un drag5n y una mariposa."
 #codifica_amb_patro 1 6
 "Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX"
 #cp 2 3
 "V%_v!Ns%D~4O~'O~(Ol%m"
-#cp 2 4
-"0Pp00Pp00Pp00Pp00Pp00Pp00"
 #codifica_amb_patro_guardat msg6 2 25
 "M/_rnx~vO3k?P%Rn~sd~cnx~k`?Vtdks!_,A?T/Rshkk`-"
-#cpg xd1 3 9999
-"Buenos dias"
-#cpg xd1 1 1
-"I|luvz'kphz"
-#cpg xd1 3 1
-"Buenos dias"
+#cpg Buenos_dias 3 8
+"Buenos dias Buenos dias"
+#cpg msg8 1 8
+"Ti'yqiuo'pvy,uu jaihxlv"
 #decodifica_amb_patro 3 20
 "bodrfdj!nc*u#ufostdrp"
 #dp 99999999 1
 error: el patró no existeix
 #dp 1 6
 "Hoy a Pablito le apetecia jugar cinco partidas de LOL"
-#dp 1 10
-"0000000000075)+75000)705"
-#dp 1 19
-"000000000000000000000000"
-#dp 1 22
-"00000000000000000007)70<"
