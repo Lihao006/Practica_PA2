@@ -76,6 +76,7 @@ cp 2 3
 We wanted to go home.
 codifica_amb_patro_guardat msg6 2 25
 cpg Buenos_dias 3 8
+cpg Nuevo_Mensaje 2 4
 cpg msg8 1 8
 decodifica_amb_patro 3 20
 bodrfdj!nc*u#ufostdrp
