@@ -140,9 +140,7 @@ error: la mida del missatge és inadeqüada per a la reixeta
 error: el patró no existeix
 #dp 1 6
 "Hoy a Pablito le apetecia jugar cinco partidas de LOL"
-#dp 2 40
-"Comem0T_.acH/ con@Hua$Bmo-F e9UR! pI#anTe"
+#dp 2 4
+"Comemos nacho con guacamole extra picante"
 #dp 2 5
 "Comem04?n"DH/@DoN_Huacamo-&?e9UR!@QiCAOte"
-#dp 1 10
-";/F]`/L~fy<gg87nf?@mY#:eb,>~]1MqY8Dh[!Gl]"
