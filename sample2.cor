@@ -130,14 +130,6 @@ error: la mida del missatge és inadeqüada per a la reixeta
 "V%_v!Ns%D~4O~'O~(Ol%m"
 #cp 2 4
 "0Pp00Pp00Pp00Pp00Pp00Pp00"
-#cp 1 19
-"7077<0707777<077<077077<"
-#cp 5 1
-"ffffffffffffffffffffffff"
-#cp 5 2
-"f1f1f1f1f1f1f1f1f1f1f1f1"
-#cp 5 99999
-"f11ffff11111111fffffffff"
 #codifica_amb_patro_guardat msg6 2 25
 "M/_rnx~vO3k?P%Rn~sd~cnx~k`?Vtdks!_,A?T/Rshkk`-"
 #cpg xd1 3 9999
