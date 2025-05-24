@@ -42,12 +42,23 @@ nou_patro
 0 -1 -1
 np
 22 88 77 55 -1 -1 -1 -1 -1
+np
+99999999 1 -1 -1 1 -1 -1
 esborra_missatge Resistire_1
 em msg2
+nm
+xd3
+1234567890
 lm
 poasffffffffffffffff
 lr
 lp
+cr 1
+1234567890
+cr 2
+1234567890
+cr 3
+1234567890
 codifica_amb_reixeta 1
 Quieren pararme, me siento gigante, yo voy adelante, me dicen King Kong.
 codifica_amb_reixeta_guardat msg6 2
@@ -58,8 +69,24 @@ decodifica_amb_reixeta 1
 Whnd oe mynf i n I t sfieitromlfubesler   ,Mar  me sMo ttyhe o    co  me
 decodifica_amb_reixeta 1
 a H ogol l,?a  q  u,    a  em     ti
+dr 1
+ 5196 02 37 4  8
+dr 2
+  1 20   3  4      5 6  7   8      9
 codifica_amb_patro 1 6
 Hoy a Pablito le apetecia jugar cinco partidas de LOL
+cp 2 3
+We wanted to go home.
+cp 2 4
+1111111111111111111111111
+cp 1 19
+000000000000000000000000
+cp 5 1
+000000000000000000000000
+cp 5 2
+000000000000000000000000
+cp 5 99999
+000000000000000000000000
 codifica_amb_patro_guardat msg6 2 25
 cpg xd1 3 9999
 cpg xd1 1 1
@@ -72,4 +99,10 @@ c%_b/Ln2S~)_c%_o%Re5MrM
 dp 1 6
 Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX
 rttttttttttttttqwwwwrrrrrr
+dp 1 10
+7077<0707777<077<077077<
+dp 1 19
+7077<0707777<077<077077<
+dp 1 22
+7077<0707777<077<077077<
 fi
