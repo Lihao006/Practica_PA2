@@ -11,13 +11,15 @@ msg5
 "Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
+xd1
+"Buenos dias"
 #llista_reixetes
 Reixeta 1:
 4 4
-(1,3) (2,4) (3,2) (4,1) 
-(1,2) (2,1) (3,3) (4,4) 
-(1,4) (2,3) (3,1) (4,2) 
-(1,1) (2,2) (3,4) (4,3) 
+(1,3) (2,4) (3,2) (4,1)
+(1,2) (2,1) (3,3) (4,4)
+(1,4) (2,3) (3,1) (4,2)
+(1,1) (2,2) (3,4) (4,3)
 Reixeta 2:
 6 9
 (1,3) (1,5) (2,4) (3,1) (4,2) (4,4) (5,1) (5,5) (6,6)
@@ -30,16 +32,28 @@ Patró 1:
 Patró 2:
 (94(31()())(63()()))
 #nou_missatge Nuevo_Mensaje
-7
+8
+#nm Buenos_dias
+9
 #nova_reixeta
 error: dimensions incorrectes de la reixeta
-#np
+#nr
 3
+#nou_patro
+3
+#np
+4
+#np
+5
 #esborra_missatge Resistire_1
 error: el missatge no existeix
 #em msg2
-6
+8
+#nm xd3
+9
 #lm
+Buenos_dias
+"Buenos dias Buenos dias"
 Nuevo_Mensaje
 "Comemos nacho con guacamole extra picante"
 msg1
@@ -52,6 +66,10 @@ msg5
 "Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
+xd1
+"Buenos dias"
+xd3
+"1234567890"
 #lr
 Reixeta 1:
 4 4
@@ -65,30 +83,78 @@ Reixeta 2:
 (1,6) (2,1) (2,5) (3,2) (3,4) (4,1) (5,4) (6,3) (6,5)
 (1,1) (2,2) (2,6) (3,3) (3,5) (4,6) (5,3) (6,2) (6,4)
 (1,2) (1,4) (2,3) (3,6) (4,3) (4,5) (5,2) (5,6) (6,1)
+Reixeta 3:
+4 4
+(1,1) (1,2) (2,1) (2,2)
+(3,1) (3,2) (4,1) (4,2)
+(3,3) (3,4) (4,3) (4,4)
+(1,3) (1,4) (2,3) (2,4)
 #lp
 Patró 1:
 (7(0()(12()()))())
 Patró 2:
 (94(31()())(63()()))
 Patró 3:
+(0()())
+Patró 4:
 (22(88(77(55()())())())())
+Patró 5:
+(99999999(1()())(1()()))
+#cr 1
+" 5196 02 37 4  8"
+#cr 2
+"  1 20   3  4      5 6  7   8      9"
+#cr 3
+"12  34  569078  "
 #codifica_amb_reixeta 1
 "rrQpemaurineea, is tigom eea gnndytooeye , l aavn ndm itceeK,ei  on n  g  g K  ."
 #codifica_amb_reixeta_guardat msg6 2
 "evNuos, e  dspoeylrotya   loWlaa  to    t.   o  r      t i  l   l      a"
-#crg msg3 3
+#crg msg3 100
 error: la reixeta no existeix
+#crg msg2 3
+error: el missatge no existeix
+#crg xd1 3
+"Bu  en  osia ds "
 #decodifica_amb_reixeta 1
 error: la mida del missatge és inadeqüada per a la reixeta
 #decodifica_amb_reixeta 1
 error: la mida del missatge és inadeqüada per a la reixeta
+#dr 1
+"1234567890      "
+#dr 2
+"1234567890                          "
 #codifica_amb_patro 1 6
 "Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX"
+#cp 2 3
+"V%_v!Ns%D~4O~'O~(Ol%m"
+#cp 2 4
+"0Pp00Pp00Pp00Pp00Pp00Pp00"
+#cp 1 19
+"7077<0707777<077<077077<"
+#cp 5 1
+"ffffffffffffffffffffffff"
+#cp 5 2
+"f1f1f1f1f1f1f1f1f1f1f1f1"
+#cp 5 99999
+"f11ffff11111111fffffffff"
 #codifica_amb_patro_guardat msg6 2 25
 "M/_rnx~vO3k?P%Rn~sd~cnx~k`?Vtdks!_,A?T/Rshkk`-"
+#cpg xd1 3 9999
+"Buenos dias"
+#cpg xd1 1 1
+"I|luvz'kphz"
+#cpg xd1 3 1
+"Buenos dias"
 #decodifica_amb_patro 3 20
-"LvN%PkTIXjs(l|PY]{N%Z"
-#dp 2 3
-"de colors i de perfums."
+"bodrfdj!nc*u#ufostdrp"
+#dp 99999999 1
+error: el patró no existeix
 #dp 1 6
 "Hoy a Pablito le apetecia jugar cinco partidas de LOL"
+#dp 1 10
+"0000000000075)+75000)705"
+#dp 1 19
+"000000000000000000000000"
+#dp 1 22
+"00000000000000000007)70<"
