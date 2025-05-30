@@ -1,0 +1,92 @@
+#llista_missatges
+msg1
+"El pedro no muerde de tanto ladrar"
+msg2
+"Hola, mundo! "
+msg3
+"Soy conocido en Buenos Aires y en Barcelona, y tu por copiarle el nombre a otra persona"
+msg4
+"No lo hubieras apoyado, no lo hubieras sustituido"
+msg5
+"Muy buenas a todos! AquÃ­ un otro episodio de planeta Vege"
+msg6
+"No soy Wos, pero te doy la vuelta la tortilla."
+msg7
+"No pueden conmigo porque no pueden conmigo, y si no pueden conmigo es porque no pueden conmigo"
+#llista_patrons
+Patró 1:
+(7(0()(12()()))())
+Patró 2:
+(94(31()())(63()()))
+Patró 3:
+(20()())
+#nou_missatge Nacho
+8
+#nm Buenos_dias
+9
+#nou_patro
+4
+#np
+5
+#esborra_missatge Resistire_1
+error: el missatge no existeix
+#em msg2
+8
+#nm msg8
+9
+#lm
+Buenos_dias
+"Buenos dias "
+Nacho
+"Comemos nacho con guacamole extra picante"
+msg1
+"El pedro no muerde de tanto ladrar"
+msg3
+"Soy conocido en Buenos Aires y en Barcelona, y tu por copiarle el nombre a otra persona"
+msg4
+"No lo hubieras apoyado, no lo hubieras sustituido"
+msg5
+"Muy buenas a todos! AquÃ­ un otro episodio de planeta Vege"
+msg6
+"No soy Wos, pero te doy la vuelta la tortilla."
+msg7
+"No pueden conmigo porque no pueden conmigo, y si no pueden conmigo es porque no pueden conmigo"
+msg8
+"Mi reino por un caballo"
+#lp
+Patró 1:
+(7(0()(12()()))())
+Patró 2:
+(94(31()())(63()()))
+Patró 3:
+(20()())
+Patró 4:
+(0()())
+Patró 5:
+(22(88(77(55()())())())())
+#cp 4 5
+"dFrase una vez, un dragdTn y una mariposa."
+#codifica_amb_patro 1 6
+"Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX"
+#cp 2 3
+"V%_v!Ns%D~4O~'O~(Ol%m"
+#codifica_amb_patro_guardat msg6 2 25
+"M/_rnx~vO3k?P%Rn~sd~cnx~k`?Vtdks!_,A?T/Rshkk`-"
+#cpg Buenos_dias 3 8
+"V*y#$(4x}u(4"
+#cpg Nuevo_Mensaje 2 4
+error: el missatge no existeix
+#cpg msg8 1 8
+"Ti'yqiuo'pvy,uu jaihxlv"
+#cpg msg7 3 7
+"b$4%*yxy#4w$#"}{$4%$'&*y4#$4%*yxy#4w$#"}{$@4.4(}4#$4%*yxy#4w$#"}{$4y(4%$'&*y4#$4%*yxy#4w$#"}{$"
+#decodifica_amb_patro 3 20
+"N[P^RPVlZOuanaR[_`P^\"
+#dp 99999999 1
+error: el patró no existeix
+#dp 1 6
+"Hoy a Pablito le apetecia jugar cinco partidas de LOL"
+#dp 2 4
+"Comemos nacho con guacamole extra picante"
+#dp 2 5
+"Comem04?n"DH/@DoN_Huacamo-&?e9UR!@QiCAOte" 
