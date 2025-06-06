@@ -96,6 +96,10 @@ class Reixeta():
             print(" ".join(f"({i},{j})" for i, j in rotacio) + " ")
 
 
+        # Observació: hem afegit + " " (al final) per tal que la sortida del nostre programa
+        # coincidís amb "sample.cor"
+
+
 
     # *** Mètode per codificar el missatge ***
     def codifica(self, missatge): 
