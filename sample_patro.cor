@@ -8,7 +8,7 @@ msg3
 msg4
 "No lo hubieras apoyado, no lo hubieras sustituido"
 msg5
-"Muy buenas a todos! AquÃ­ un otro episodio de planeta Vege"
+"Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
 msg7
@@ -46,7 +46,7 @@ msg3
 msg4
 "No lo hubieras apoyado, no lo hubieras sustituido"
 msg5
-"Muy buenas a todos! AquÃ­ un otro episodio de planeta Vege"
+"Muy buenas a todos! Aquí un otro episodio de planeta Vege"
 msg6
 "No soy Wos, pero te doy la vuelta la tortilla."
 msg7
@@ -65,7 +65,7 @@ Patró 4:
 Patró 5:
 (22(88(77(55()())())())())
 #cp 4 5
-"dFrase una vez, un dragdTn y una mariposa."
+"Erase una vez, un dragon y una mariposa."
 #codifica_amb_patro 1 6
 "Oo!'m Waisutv sl,awe{loih q|say jpzcv wh~tpdhz,dl SVX"
 #cp 2 3
@@ -89,4 +89,4 @@ error: el patró no existeix
 #dp 2 4
 "Comemos nacho con guacamole extra picante"
 #dp 2 5
-"Comem04?n"DH/@DoN_Huacamo-&?e9UR!@QiCAOte" 
+"Comem04?n"DH/@DoN_Huacamo-&?e9UR!@QiCAOte"
