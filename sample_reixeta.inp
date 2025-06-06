@@ -48,12 +48,17 @@ cr 1
 1234567890
 codifica_amb_reixeta 1
 Quieren pararme, me siento gigante, yo voy adelante, me dicen King Kong.
-cr 2
-Hola, que tal estas.
 codifica_amb_reixeta_guardat msg6 2
-crg msg3 100
+crg msg1 1
+crg msg2 2
+crg msg3 1 
+crg msg4 2
+crg msg5 1
+crg msg6 2
+crg msg7 1 
+crg msg8 2 
+crg buenas 1 
 crg msg2 3
-crg msg7 3
 decodifica_amb_reixeta 1
 Whnd oe mynf i n I t sfieitromlfubesler   ,Mar  me sMo ttyhe o    co  me
 decodifica_amb_reixeta 1

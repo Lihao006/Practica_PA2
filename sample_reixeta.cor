@@ -78,16 +78,28 @@ Reixeta 2:
 " 5196 02 37 4  8"
 #codifica_amb_reixeta 1
 "rrQpemaurineea, is tigom eea gnndytooeye , l aavn ndm itceeK,ei  on n  g  g K  ."
-#cr 2
-"s H o t. la al    e,    q  su   t ae"
 #codifica_amb_reixeta_guardat msg6 2
 "evNuos, e  dspoeylrotya   loWlaa  to    t.   o  r      t i  l   l      a"
-#crg msg3 100
-error: la reixeta no existeix
+#crg msg1 1
+"meE dunlo rep roledn ateo tdd ra  a    r        "
+#crg msg2 2
+error: el missatge no existeix
+#crg msg3 1
+" cScoeiodynn o o oBisyruee  nseA rnocyn aBe a,tllrup ei apc oreotml bra  nraoo e op n  e ra s   "
+#crg msg4 2
+"ylNooiea  rdlaos,h ou b hinauerop ob  a sui   d so     u s  t   i      t"
+#crg msg5 1
+" bMautsu yeo adnoAo qtusn!ur  oí s oop edpdlieai  neV  e te a  g"
+#crg msg6 2
+"evNuos, e  dspoeylrotya   loWlaa  to    t.   o  r      t i  l   l      a"
+#crg msg7 1
+"nuNnem oc dipogepro qun opueo deyoegn on, msc iiop eunnn oem cid sgr nqou poee ogepononume  di c"
+#crg msg8 2
+"b M ipoa  rlr luo ne i  n   o   c a "
+#crg buenas 1
+error: el missatge no existeix
 #crg msg2 3
 error: el missatge no existeix
-#crg msg7 3
-error: la reixeta no existeix
 #decodifica_amb_reixeta 1
 error: la mida del missatge és inadeqüada per a la reixeta
 #decodifica_amb_reixeta 1
