@@ -45,6 +45,10 @@ codifica_amb_patro 1 6
 Hoy a Pablito le apetecia jugar cinco partidas de LOL
 cp 2 3
 We wanted to go home.
+cp 4 9999999
+Mai mes.
+cp 4 1
+Legends never dies
 codifica_amb_patro_guardat msg6 2 25
 cpg Buenos_dias 3 8
 cpg Nuevo_Mensaje 2 4
