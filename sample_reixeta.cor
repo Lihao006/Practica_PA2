@@ -106,3 +106,17 @@ error: la mida del missatge és inadeqüada per a la reixeta
 error: la mida del missatge és inadeqüada per a la reixeta
 #dr 1
 "1234567890      "
+#decodifica_amb_reixeta 1
+"El pedro no muerde de tanto ladrar              "
+#decodifica_amb_reixeta 1
+"Soy conocido en Buenos Aires y en Barcelona, y tu por copiarle el nombre a otra persona         "
+#decodifica_amb_reixeta 2
+"No lo hubieras apoyado, no lo hubieras sustituido                       "
+#decodifica_amb_reixeta 1
+"Muy buenas a todos! Aquí un otro episodio de planeta Vege       "
+#decodifica_amb_reixeta 2
+"No soy Wos, pero te doy la vuelta la tortilla.                          "
+#decodifica_amb_reixeta 1
+"No pueden conmigo porque no pueden conmigo, y si no pueden conmigo es porque no pueden conmigo  "
+#decodifica_amb_reixeta 2
+"Mi reino por un caballo             "
